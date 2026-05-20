@@ -290,8 +290,8 @@
     <string name="refund_successful">Refund Successful</string>
     <string name="credited_successful">Credited Successful</string>
 
-    <string name="medrayder">MedRayder</string>
-    <string name="app_name">MEDRAYDER</string>
+    <string name="medrayder">Swen</string>
+    <string name="app_name">Swen</string>
     <string name="name">Name<font color="#ED1B24">*</font></string>
     <string name="relationship">Relationship<font color="#ED1B24">*</font></string>
     <string name="email">Email Id<font color="#ED1B24">*</font></string>
@@ -304,7 +304,7 @@
     <string name="perscription_details">Please provide a prescription for the medications listed above <font color="#1F52A5"> (Optional)</font></string>
     <string name="provide_prescription">Please provide a prescription <font color="#1F52A5"> (Optional)</font></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="share">Invite your friends to join <font color="#1F52A5">“MedRayder”</font> via link below</string>
+    <string name="share">Invite your friends to join <font color="#1F52A5">“Swen”</font> via link below</string>
     <string name="tests_and_instruction"><![CDATA[Tests & Instructions]]></string>
     <string name="underlined_medicines"><u>Medicines</u></string>
     <string name="underlined_timings"><u>Time</u></string>
