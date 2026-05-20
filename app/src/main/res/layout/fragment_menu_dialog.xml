@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/blue"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="150dp"
+                    android:maxHeight="60dp"
+                    android:src="@drawable/med_rayder_img1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/language_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/language_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                    app:layout_constraintEnd_toStartOf="@+id/cancel_img"
+                    app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+                <ImageView
+                    android:id="@+id/cancel_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/cross_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F1F8FF"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/profile_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/profile_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/profile"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/hospital_bookings_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/hospital_bookings_img" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_weight="1"
+                                android:text="@string/hospital_bookings"
+                                android:textColor="@color/black" />
+
+                            <ImageView
+                                android:id="@+id/down_arrow_img"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24" />
+
+                            <ImageView
+                                android:id="@+id/up_arrow_img"
+                                android:visibility="gone"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:rotationX="180"
+                                android:src="@drawable/baseline_keyboard_arrow_down_24" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/hospital_bookings_details_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:id="@+id/hospital_medicine_bookings_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="16dp"
+                                android:visibility="visible">
+
+                                <ImageView
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:src="@drawable/baseline_circle_24" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/hospital_medicine_bookings"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/hospital_admission_bookings_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <ImageView
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:src="@drawable/baseline_circle_24" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/hospital_admission_bookings"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/hospital_doctor_bookings_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <ImageView
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:src="@drawable/baseline_circle_24" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/hospital_doctor_bookings"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/hospital_diagnostic_bookings_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <ImageView
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:src="@drawable/baseline_circle_24" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/hospital_diagnostic_bookings"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/hospital_ambulance_bookings_ll"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <ImageView
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:src="@drawable/baseline_circle_24" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/hospital_ambulance_bookings"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/wellness_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/medicine_orders_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/wellness_medicine_bookings"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/online_doctors_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/online_doctor_consultation_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/online_doctor_bookings"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lab_test_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/lab_test_bookings_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/lab_test_bookings"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/diagnostic_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/diagnostic_bookings_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/diagnostic_bookings"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/offers_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/offers_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/offers"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/medlocker_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/med_locker_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/med_locker"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/subscription_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/med_connect_subscription_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/med_rayder_subscription"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/e_card_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/e_card" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/e_card"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/acko_insurance_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/acko_logo" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/acko_insurance"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/your_address_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/your_address_icon"
+                            app:tint="@color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/your_address"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/shareapp_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/share_app_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/share_app"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/contact_us_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/contact_us_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/contact_us"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/about_us_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/about_us_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/about_us"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/logout_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/logout_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/logout"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.core.widget.NestedScrollView>

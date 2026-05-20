@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/cat_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:src="@drawable/general_hospital_img" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/cat_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:text="General  Hospitals"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</LinearLayout>

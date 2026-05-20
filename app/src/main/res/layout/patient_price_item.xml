@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/patient_count_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter"
+            android:text="1 Patient"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/previous_price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/lato"
+            android:text="₹4599"
+            android:textColor="#D1D1D1" /> <!-- Strikethrough -->
+
+        <TextView
+            android:id="@+id/price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/lato_black"
+            android:text="₹1949"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/rb"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/radio_button_clicked_img" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+</LinearLayout>

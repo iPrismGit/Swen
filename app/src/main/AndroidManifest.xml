@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data
+                android:host="pay"
+                android:scheme="upi" />
+        </intent>
+
+        <package android:name="com.android.chrome" />
+    </queries>
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_VIDEO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.project_media" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" /> <!-- BLUETOOTH PERMISSION -->
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--
+ Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location.
+    -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <!--
+ Needed only if your app makes the device discoverable to Bluetooth
+         devices.
+    -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <!--
+ Needed only if your app communicates with already-paired Bluetooth
+         devices.
+    -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> <!-- bibo01: hardware option -->
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MedConnect"
+        tools:targetApi="31">
+        <activity
+            android:name=".activities.ECardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TrackingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ViewDocumentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VideoConferenceActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".videocalling.ReceiveVideoConferenceActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:noHistory="true"
+            android:showWhenLocked="true"
+            android:taskAffinity=""
+            android:turnScreenOn="true" />
+        <activity
+            android:name=".activities.AirAmbulanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PdfListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticTestBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDiagnosticTestSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticTestPrescriptionCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PharmacyPrescriptionCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalMedicineCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalMedicineProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PharmacyBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PharmacyBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabTestSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SingleSubscriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDiagnosticTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDiagnosticTestsBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddMultiplePatientsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDiagnosticTestBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDiagnosticTestPrescriptionCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddAdmitPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorsBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorsOffersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddTreatmentPlanningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TreatmentPlanningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticTestsBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddressListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MedLockerDocumentsViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SubscriptionDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WalletHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WalletActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddHospitalDoctorPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDoctorTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddMedLockerDocumentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalAmbulanceBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabTestBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalAdmissionBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ViewPrescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OnlineDoctorBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalMedicineBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalAmbulanceBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalAdmissionBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalMedicineBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ShareAppActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MedLockerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OnlineDoctorsBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WellNessAndMedicinesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabTestsBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SubscriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ContentPagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OffersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalPharmacyPrescriptionCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.FilterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AmbulanceBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DoctorDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DoctorSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DoctorTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DoctorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OnlineDoctorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticTestSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddLabTestPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticCenterDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabTestPrescriptionCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PrescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ProductsCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PharmacyProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PharmacyDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PdfViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LanguagesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activities.OtpVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddFamilyMemberActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LabTestsSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiagnosticSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HospitalsSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PharmacySearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAaf0xB28iKcaFh6Ex4bRFSaQzZtbu8GOg" />
+        <meta-data
+            android:name="com.onesignal.NotificationServiceExtension"
+            android:value="com.iprism.medrayder.OneSignalServiceNotifications" />
+
+        <service
+            android:name=".CallNotificationService"
+            android:exported="false"
+            android:foregroundServiceType="phoneCall" />
+        <service android:name=".SoundService" />
+
+        <meta-data
+            android:name="cashfree_pg_logging_level"
+            android:value="2"
+            tools:replace="android:value" />
+        <meta-data
+            android:name="cashfree_subscription_flow_enable"
+            android:value="true" />
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="true"
+            tools:replace="android:value" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

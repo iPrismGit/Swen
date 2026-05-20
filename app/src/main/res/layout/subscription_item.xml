@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="-100dp"
+        app:cardBackgroundColor="#FAF3EB"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="286dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayout10"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:background="@drawable/subscription_top_yellow_bg"
+                android:maxHeight="96dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/blue">
+
+
+                    <TextView
+                        android:id="@+id/plan_name_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
+                        android:padding="6dp"
+                        android:text="Med-Connect Care"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/previous_price_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter"
+                            android:text="₹349"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/price_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="₹249"
+                        android:textColor="@color/blue"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/time_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="for 3 months"
+                    android:textColor="@color/blue"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="125dp"
+                android:layout_height="25dp"
+                android:background="@drawable/recomanded_for_you_bg"
+                android:gravity="center"
+                android:text="@string/recommended_for_you"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout10" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+
+                        android:adjustViewBounds="true"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/gift_img" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView32"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_bold"
+                            android:text="@string/medrayder"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/all_in_one_healthcare_booking_app"
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/inter"
+                    android:text="@string/subscription_benefits"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

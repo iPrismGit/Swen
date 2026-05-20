@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.HomeActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/location_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/location_img" />
+
+                <TextView
+                    android:id="@+id/address_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/inter_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    tools:text="GachibowliGachibowliGachibowli" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_keyboard_arrow_down_24"
+                    app:tint="@color/white" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/notifications_img"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/notification_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/notification_count_cv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/red"
+                    android:visibility="gone"
+                    app:cardCornerRadius="50dp"
+                    app:layout_constraintEnd_toEndOf="@+id/notifications_img"
+                    app:layout_constraintStart_toEndOf="@+id/notifications_img"
+                    app:layout_constraintTop_toTopOf="@+id/notifications_img">
+
+                    <TextView
+                        android:id="@+id/notification_count_txt"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:fontFamily="@font/lato"
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="8sp" />
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/wallet_img"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/wallet_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/notifications_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/cart_img"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/cart_img"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/wallet_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cart_count_cv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/red"
+                    android:visibility="gone"
+                    app:cardCornerRadius="50dp"
+                    app:layout_constraintEnd_toEndOf="@+id/cart_img"
+                    app:layout_constraintStart_toEndOf="@+id/cart_img"
+                    app:layout_constraintTop_toTopOf="@+id/cart_img">
+
+                    <TextView
+                        android:id="@+id/cart_count_txt"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:fontFamily="@font/lato"
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        android:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="8sp" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/menu_img"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/menu_img" />
+
+            <LinearLayout
+                android:id="@+id/search_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/search_img" />
+
+                <TextView
+                    android:id="@+id/search_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/lato_bold"
+                    android:hint="@string/search_here"
+                    android:textColorHint="@color/light_gray1"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/mic_search_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/microphone" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/home_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

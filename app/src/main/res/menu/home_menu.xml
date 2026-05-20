@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/home_img"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/hospitals"
+        android:enabled="true"
+        android:icon="@drawable/hospitals_img"
+        android:title="@string/hospitals" />
+
+    <item
+        android:id="@+id/medicines"
+        android:enabled="true"
+        android:icon="@drawable/medicines_img_home"
+        android:title="@string/medicines" />
+
+    <item
+        android:id="@+id/lab_tests"
+        android:enabled="true"
+        android:icon="@drawable/lab_tests_img"
+        android:title="@string/lab_tests" />
+
+    <item
+        android:id="@+id/diagnostic"
+        android:enabled="true"
+        android:icon="@drawable/diagnostic_img"
+        android:title="@string/diagnostic" />
+</menu>

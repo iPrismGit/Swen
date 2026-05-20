@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.PharmacyProductsActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/blue"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back_img"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:src="@drawable/back_img" />
+
+            <LinearLayout
+                android:id="@+id/search_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/search_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/white"
+                    android:hint="@string/search_here"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:textColorHint="@color/light_gray1"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/cross_img"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/cross_img" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/cat_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Must Have Products"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/options_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/search_img"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/search_img1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/view_cart_img"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/cart_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/search_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cart_count_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:visibility="gone"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/view_cart_img"
+                app:layout_constraintStart_toEndOf="@+id/view_cart_img"
+                app:layout_constraintTop_toTopOf="@+id/view_cart_img">
+
+                <TextView
+                    android:id="@+id/cart_count_txt"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="10"
+                    android:textColor="@color/white"
+                    android:textSize="8sp" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cart_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+    <LinearLayout
+        android:id="@+id/cart_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/edit_text_bg"
+        android:backgroundTint="@color/blue"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/items_price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_bold"
+            android:text="2 Items | ₹60"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/view_cart_img" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/view_cart"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:indicatorColor="@color/blue"
+        app:indicatorName="LineSpinFadeLoaderIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/no_data_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <ImageView
+            android:id="@+id/imageView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="200dp"
+            android:maxHeight="200dp"
+            android:src="@drawable/no_data_found" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/no_products"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

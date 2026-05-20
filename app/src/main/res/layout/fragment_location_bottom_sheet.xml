@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_bg"
+    tools:context=".fragments.LocationBottomSheet">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/add_new_address_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/top_dialog_img" />
+
+                <LinearLayout
+                    android:id="@+id/location_off_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="160dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/no_location_img" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/lato_black"
+                        android:text="@string/your_device_location_is_off"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/lato"
+                        android:text="@string/please_enable_location" />
+
+                    <Button
+                        android:id="@+id/continue_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:backgroundTint="@color/blue"
+                        android:fontFamily="@font/lato_black"
+                        android:padding="12dp"
+                        android:text="@string/turn_on"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:cornerRadius="8dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="@string/select_your_address"
+                    android:textColor="@color/black" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/address_list_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+
+                <Button
+                    android:id="@+id/add_new_address_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:backgroundTint="@color/blue"
+                    android:fontFamily="@font/lato_bold"
+                    android:padding="12dp"
+                    android:text="@string/add_new_address"
+                    android:textAllCaps="false"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/edit_text_bg"
+        android:gravity="center"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3">
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/search_img1" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:text="Search Your Location"
+            android:textColor="@color/black" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

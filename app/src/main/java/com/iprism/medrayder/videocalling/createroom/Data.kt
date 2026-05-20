@@ -1,0 +1,9 @@
+package com.iprism.medrayderonlinedoctor.videocalling.createroom
+
+import com.google.gson.annotations.SerializedName
+
+data class Data(
+
+	@field:SerializedName("custom_key")
+	val customKey: String
+)
