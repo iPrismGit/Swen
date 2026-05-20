@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.iprism.medrayder"
+    namespace = "com.iprism.swen"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.iprism.medrayder"
+        applicationId = "com.iprism.swen"
         minSdk = 24
         targetSdk = 35
-        versionCode = 13
-        versionName = "2.3"
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
