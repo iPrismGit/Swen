@@ -15,6 +15,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MedConnect"
+rootProject.name = "Swen"
 include(":app")
  

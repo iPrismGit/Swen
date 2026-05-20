@@ -2,16 +2,8 @@ package com.iprism.swen.utils
 
 object Constants {
 
-    // production
-
-    const val BASE_URL = "https://medrayder.in/bharosa/app/ws/"
-    const val IMAGES_BASE_URL = "https://medrayder.in/bharosa/"
-
-    // Testing
-
-    /*const val BASE_URL = "https://medconnect.org.in/bharosa/app/ws/"
-    const val IMAGES_BASE_URL = "https://medconnect.org.in/bharosa/"*/
-
+    const val BASE_URL = "https://bkonnects.com/swen/app/ws/"
+    const val IMAGES_BASE_URL = "https://bkonnects.com/swen/"
 
     const val LOGIN_ENDPOINT = "login"
     const val RESEND_OTP_ENDPOINT = "resend_otp"
