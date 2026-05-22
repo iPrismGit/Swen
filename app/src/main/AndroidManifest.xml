@@ -415,7 +415,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAaf0xB28iKcaFh6Ex4bRFSaQzZtbu8GOg" />
+            android:value="AIzaSyDHWhqrTrNvROqwhyI-rmsrlDR63v0Y6jg" />
         <meta-data
             android:name="com.onesignal.NotificationServiceExtension"
             android:value="com.iprism.medrayder.OneSignalServiceNotifications" />
