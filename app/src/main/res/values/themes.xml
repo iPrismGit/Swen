@@ -1,18 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MedConnect." parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Base.Theme.SwenHealth" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/blue</item>
-        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorPrimary">@color/app_primary_color</item>
+        <item name="colorPrimaryVariant">@color/app_primary_color</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/light_blue</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/light_blue</item>
+        <item name="colorSecondary">@color/app_primary_color</item>
+        <item name="colorSecondaryVariant">@color/app_primary_color</item>
+        <item name="colorOnSecondary">@color/white</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
 
-    <style name="Theme.MedConnect" parent="Base.Theme.MedConnect." />
+    <style name="Theme.SwenHealth" parent="Base.Theme.SwenHealth" />
 </resources>
