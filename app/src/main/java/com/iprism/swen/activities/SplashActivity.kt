@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         startAnimations()
         lifecycleScope.launch {
-            delay(1500)
+            delay(1000)
             val user = User(this@SplashActivity)
             Log.d("userDetails", user.getUserDetails().toString() + user.isUserLoggedIn() + user.isAddress())
             if (user.isUserLoggedIn() && user.isAddress()) {
