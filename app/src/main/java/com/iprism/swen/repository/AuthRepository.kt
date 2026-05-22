@@ -29,7 +29,7 @@ class AuthRepository {
     }
 
     suspend fun fetchUserDropDowns(request : UserDropDownRequest): UserDropDownApiResponse {
-        return apiService.fetchUserDropDowns(request)
+        return apiService.fetchUserDropDowns()
     }
 
     suspend fun registerUser(request : RegisterRequest): RegisterApiResponse {

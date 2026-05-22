@@ -101,6 +101,7 @@ class LoginActivity : AppCompatActivity() {
                     if (getMobile().equals("8585858585", true)) {
                         showToast(result.data.loginResponse.otp)
                     }
+                    showToast(result.data.loginResponse.otp)
                     Log.d("otpMobile", result.data.loginResponse.otp)
                     val intent = Intent(this@LoginActivity, OtpVerificationActivity::class.java)
                     intent.putExtra("otp", result.data.loginResponse.otp)

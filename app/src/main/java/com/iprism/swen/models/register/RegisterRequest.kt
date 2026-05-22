@@ -29,5 +29,8 @@ data class RegisterRequest(
 	val bloodGroup: Int,
 
 	@field:SerializedName("email")
-	val email: String
+	val email: String,
+
+	@field:SerializedName("relationship")
+	val relationship: String
 )

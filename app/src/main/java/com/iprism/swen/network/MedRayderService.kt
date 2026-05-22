@@ -154,6 +154,7 @@ import com.iprism.swen.models.wallethistory.WalletHistoryApiResponse
 import com.iprism.swen.models.wallethistory.WalletHistoryRequest
 import com.iprism.swen.utils.Constants
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 interface MedRayderService {
 
@@ -194,8 +195,8 @@ interface MedRayderService {
     suspend fun fetchContentPage(@Body request : ContentPagesRequest) : ContentPagesApiResponse
 
 
-    @POST(Constants.USER_DROPDOWN_ENDPOINT)
-    suspend fun fetchUserDropDowns(@Body request : UserDropDownRequest) : UserDropDownApiResponse
+    @GET(Constants.USER_DROPDOWN_ENDPOINT)
+    suspend fun fetchUserDropDowns() : UserDropDownApiResponse
 
     @POST(Constants.MED_LOCKER_ENDPOINT)
     suspend fun medLocker(@Body request : MedLockerRequest) : MedLockerApiResponse

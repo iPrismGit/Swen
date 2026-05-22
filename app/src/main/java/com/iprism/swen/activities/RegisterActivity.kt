@@ -495,7 +495,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser() {
-        val request = RegisterRequest(convertUriToBase64Image(profileUri)!!, genderId!!, coverageCategoriesId!!.toInt(), userId.toInt(), getDob(), getName(), getMobile(), bloodGroupId!!.toInt(), getEmail())
+        val request = RegisterRequest(convertUriToBase64Image(profileUri)!!, genderId!!, coverageCategoriesId!!.toInt(), userId.toInt(), getDob(), getName(), getMobile(), bloodGroupId!!.toInt(), getEmail(), "")
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.registerUser(req)
         }
