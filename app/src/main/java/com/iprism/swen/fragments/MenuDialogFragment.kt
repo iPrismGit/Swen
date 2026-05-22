@@ -24,6 +24,7 @@ import com.iprism.swen.activities.HospitalDoctorsBookingsActivity
 import com.iprism.swen.activities.HospitalMedicineBookingsActivity
 import com.iprism.swen.activities.LabTestsBookingsActivity
 import com.iprism.swen.activities.LanguagesActivity
+import com.iprism.swen.activities.LoginActivity
 import com.iprism.swen.activities.MedLockerActivity
 import com.iprism.swen.activities.OffersActivity
 import com.iprism.swen.activities.OnlineDoctorsBookingsActivity
@@ -319,7 +320,7 @@ class MenuDialogFragment : DialogFragment() {
         logoutBinding.yesBtn.setOnClickListener(View.OnClickListener {
             val user = User(requireContext())
             user.logoutUser()
-            val intent = Intent(context, LanguagesActivity::class.java)
+            val intent = Intent(context, LoginActivity::class.java)
             startActivity(intent)
             dialog.dismiss()
             requireActivity().finish()
