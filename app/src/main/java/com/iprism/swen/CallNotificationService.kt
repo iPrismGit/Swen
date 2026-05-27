@@ -203,7 +203,7 @@ class CallNotificationService : Service() {
             val callStyle = NotificationCompat.CallStyle.forScreeningCall(person, rejectPendingIntent, acceptPendingIntent)
 
             val notification12 = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.med_connect_logo) // Replace with your app icon
+                .setSmallIcon(R.drawable.swen_logo) // Replace with your app icon
                 .setStyle(callStyle)
                 .setCategory(NotificationCompat.CATEGORY_CALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -218,7 +218,7 @@ class CallNotificationService : Service() {
             val notification = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setSmallIcon(R.drawable.med_connect_logo) // Replace with your app icon
+                .setSmallIcon(R.drawable.swen_logo) // Replace with your app icon
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_CALL)
                 .addAction(
@@ -296,7 +296,7 @@ class CallNotificationService : Service() {
             .setContentTitle(title)
             .setContentText(message)
             .setContentIntent(contentIntent)
-            .setSmallIcon(R.drawable.med_connect_logo) // Replace with your app icon
+            .setSmallIcon(R.drawable.swen_logo) // Replace with your app icon
             .build()
         notificationManager.notify(1, notification) // Removes the foreground flag
         stopSelf() // Stops the service

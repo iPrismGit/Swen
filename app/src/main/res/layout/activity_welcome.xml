@@ -28,7 +28,7 @@
             android:adjustViewBounds="true"
             android:maxWidth="200dp"
             android:maxHeight="200dp"
-            android:src="@drawable/med_connect_logo"
+            android:src="@drawable/swen_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

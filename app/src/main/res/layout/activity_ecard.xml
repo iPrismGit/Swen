@@ -71,7 +71,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profile_img"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/med_connect_logo" />
+                app:srcCompat="@drawable/swen_logo" />
 
             <LinearLayout
                 android:id="@+id/linearLayout19"

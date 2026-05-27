@@ -515,7 +515,7 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/med_connect_logo" />
+                    android:src="@drawable/swen_logo" />
 
             </LinearLayout>
 

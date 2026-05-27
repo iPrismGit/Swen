@@ -513,7 +513,7 @@
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
                     android:backgroundTint="@color/white"
-                    android:src="@drawable/med_connect_logo" />
+                    android:src="@drawable/swen_logo" />
             </LinearLayout>
 
         </LinearLayout>

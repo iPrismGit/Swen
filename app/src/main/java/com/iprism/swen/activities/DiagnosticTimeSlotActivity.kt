@@ -93,7 +93,7 @@ class DiagnosticTimeSlotActivity : AppCompatActivity() {
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.getDates(req)
         }
-        Log.d("request", request.toString())
+        Log.d("requestLoading", request.toString())
     }
 
     private fun handleBack() {

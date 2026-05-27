@@ -254,7 +254,7 @@ class OneSignalServiceNotifications : OneSignal.OSRemoteNotificationReceivedHand
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 1251, intent, PendingIntent.FLAG_IMMUTABLE)
             builder.setContentTitle(title)
-                .setSmallIcon(R.drawable.med_connect_logo)
+                .setSmallIcon(R.drawable.swen_logo)
                 .setContentTitle(title)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(message))
                 .setContentText(message)
@@ -274,7 +274,7 @@ class OneSignalServiceNotifications : OneSignal.OSRemoteNotificationReceivedHand
                 intent, PendingIntent.FLAG_IMMUTABLE
             )
             val notificationBuilder = NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.med_connect_logo)
+                .setSmallIcon(R.drawable.swen_logo)
                 .setContentTitle(title)
                 .setSound(RingtoneManager.getDefaultUri(R.raw.message_tone))
                 .setContentText(message)
