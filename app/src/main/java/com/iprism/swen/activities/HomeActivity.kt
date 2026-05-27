@@ -92,8 +92,8 @@ class HomeActivity : AppCompatActivity() {
         locationViewModel = ViewModelProvider(this)[LocationViewModel::class.java]
         if (intent.hasExtra("address")) {
             address = intent.getSerializableExtra("address") as AddressItem
-            //locationViewModel.setLocation(address!!.lat.toDouble(), address!!.lon.toDouble())
-            locationViewModel.setLocation(17.422665135968355, 78.38133288998509)
+            locationViewModel.setLocation(address!!.lat.toDouble(), address!!.lon.toDouble())
+            //locationViewModel.setLocation(17.422665135968355, 78.38133288998509)
             binding.addressTxt.text = address!!.address
             lat = address!!.lat
             lon = address!!.lon
