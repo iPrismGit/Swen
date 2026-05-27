@@ -362,7 +362,8 @@ class LabTestSummaryActivity : AppCompatActivity(), PaymentManager.PaymentResult
             bottomSheetDialog.cancel()
         })
         onlineOrderTypeBsBinding.paymentGatewayLl.setOnClickListener(View.OnClickListener {
-            createOrder(details!!.consultationFee)
+            //createOrder(details!!.consultationFee)
+            bookLab("online", "123456")
             bottomSheetDialog.cancel()
         })
         onlineOrderTypeBsBinding.walletLl.setOnClickListener(View.OnClickListener {
