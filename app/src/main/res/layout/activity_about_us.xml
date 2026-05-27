@@ -60,7 +60,7 @@
                 android:paddingBottom="34dp"
                 android:paddingStart="70dp"
                 android:paddingEnd="70dp"
-                app:srcCompat="@drawable/med_rayder_img1" />
+                app:srcCompat="@drawable/swen_img1" />
         </LinearLayout>
 
         <LinearLayout

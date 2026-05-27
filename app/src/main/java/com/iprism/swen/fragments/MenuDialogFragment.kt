@@ -334,13 +334,14 @@ class MenuDialogFragment : DialogFragment() {
     }
 
     private fun handleRestrictedClick(action: () -> Unit) {
-        if (isSubscribe == true) {
+       /* if (isSubscribe == true) {
             action()
         } else {
             val intent = Intent(requireContext(), SubscriptionActivity::class.java)
             intent.putExtra("tag", "subscribe")
             startActivity(intent)
             Toast.makeText(requireContext(), "Please subscribe to use this feature", Toast.LENGTH_SHORT).show()
-        }
+        }*/
+        action()
     }
 }
