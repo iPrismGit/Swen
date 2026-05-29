@@ -330,7 +330,7 @@ class LabTestSummaryActivity : AppCompatActivity(), PaymentManager.PaymentResult
         labTestSelectMembersBottomSheetBinding.coupontDiscountTxt.text = "₹${details!!.couponDiscount}"
         labTestSelectMembersBottomSheetBinding.flatDiscountLl.visibility = View.VISIBLE
         labTestSelectMembersBottomSheetBinding.couponDiscountLl.visibility = View.GONE
-        labTestSelectMembersBottomSheetBinding.flatDiscountTxt.text = "${details!!.flatDiscount}%"
+        labTestSelectMembersBottomSheetBinding.flatDiscountTxt.text = "${details!!.flatDiscount ?: "0"}%"
         labTestSelectMembersBottomSheetBinding.totalTxt.text = "₹${details!!.consultationFee}"
         labTestSelectMembersBottomSheetBinding.itemTotalTxt.text = "₹${price!!.discontPrice}"
         bottomSheetDialog.show()
@@ -341,9 +341,9 @@ class LabTestSummaryActivity : AppCompatActivity(), PaymentManager.PaymentResult
         val request : LabBookingRequest
         val selectedIds = selectedFamilyMembers.map { it.id.toString() }
         if (coupon != null) {
-            request = LabBookingRequest(date, transactionId, image, details!!.consultationFee.toInt(), details!!.couponPercentage.toInt(), price!!.discontPrice, addressId.toInt(), selectedFamilyMembers.size, details!!.mobile, coupon!!.name, paymentType, details!!.couponId.toInt(), userDetails[User.ID]!!.toInt(), time!!.id, details!!.name, time!!.time, userDetails[User.AUTH_TOKEN].toString(), id.toInt(), details!!.couponDiscount.toInt(), testId.toInt(), selectedIds.toString().replace("[", "").replace("]", "").replace(" ", ""), details!!.walletAmount.toInt(), userDetails[User.LANG].toString(), details!!.flatDiscount)
+            request = LabBookingRequest(date, transactionId, image, details!!.consultationFee.toInt(), details!!.couponPercentage.toInt(), price!!.discontPrice, addressId.toInt(), selectedFamilyMembers.size, details!!.mobile, coupon!!.name, paymentType, details!!.couponId.toInt(), userDetails[User.ID]!!.toInt(), time!!.id, details!!.name, time!!.time, userDetails[User.AUTH_TOKEN].toString(), id.toInt(), details!!.couponDiscount.toInt(), testId.toInt(), selectedIds.toString().replace("[", "").replace("]", "").replace(" ", ""), details!!.walletAmount.toInt(), userDetails[User.LANG].toString(), details!!.flatDiscount ?: "0")
         } else {
-            request = LabBookingRequest(date, transactionId, image, details!!.consultationFee.toInt(), 0, price!!.discontPrice, addressId.toInt(), selectedFamilyMembers.size, details!!.mobile, "", paymentType, 0, userDetails[User.ID]!!.toInt(), time!!.id, details!!.name, time!!.time, userDetails[User.AUTH_TOKEN].toString(), id.toInt(), 0, testId.toInt(), selectedIds.toString().replace("[", "").replace("]", "").replace(" ", ""), details!!.walletAmount.toInt(), userDetails[User.LANG].toString(), details!!.flatDiscount)
+            request = LabBookingRequest(date, transactionId, image, details!!.consultationFee.toInt(), 0, price!!.discontPrice, addressId.toInt(), selectedFamilyMembers.size, details!!.mobile, "", paymentType, 0, userDetails[User.ID]!!.toInt(), time!!.id, details!!.name, time!!.time, userDetails[User.AUTH_TOKEN].toString(), id.toInt(), 0, testId.toInt(), selectedIds.toString().replace("[", "").replace("]", "").replace(" ", ""), details!!.walletAmount.toInt(), userDetails[User.LANG].toString(), details!!.flatDiscount ?: "0")
         }
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.bookLab(req)
