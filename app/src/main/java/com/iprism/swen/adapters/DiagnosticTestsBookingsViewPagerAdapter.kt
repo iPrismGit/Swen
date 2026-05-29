@@ -1,3 +1,5 @@
+package com.iprism.swen.adapters
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

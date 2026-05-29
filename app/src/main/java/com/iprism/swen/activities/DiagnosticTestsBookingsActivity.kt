@@ -1,6 +1,5 @@
 package com.iprism.swen.activities
 
-import DiagnosticTestsBookingsViewPagerAdapter
 import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.iprism.swen.R
+import com.iprism.swen.adapters.DiagnosticTestsBookingsViewPagerAdapter
 import com.iprism.swen.databinding.ActivityLabTestsBookingsBinding
 
 class DiagnosticTestsBookingsActivity : AppCompatActivity() {
