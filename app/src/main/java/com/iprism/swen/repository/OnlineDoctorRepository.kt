@@ -14,11 +14,11 @@ import com.iprism.swen.models.onlinedoctorsinglebookingdetails.OnlineDoctorSingl
 import com.iprism.swen.models.onlinedoctorsinglebookingdetails.OnlineDoctorSingleBookingDetailsRequest
 import com.iprism.swen.models.onlinedoctorspeacilities.OnlineDoctorSpecialitiesApiResponse
 import com.iprism.swen.models.onlinedoctorspeacilities.OnlineDoctorSpecialitiesRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class OnlineDoctorRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun getOnlineDoctorSpecialities(request: OnlineDoctorSpecialitiesRequest): OnlineDoctorSpecialitiesApiResponse {
         return apiService.getOnlineDoctorsSpecialities(request)

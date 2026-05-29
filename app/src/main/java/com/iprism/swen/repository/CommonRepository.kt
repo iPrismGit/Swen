@@ -14,11 +14,11 @@ import com.iprism.swen.models.notifications.NotificationsApiResponse
 import com.iprism.swen.models.notifications.NotificationsRequest
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningApiResponse
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class CommonRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun fetchHomePage(request : HomePageRequest): HomePageApiResponse {
         return apiService.fetchHomePage(request)

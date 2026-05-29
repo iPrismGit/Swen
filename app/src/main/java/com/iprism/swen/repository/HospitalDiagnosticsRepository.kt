@@ -12,11 +12,11 @@ import com.iprism.swen.models.hospitaldiagnosticprescriptionbooking.HospitalDiag
 import com.iprism.swen.models.hospitaldiagnostictests.HospitalDiagnosticTestsRequest
 import com.iprism.swen.models.hospitalmedicinetimeslots.HospitalDiagnosticTimeRequest
 import com.iprism.swen.models.labtestbookings.LabTestBookingsRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class HospitalDiagnosticsRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun fetchDiagnosticTests(request: HospitalDiagnosticTestsRequest): DiagnosticTestsApiResponse {
         return apiService.fetchHospitalDiagnosticTests(request)

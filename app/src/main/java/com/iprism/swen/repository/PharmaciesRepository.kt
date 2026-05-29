@@ -18,11 +18,11 @@ import com.iprism.swen.models.pharmacyproductcart.PharmacyProductCartApiResponse
 import com.iprism.swen.models.pharmacyproductcart.PharmacyProductCartRequest
 import com.iprism.swen.models.pharmacyproducts.PharmacyProductsApiResponse
 import com.iprism.swen.models.pharmacyproducts.PharmacyProductsRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class PharmaciesRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun fetchPharmacies(request: PharmaciesRequest): PharmaciesApiResponse {
         return apiService.fetchPharmacies(request)

@@ -14,11 +14,11 @@ import com.iprism.swen.models.resendotp.ResendOtpApiResponse
 import com.iprism.swen.models.resendotp.ResendOtpRequest
 import com.iprism.swen.models.userdropdowns.UserDropDownApiResponse
 import com.iprism.swen.models.userdropdowns.UserDropDownRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class AuthRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun login(loginRequest: LoginRequest): LoginApiResponse {
         return apiService.login(loginRequest)

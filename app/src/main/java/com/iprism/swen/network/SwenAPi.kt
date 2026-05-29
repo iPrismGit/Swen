@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object MedRayderApi {
+object SwenAPi {
 
     private const val TIMEOUT = 30L
 
@@ -26,7 +26,7 @@ object MedRayderApi {
             .build()
     }
 
-    val medRayderService: MedRayderService by lazy {
-        retrofit.create(MedRayderService::class.java)
+    val swenApiService: SwenApiService by lazy {
+        retrofit.create(SwenApiService::class.java)
     }
 }

@@ -7,11 +7,11 @@ import com.iprism.swen.models.subscription.SubscriptionApiResponse
 import com.iprism.swen.models.subscription.SubscriptionRequest
 import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsApiResponse
 import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class SubscriptionRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun subscription(request : SubscriptionRequest): SubscriptionApiResponse {
         return apiService.subscription(request)

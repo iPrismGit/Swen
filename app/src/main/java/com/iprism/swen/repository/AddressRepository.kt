@@ -4,11 +4,11 @@ import com.iprism.swen.models.address.AddAddressApiResponse
 import com.iprism.swen.models.address.AddAddressRequest
 import com.iprism.swen.models.addresslist.AddressListApiResponse
 import com.iprism.swen.models.addresslist.AddressListRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class AddressRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun addAddress(request : AddAddressRequest): AddAddressApiResponse {
         return apiService.addAddress(request)

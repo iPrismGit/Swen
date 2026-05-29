@@ -147,7 +147,6 @@ import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsRequest
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningApiResponse
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningRequest
 import com.iprism.swen.models.userdropdowns.UserDropDownApiResponse
-import com.iprism.swen.models.userdropdowns.UserDropDownRequest
 import com.iprism.swen.models.wallet.WalletApiResponse
 import com.iprism.swen.models.wallet.WalletRequest
 import com.iprism.swen.models.wallethistory.WalletHistoryApiResponse
@@ -156,7 +155,7 @@ import com.iprism.swen.utils.Constants
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-interface MedRayderService {
+interface SwenApiService {
 
     @POST(Constants.LOGIN_ENDPOINT)
     suspend fun login(@Body loginRequest: LoginRequest) : LoginApiResponse

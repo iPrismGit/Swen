@@ -16,11 +16,11 @@ import com.iprism.swen.models.hospitalmedicneongoing.HospitalMedicineOngoingBook
 import com.iprism.swen.models.hospitalpharmacyprescriptionbooking.HospitalPharmacyPrescriptionBookingApiResponse
 import com.iprism.swen.models.hospitalpharmacyprescriptionbooking.HospitalPharmacyPrescriptionBookingRequest
 import com.iprism.swen.models.pharmacyproductcart.PharmacyProductCartApiResponse
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class HospitalsMedicineRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun fetchHospitalMedCategories(request : HospitalMedicinesRequest): HospitalMedicinesApiResponse {
         return apiService.fetchHospitalMedCategories(request)

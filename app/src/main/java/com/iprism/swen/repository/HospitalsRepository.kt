@@ -34,11 +34,11 @@ import com.iprism.swen.models.onlinedoctorscoupons.CouponsApiResponse
 import com.iprism.swen.models.onlinedoctorscoupons.CouponRequest
 import com.iprism.swen.models.onlinedoctorsinglebookingdetails.OnlineDoctorSingleBookingDetailsApiResponse
 import com.iprism.swen.models.onlinedoctorsinglebookingdetails.OnlineDoctorSingleBookingDetailsRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class HospitalsRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun getHospitals(request : HospitalsRequest): HospitalsApiResponse {
         return apiService.getHospitals(request)

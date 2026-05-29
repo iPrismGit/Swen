@@ -6,13 +6,13 @@ import com.iprism.swen.utils.Constants;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MedRayderApiJava {
+public class SwenApiJava {
 
-    public MedRayderServiceJava createMedRayderService() {
+    public SwenServiceJava createMedRayderService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        return retrofit.create(MedRayderServiceJava.class);
+        return retrofit.create(SwenServiceJava.class);
     }
 }

@@ -14,11 +14,11 @@ import com.iprism.swen.models.labtests.LabTestsApiResponse
 import com.iprism.swen.models.labtests.LabTestsRequest
 import com.iprism.swen.models.labtestslots.LabTestSlotsApiResponse
 import com.iprism.swen.models.labtestslots.LabTestSlotsRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class LabsRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun fetchLabs(request: LabCentersRequest): LabCentersApiResponse {
         return apiService.fetchLabCenters(request)

@@ -42,8 +42,8 @@ import com.iprism.swen.CallNotificationService;
 import com.iprism.swen.R;
 import com.iprism.swen.SoundService;
 import com.iprism.swen.interfaces.CallListener;
-import com.iprism.swen.network.MedRayderApiJava;
-import com.iprism.swen.network.MedRayderServiceJava;
+import com.iprism.swen.network.SwenApiJava;
+import com.iprism.swen.network.SwenServiceJava;
 import com.iprism.swen.utils.User;
 import com.iprism.swen.videocalling.model.disconnectnotification.DisconnectNotificationApiResponse;
 import com.iprism.swen.videocalling.model.disconnectnotification.DisconnectNotificationRequest;
@@ -1065,10 +1065,10 @@ public class ReceiveVideoConferenceActivity extends AppCompatActivity
         /*progressDialog.setMessage("Disconnecting");
         progressDialog.show();*/
         HashMap<String, String> userDetails = new User(this).getUserDetails();
-        MedRayderApiJava medRayderApiJava = new MedRayderApiJava();
-        MedRayderServiceJava medRayderServiceJava = medRayderApiJava.createMedRayderService();
+        SwenApiJava swenApiJava = new SwenApiJava();
+        SwenServiceJava swenServiceJava = swenApiJava.createMedRayderService();
         DisconnectNotificationRequest disconnectNotificationRequest = new DisconnectNotificationRequest(doctorId, userDetails.get(User.ID), "disconnect1", playerId, consultType, familyMemberId, bookingId);
-        Call<DisconnectNotificationApiResponse> call = medRayderServiceJava.disconnectCall(disconnectNotificationRequest);
+        Call<DisconnectNotificationApiResponse> call = swenServiceJava.disconnectCall(disconnectNotificationRequest);
         Log.d("disconnectNotificationRequest", disconnectNotificationRequest.toString());
         call.enqueue(new Callback<DisconnectNotificationApiResponse>() {
             @Override

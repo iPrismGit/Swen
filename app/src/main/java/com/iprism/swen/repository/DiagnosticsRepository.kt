@@ -14,11 +14,11 @@ import com.iprism.swen.models.dignosticcenters.DiagnosticCentersApiResponse
 import com.iprism.swen.models.dignosticcenters.DiagnosticCentersRequest
 import com.iprism.swen.models.labtestbookings.LabTestBookingsRequest
 import com.iprism.swen.models.labtestprescriptionbooking.LabTestPrescriptionBookingApiResponse
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class DiagnosticsRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun getDiagnostics(request: DiagnosticCentersRequest): DiagnosticCentersApiResponse {
         return apiService.getDiagnosticCenters(request)

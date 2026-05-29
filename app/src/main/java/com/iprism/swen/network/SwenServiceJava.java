@@ -8,7 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface MedRayderServiceJava {
+public interface SwenServiceJava {
 
     @POST(Constants.DISCONNECT_NOTIFICATION_ENDPOINT)
     Call<DisconnectNotificationApiResponse> disconnectCall(@Body DisconnectNotificationRequest request);

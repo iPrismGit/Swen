@@ -2,11 +2,11 @@ package com.iprism.swen.repository
 
 import com.iprism.swen.models.onlinedoctorscoupons.CouponsApiResponse
 import com.iprism.swen.models.onlinedoctorscoupons.CouponRequest
-import com.iprism.swen.network.MedRayderApi
+import com.iprism.swen.network.SwenAPi
 
 class CouponsRepository {
 
-    private val apiService = MedRayderApi.medRayderService
+    private val apiService = SwenAPi.swenApiService
 
     suspend fun getOnlineDoctorsCoupons(request: CouponRequest): CouponsApiResponse {
         return apiService.getOnlineDoctorsCoupons(request)
