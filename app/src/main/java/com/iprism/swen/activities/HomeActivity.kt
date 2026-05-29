@@ -483,8 +483,8 @@ class HomeActivity : AppCompatActivity() {
                 if (location != null) {
                     lat = location.latitude.toString()
                     lon = location.longitude.toString()
-                    //locationViewModel.setLocation(lat.toDouble(), lon.toDouble())
-                    locationViewModel.setLocation(17.422665135968355, 78.38133288998509)
+                    locationViewModel.setLocation(lat.toDouble(), lon.toDouble())
+                    //locationViewModel.setLocation(17.422665135968355, 78.38133288998509)
                     getFullAddressFromCoordinates(
                         lat.toDouble(),
                         lon.toDouble(),
