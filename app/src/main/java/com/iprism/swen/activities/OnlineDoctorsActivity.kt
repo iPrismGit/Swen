@@ -43,7 +43,7 @@ class OnlineDoctorsActivity : AppCompatActivity() {
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.getOnlineDoctorSpecialities(req)
         }
-        Log.d("request", request.toString())
+        Log.d("requestLoading", request.toString())
     }
 
     private fun handleBack() {
