@@ -86,7 +86,7 @@ class DoctorSummaryActivity : AppCompatActivity(), PaymentManager.PaymentResultL
         val userDetails = getUserDetails()
         val request = OnlineDoctorBookingDetailsRequest(date, doctor!!.id, 0, 0, userDetails[User.ID]!!.toInt(), specialityId.toInt(), doctor!!.fee.toInt(), "view", userDetails[User.LANG].toString(), userDetails[User.AUTH_TOKEN].toString())
         viewModel.getOnlineDoctorBookingDetails(request)
-        Log.d("request", request.toString())
+        Log.d("requestLoading", request.toString())
         launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data = result.data
@@ -96,7 +96,7 @@ class DoctorSummaryActivity : AppCompatActivity(), PaymentManager.PaymentResultL
                 NetworkRetryHelper.checkAndCallWithRetry(this, couponRequest) { req ->
                     viewModel.getOnlineDoctorBookingDetails(req)
                 }
-                Log.d("request", couponRequest.toString())
+                Log.d("requestLoading", couponRequest.toString())
             }
         }
     }
