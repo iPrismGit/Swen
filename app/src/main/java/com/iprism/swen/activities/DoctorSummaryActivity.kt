@@ -311,7 +311,21 @@ class DoctorSummaryActivity : AppCompatActivity(), PaymentManager.PaymentResultL
         })
         onlineOrderTypeBsBinding.paymentGatewayLl.setOnClickListener(View.OnClickListener {
             bottomSheetDialog.cancel()
-            createOrder(onlineDoctorBookingResponse.consultationFee)
+            //createOrder(onlineDoctorBookingResponse.consultationFee)
+            val userDetails = getUserDetails()
+            if (coupon != null) {
+                val request = OnlineDoctorBookingRequest(date, "12345", onlineDoctorBookingResponse.consultationFee, onlineDoctorBookingResponse.couponPercentage, specialityId, doctor!!.fee, onlineDoctorBookingResponse.mobile, coupon!!.name, doctor!!.id.toString(), "online", onlineDoctorBookingResponse.couponId, userDetails[User.ID]!!, time!!.id.toString(), familyMembersItem!!.name, "online",time!!.time, userDetails[User.AUTH_TOKEN].toString(), onlineDoctorBookingResponse.couponDiscount, familyMembersItem!!.id.toString(), "0", userDetails[User.LANG].toString(), onlineDoctorBookingResponse.freeBookingStatus)
+                NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
+                    doctorSummaryViewModel.bookOnlineDoctor(req)
+                }
+                Log.d("requestLoading", request.toString())
+            } else {
+                val request = OnlineDoctorBookingRequest(date, "12345", onlineDoctorBookingResponse.consultationFee, "0", specialityId, doctor!!.fee, onlineDoctorBookingResponse.mobile, "", doctor!!.id.toString(), "online", "0", userDetails[User.ID]!!, time!!.id.toString(), familyMembersItem!!.name, "online",time!!.time, userDetails[User.AUTH_TOKEN].toString(), "0", familyMembersItem!!.id.toString(), "0", userDetails[User.LANG].toString(), onlineDoctorBookingResponse.freeBookingStatus)
+                NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
+                    doctorSummaryViewModel.bookOnlineDoctor(req)
+                }
+                Log.d("requestLoading", request.toString())
+            }
         })
         onlineOrderTypeBsBinding.walletLl.setOnClickListener(View.OnClickListener {
             bottomSheetDialog.cancel()
