@@ -1,12 +1,13 @@
 package com.iprism.swen.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.iprism.swen.R
 import com.iprism.swen.databinding.ActivityLoginBinding
 import com.iprism.swen.models.login.LoginRequest
 import com.iprism.swen.repository.AuthRepository
@@ -17,74 +18,35 @@ import com.iprism.swen.utils.showProgress
 import com.iprism.swen.utils.showToast
 import com.iprism.swen.viewmodels.LoginViewModel
 import com.iprism.swen.viewmodels.ViewModelFactory
-import com.onesignal.OneSignal
-import org.json.JSONObject
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private var tag : String = ""
+    private var name : String = ""
     private lateinit var viewModel: LoginViewModel
     private var playerId : String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         handleContinueBtn()
-        handleTermsConditionTxt()
+        handleTerms()
         initViewModel()
         observeLoginResponse()
-        OneSignal.initWithContext(this)
-
-        // Replace with your OneSignal App ID
-
-        // Replace with your OneSignal App ID
-        OneSignal.setAppId("cebaa375-de95-4fb8-9403-71089f304ffe")
-        Log.d("OneSignal", "Device is subscribed: " + OneSignal.getDeviceState()!!.isSubscribed)
-        val deviceState = OneSignal.getDeviceState()
-        if (deviceState != null) {
-            playerId = deviceState.userId ?: ""
-            Log.d("OneSignal", "Player ID1: $playerId")
-        }
-        OneSignal.sendTags(JSONObject().put("user_type", "user"))
-    }
-
-    private fun handleTermsConditionTxt() {
-        binding.termsConditionsTxt.setOnClickListener(View.OnClickListener {
-            val tag = "terms"
-            val name = getString(R.string.terms_and_conditions)
-            val intent = Intent(this, ContentPagesActivity::class.java)
-            intent.putExtra("tag", tag)
-            intent.putExtra("name", name)
-            startActivity(intent)
-        })
-    }
-
-    private fun handleContinueBtn() {
-        binding.continueBtn.setOnClickListener(View.OnClickListener {
-            if (getMobile().length != 10) {
-                showToast(getString(R.string.please_enter_10_digit_mobile))
-            } else if (Pattern.matches("[0-5].*", getMobile())) {
-                showToast(getString(R.string.please_enter_valid_mobile))
-            } else {
-                val request = LoginRequest(getMobile(), "not_verified", playerId!!, binding.referralCodeEt.text.toString().trim())
-                NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
-                    viewModel.login(req)
-                }
-                Log.d("loginRequest", request.toString())
-            }
-        })
-    }
-
-    private fun getMobile() : String {
-        return binding.mobileEt.text.toString().trim()
     }
 
     private fun initViewModel() {
         val repository = AuthRepository()
         val factory = ViewModelFactory { LoginViewModel(repository) }
         viewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
+    }
+
+    private fun getMobile() : String {
+        return binding.mobileTxt.text.toString().trim()
     }
 
     private fun observeLoginResponse() {
@@ -96,26 +58,65 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 is UiState.Success -> {
-                    binding.continueBtn.setEnabledState(true)
                     binding.progress.hideProgress()
-                    if (getMobile().equals("8585858585", true)) {
-                        showToast(result.data.loginResponse.otp)
+                    binding.continueBtn.setEnabledState(true)
+                    var otp = ""
+                    if (getMobile().equals("8585858585", true)){
+                        otp = "5555"
+                        showToast(otp)
+                    } else{
+                        otp = result.data.loginResponse.otp
                     }
-                    showToast(result.data.loginResponse.otp)
-                    Log.d("otpMobile", result.data.loginResponse.otp)
+                    showToast(otp)
+                    Log.d("otp", "Otp: $otp")
                     val intent = Intent(this@LoginActivity, OtpVerificationActivity::class.java)
-                    intent.putExtra("otp", result.data.loginResponse.otp)
+                    intent.putExtra("otp", otp)
                     intent.putExtra("mobile", getMobile())
-                    intent.putExtra("referralCode", binding.referralCodeEt.text.toString().trim())
+                    intent.putExtra("playerId", playerId)
                     startActivity(intent)
                 }
 
                 is UiState.Error -> {
-                    binding.continueBtn.setEnabledState(true)
                     showToast(result.message)
                     binding.progress.hideProgress()
+                    binding.continueBtn.setEnabledState(true)
                 }
             }
         }
+    }
+
+    private fun handleTerms() {
+        binding.termsTxt.setOnClickListener(View.OnClickListener {
+            tag = "terms"
+            name = "Terms & Conditions"
+            val intent = Intent(this, ContentPagesActivity::class.java)
+            intent.putExtra("tag", tag)
+            intent.putExtra("name", name)
+            startActivity(intent)
+        })
+    }
+
+    private fun handleContinueBtn() {
+        binding.continueBtn.setOnClickListener { view ->
+            if (getMobile().isEmpty()){
+                showToast("Please Enter Mobile Number!")
+            } else if (getMobile().length != 10){
+                showToast("Please Enter Valid Mobile Number!")
+            }  else if (Pattern.matches("[0-5].*", getMobile())) {
+                showToast("Please Enter Valid Mobile Number!")
+            } else {
+                val loginRequest = LoginRequest(getMobile(), "not_verified", playerId!!, "")
+                NetworkRetryHelper.checkAndCallWithRetry(this, loginRequest) { req ->
+                    viewModel.login(req)
+                }
+                Log.d("requestLoading", loginRequest.toString())
+            }
+        }
+    }
+
+    @Deprecated("This method has been deprecated in favor of using the\n      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      The OnBackPressedDispatcher controls how back button events are dispatched\n      to one or more {@link OnBackPressedCallback} objects.")
+    @SuppressLint("MissingSuperCall", "GestureBackNavigation")
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }

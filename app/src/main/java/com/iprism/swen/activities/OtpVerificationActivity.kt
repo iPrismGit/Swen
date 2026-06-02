@@ -2,10 +2,10 @@ package com.iprism.swen.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.iprism.swen.R
 import com.iprism.swen.databinding.ActivityOtpVerificationBinding
@@ -20,6 +20,7 @@ import com.iprism.swen.utils.showProgress
 import com.iprism.swen.utils.showToast
 import com.iprism.swen.viewmodels.LoginViewModel
 import com.iprism.swen.viewmodels.ViewModelFactory
+import kotlin.toString
 
 class OtpVerificationActivity : AppCompatActivity() {
 
@@ -27,7 +28,6 @@ class OtpVerificationActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
     private var otp = ""
     private var mobile = ""
-    private var referralCode = ""
     private var countDownTime = ""
     private var countDownTimer: CountDownTimer? = null
 
@@ -39,7 +39,6 @@ class OtpVerificationActivity : AppCompatActivity() {
         if (intent.hasExtra("otp")) {
             otp = intent.getStringExtra("otp")!!
             mobile = intent.getStringExtra("mobile")!!
-            referralCode = intent.getStringExtra("referralCode")!!
             binding.mobileTxt.text = "+91$mobile"
         }
         handleContinueBtn()
@@ -58,11 +57,11 @@ class OtpVerificationActivity : AppCompatActivity() {
     }
 
     private fun handleContinueBtn() {
-        binding.continueBtn.setOnClickListener(View.OnClickListener {
+        binding.loginBtn.setOnClickListener(View.OnClickListener {
             if (getOtp() != otp) {
                 showToast(getString(R.string.please_enter_valid_otp))
             } else {
-                val request = LoginRequest(mobile, "verified", "", referralCode)
+                val request = LoginRequest(mobile, "verified", "", "")
                 NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
                     viewModel.login(req)
                 }
@@ -71,8 +70,8 @@ class OtpVerificationActivity : AppCompatActivity() {
     }
 
     private fun handleResendTxt() {
-        binding.resendTxt.setOnClickListener(View.OnClickListener {
-            if (!binding.countDownTimeTxt.text.toString().equals("00:00", true)) {
+        binding.resendBtn.setOnClickListener(View.OnClickListener {
+            if (!binding.countDownTxt.text.toString().equals("00:00", true)) {
                 showToast("${getString(R.string.please_try_after)} $countDownTime ${getString(R.string.to_resend_otp)}")
             } else {
                 val request = ResendOtpRequest(mobile)
@@ -98,12 +97,12 @@ class OtpVerificationActivity : AppCompatActivity() {
             when (result) {
                 is UiState.Loading -> {
                     binding.progress.showProgress()
-                    binding.continueBtn.setEnabledState(false)
+                    binding.loginBtn.setEnabledState(false)
                 }
 
                 is UiState.Success -> {
                     countDownTimer!!.cancel()
-                    binding.continueBtn.setEnabledState(true)
+                    binding.loginBtn.setEnabledState(true)
                     binding.progress.hideProgress()
                     if (result.data.loginResponse.regStatus.equals("yes", true)) {
                         val user = User(this)
@@ -127,7 +126,7 @@ class OtpVerificationActivity : AppCompatActivity() {
                 is UiState.Error -> {
                     showToast(result.message)
                     binding.progress.hideProgress()
-                    binding.continueBtn.setEnabledState(true)
+                    binding.loginBtn.setEnabledState(true)
                 }
             }
         }
@@ -159,13 +158,13 @@ class OtpVerificationActivity : AppCompatActivity() {
         countDownTimer = object : CountDownTimer(60000, 1000) {
             @SuppressLint("SetTextI18n")
             override fun onTick(millisUntilFinished: Long) {
-                binding.countDownTimeTxt.text = "00:" + millisUntilFinished / 1000
+                binding.countDownTxt.text = "00:" + millisUntilFinished / 1000
                 countDownTime = (millisUntilFinished / 1000).toString() + "s"
             }
 
             @SuppressLint("SetTextI18n")
             override fun onFinish() {
-                binding.countDownTimeTxt.text = "00:00"
+                binding.countDownTxt.text = "00:00"
             }
         }.start()
     }
