@@ -22,4 +22,5 @@
     <color name="shimmer_color">#BCC3D0</color>
     <color name="black1">#666666</color>
     <color name="gray5">#DADADA</color>
+    <color name="screen_background">#FEF1E2</color>
 </resources>
