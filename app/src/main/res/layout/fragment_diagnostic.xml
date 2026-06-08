@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEF1E2"
+    android:background="@color/screen_background"
     tools:context=".fragments.LabTestsFragment">
 
     <!-- TODO: Update blank fragment layout -->
