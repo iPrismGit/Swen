@@ -359,7 +359,8 @@ class HospitalDiagnosticTestSummaryActivity : AppCompatActivity(), PaymentManage
             bottomSheetDialog.cancel()
         })
         onlineOrderTypeBsBinding.paymentGatewayLl.setOnClickListener(View.OnClickListener {
-            createOrder(details!!.consultationFee)
+            //createOrder(details!!.consultationFee)
+            bookDiagnostic("online", "12345")
             bottomSheetDialog.cancel()
         })
         onlineOrderTypeBsBinding.walletLl.setOnClickListener(View.OnClickListener {
