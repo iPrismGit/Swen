@@ -155,13 +155,14 @@ class HospitalDiagnosticTestSummaryActivity : AppCompatActivity(), PaymentManage
 
     private fun handlePayNowBtn() {
         binding.payNowBtn.setOnClickListener(View.OnClickListener {
-            if (subscriptionStatus.equals("no", true)) {
+            /*if (subscriptionStatus.equals("no", true)) {
                 val intent = Intent(this, SubscriptionActivity::class.java)
                 intent.putExtra("tag", "booking")
                 launcher.launch(intent)
             } else {
                 showOrderTypeBs(this)
-            }
+            }*/
+            showOrderTypeBs(this)
         })
     }
 
