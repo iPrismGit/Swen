@@ -50,7 +50,7 @@ class ShareAppActivity : AppCompatActivity() {
             val shareText = "Check out MedRayder - 24x7 Health Assistance.\n\nDownload here:\n$appLink"
             try {
                 // Convert drawable to file in cache
-                val bitmap = BitmapFactory.decodeResource(resources, R.drawable.med_rayder_app_logo)
+                val bitmap = BitmapFactory.decodeResource(resources, R.drawable.swen_app_logo)
                 val file = File(cacheDir, "share_logo.png")
                 val fos = FileOutputStream(file)
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)

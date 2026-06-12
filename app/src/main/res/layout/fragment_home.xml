@@ -10,7 +10,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/lato_bold"
-                            android:text="@string/ambulance"
+                            android:gravity="center"
+                            android:text="Book\nAmbulance"
                             android:textColor="@color/black" />
                     </LinearLayout>
 
@@ -135,7 +136,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/lato_bold"
-                            android:text="@string/admission"
+                            android:gravity="center"
+                            android:text="Hospital\nAdmission"
                             android:textColor="@color/black" />
                     </LinearLayout>
 
@@ -146,7 +148,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -172,7 +175,8 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="wrap_content"
