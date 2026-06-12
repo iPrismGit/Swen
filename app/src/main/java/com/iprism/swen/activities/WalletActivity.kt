@@ -73,7 +73,8 @@ class WalletActivity : AppCompatActivity(), PaymentManager.PaymentResultListener
                 showToast(getString(R.string.please_enter_valid_amount))
             } else {
                 //wallet(getAmount(), "recharge")
-                createOrder(getAmount())
+                //createOrder(getAmount())
+                wallet(getAmount(), "recharge", "12345")
             }
         })
     }
