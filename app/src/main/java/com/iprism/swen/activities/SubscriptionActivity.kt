@@ -86,7 +86,8 @@ class SubscriptionActivity : AppCompatActivity(), PaymentManager.PaymentResultLi
 
     private fun handlePayNowBtn() {
         binding.payNowBtn.setOnClickListener(View.OnClickListener {
-            createOrder(details!!.billSummary.totalAmount)
+            //createOrder(details!!.billSummary.totalAmount)
+            subscribe("12345")
         })
     }
 
