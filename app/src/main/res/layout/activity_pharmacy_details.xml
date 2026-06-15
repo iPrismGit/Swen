@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/screen_background"
     android:fitsSystemWindows="true"
     tools:context=".activities.PharmacyDetailsActivity">
 
@@ -11,7 +12,6 @@
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +35,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
+                    android:tint="@color/black"
                     android:src="@drawable/back_img" />
 
                 <TextView
@@ -44,16 +45,16 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:fontFamily="@font/inter_bold"
-                    tools:text="Med Rayder Pharmacy"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="Med Rayder Pharmacy" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
         </LinearLayout>
 
@@ -102,7 +103,6 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#F3F9FF"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/book_medicine_img"
         app:layout_constraintEnd_toEndOf="parent"
