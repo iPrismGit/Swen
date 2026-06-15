@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/blue"
         android:gravity="center|left"
         android:orientation="horizontal"
         android:padding="16dp"
@@ -23,6 +23,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_gravity="center"
+            android:tint="@color/black"
             android:src="@drawable/back_img" />
 
         <TextView
@@ -33,7 +34,7 @@
             android:layout_marginLeft="8dp"
             android:fontFamily="@font/inter_bold"
             android:text="@string/select_time_slot"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -48,7 +49,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F1F8FF"
             android:orientation="vertical">
 
             <LinearLayout
