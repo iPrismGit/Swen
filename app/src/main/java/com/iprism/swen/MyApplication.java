@@ -15,7 +15,7 @@ public class MyApplication extends Application {
         OneSignal.initWithContext(this);
 
         // Replace with your OneSignal App ID
-        OneSignal.setAppId("cebaa375-de95-4fb8-9403-71089f304ffe");
+        OneSignal.setAppId("490d1635-0214-4179-b23e-223f2f5d204c");
         Log.d("OneSignal", "Device is subscribed: " + OneSignal.getDeviceState().isSubscribed());
 
         // Set the custom notification handler

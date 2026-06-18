@@ -18,6 +18,8 @@ import com.iprism.swen.utils.showProgress
 import com.iprism.swen.utils.showToast
 import com.iprism.swen.viewmodels.LoginViewModel
 import com.iprism.swen.viewmodels.ViewModelFactory
+import com.onesignal.OneSignal
+import org.json.JSONObject
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
@@ -37,6 +39,14 @@ class LoginActivity : AppCompatActivity() {
         handleTerms()
         initViewModel()
         observeLoginResponse()
+        OneSignal.setAppId("490d1635-0214-4179-b23e-223f2f5d204c")
+        Log.d("OneSignal", "Device is subscribed: " + OneSignal.getDeviceState()!!.isSubscribed)
+        val deviceState = OneSignal.getDeviceState()
+        if (deviceState != null) {
+            playerId = deviceState.userId ?: ""
+            Log.d("OneSignal", "Player ID1: $playerId")
+        }
+        OneSignal.sendTags(JSONObject().put("user_type", "user"))
     }
 
     private fun initViewModel() {
