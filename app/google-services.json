@@ -1,40 +1,21 @@
 {
   "project_info": {
-    "project_number": "1050684637597",
-    "project_id": "medrayder-56eb4",
-    "storage_bucket": "medrayder-56eb4.firebasestorage.app"
+    "project_number": "409043036922",
+    "project_id": "swen-health",
+    "storage_bucket": "swen-health.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1050684637597:android:14789acbcac567d8d8af74",
+        "mobilesdk_app_id": "1:409043036922:android:3e142252545a29011eb743",
         "android_client_info": {
-          "package_name": "com.iprism.medrayder"
+          "package_name": "com.iprism.swen"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAawjkFbeIQiKCzuKuOHZqTonzs4D1Ap1c"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1050684637597:android:013d72a7c4e0637fd8af74",
-        "android_client_info": {
-          "package_name": "com.iprism.medrayderonlinedoctor"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAawjkFbeIQiKCzuKuOHZqTonzs4D1Ap1c"
+          "current_key": "AIzaSyDvTrJ59iORRL_uhs_3pI9cf9X2PPC7E7g"
         }
       ],
       "services": {
