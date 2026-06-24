@@ -10,7 +10,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -307,7 +307,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="12dp"
                     android:fontFamily="@font/inter_bold"
-                    android:text="@string/med_categories"
+                    android:text="Book Doctor Appointment"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -326,7 +326,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="12dp"
                     android:fontFamily="@font/inter_bold"
-                    android:text="@string/hospital_categories"
+                    android:text="Book Doctor With Symptoms"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 

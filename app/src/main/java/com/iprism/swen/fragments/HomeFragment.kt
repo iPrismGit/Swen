@@ -27,7 +27,6 @@ import com.iprism.swen.activities.HomeActivity
 import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
 import com.iprism.swen.activities.OnlineDoctorsActivity
-import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
 import com.iprism.swen.adapters.LabTestCategoriesAdapter
@@ -255,10 +254,10 @@ class HomeFragment : Fragment() {
                     binding.shimmerLayout.stopShimmer()
                     binding.shimmerLayout.visibility = View.GONE
                     setUpMedCategories(result.data.response.categories)
-                    setUpHospitalCategories(result.data.response.subCategories)
-                    setUpMedicineCategories(result.data.response.pharmacyCategories)
+                    setUpHospitalCategories(result.data.response.symptoms)
+                    //setUpMedicineCategories(result.data.response.pharmacyCategories)
                     setTopBanners(result.data.response.banners)
-                    setUpLabTestCategories(result.data.response.labTestBanners)
+                    //setUpLabTestCategories(result.data.response.labTestBanners)
                     setBottomBanners(result.data.response.banners)
                     mobile = result.data.response.mobile
                     if (result.data.response.healthCardStatus == 1) {
@@ -359,6 +358,7 @@ class HomeFragment : Fragment() {
 
     private fun handleTreatmentLL() {
         binding.treatmentLl.setOnClickListener(View.OnClickListener {
+
             /*if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")

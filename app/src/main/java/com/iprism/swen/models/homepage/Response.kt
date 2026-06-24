@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class Response(
 
-	@field:SerializedName("sub_categories")
-	val subCategories: List<SubCategoriesItem>,
+	@field:SerializedName("symptoms")
+	val symptoms: List<SubCategoriesItem>,
 
 	@field:SerializedName("pharmacy_categories")
 	val pharmacyCategories: List<PharmacyCategoriesItem>,
