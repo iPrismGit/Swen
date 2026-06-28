@@ -187,7 +187,6 @@ class HomeFragment : Fragment() {
                 intent.putExtra("lat", lat)
                 intent.putExtra("lon", lon)
                 startActivity(intent)
-
             }
         })
     }
