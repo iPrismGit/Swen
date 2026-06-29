@@ -74,7 +74,7 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     private PlacesClient placesClient;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-    String apikey = "AIzaSyAaf0xB28iKcaFh6Ex4bRFSaQzZtbu8GOg";
+    String apikey = "AIzaSyDHWhqrTrNvROqwhyI-rmsrlDR63v0Y6jg";
 
     SupportMapFragment mapFragment;
     private View mapView;
@@ -402,7 +402,7 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
             //  List<Address> addressesnew = MyGeocoder.getFromLocation(latitude,longitude,3);
 
 
-            String key = "key=AIzaSyAaf0xB28iKcaFh6Ex4bRFSaQzZtbu8GOg";
+            String key = "key=AIzaSyDHWhqrTrNvROqwhyI-rmsrlDR63v0Y6jg";
             String addressmo = String.format(Locale.US,
                     "https://maps.googleapis.com/maps/api/geocode/json?latlng=%1$f,%2$f&sensor=false&language="
                             + Locale.getDefault().getCountry(), latitude, longitude) + "&" + key;
