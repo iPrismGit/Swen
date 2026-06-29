@@ -26,6 +26,7 @@ import com.iprism.swen.activities.ContactUsActivity
 import com.iprism.swen.activities.HomeActivity
 import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
+import com.iprism.swen.activities.MedLockerActivity
 import com.iprism.swen.activities.OnlineDoctorsActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
@@ -89,6 +90,8 @@ class HomeFragment : Fragment() {
         handlePharmacyLL()
         handleLabTestsLl()
         handleDiagnosticLL()
+        handleBookDiagnosticTest()
+        handleHealthRecords()
         handleOnlineDoctors()
         handleContactUsLL()
         handleAmbulanceLL()
@@ -401,6 +404,25 @@ class HomeFragment : Fragment() {
         })
     }
 
+    private fun handleHealthRecords() {
+        binding.healthRecordsLl.setOnClickListener(View.OnClickListener {
+            /*if (!isSubscribe) {
+                val intent = Intent(requireContext(), SubscriptionActivity::class.java)
+                intent.putExtra("tag", "subscribe")
+                startActivity(intent)
+                Toast.makeText(
+                    requireContext(),
+                    "Please subscribe to use this feature",
+                    Toast.LENGTH_SHORT
+                ).show()
+                false   // prevent navigation
+            } else {
+                startActivity(Intent(requireContext(), AirAmbulanceActivity::class.java))
+            }*/
+            startActivity(Intent(requireContext(), MedLockerActivity::class.java))
+        })
+    }
+
     private fun handleAmbulanceLL() {
         binding.ambulanceLl.setOnClickListener(View.OnClickListener {
             /*if (!isSubscribe) {
@@ -417,6 +439,25 @@ class HomeFragment : Fragment() {
                 (activity as? HomeActivity)?.changeFragment(1)
             }*/
             (activity as? HomeActivity)?.changeFragment(1)
+        })
+    }
+
+    private fun handleBookDiagnosticTest() {
+        binding.bookDiagnosticLl.setOnClickListener(View.OnClickListener {
+            /*if (!isSubscribe) {
+                val intent = Intent(requireContext(), SubscriptionActivity::class.java)
+                intent.putExtra("tag", "subscribe")
+                startActivity(intent)
+                Toast.makeText(
+                    requireContext(),
+                    "Please subscribe to use this feature",
+                    Toast.LENGTH_SHORT
+                ).show()
+                false   // prevent navigation
+            } else {
+                (activity as? HomeActivity)?.changeFragment(4)
+            }*/
+            (activity as? HomeActivity)?.changeFragment(4)
         })
     }
 
