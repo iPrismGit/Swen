@@ -35,8 +35,8 @@ class OneSignalServiceNotifications : OneSignal.OSRemoteNotificationReceivedHand
 
         CoroutineScope(Dispatchers.IO).launch {
             val notification = osNotificationReceivedEvent.notification
-            Log.d("notification", "Data" + notification.additionalData)
-            Log.d("notification", "notidications$notification")
+            Log.d("notification1", "Data" + notification.additionalData)
+            Log.d("notification1", "notidications$notification")
             OneSignal.setNotificationOpenedHandler { result ->
                 val data = result.notification.additionalData
                 val customData = data?.optString("key_name", "")

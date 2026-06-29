@@ -418,7 +418,7 @@
             android:value="AIzaSyDHWhqrTrNvROqwhyI-rmsrlDR63v0Y6jg" />
         <meta-data
             android:name="com.onesignal.NotificationServiceExtension"
-            android:value="com.iprism.medrayder.OneSignalServiceNotifications" />
+            android:value="com.iprism.swen.OneSignalServiceNotifications" />
 
         <service
             android:name=".CallNotificationService"
