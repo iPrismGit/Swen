@@ -34,16 +34,19 @@ import com.iprism.swen.adapters.LabTestCategoriesAdapter
 import com.iprism.swen.adapters.MedCategoriesAdapter
 import com.iprism.swen.adapters.MedicineCategoriesAdapter
 import com.iprism.swen.adapters.BannersAdapter
+import com.iprism.swen.adapters.HomeSurgicalQuotesAdapter
 import com.iprism.swen.databinding.FragmentHomeBinding
 import com.iprism.swen.interfaces.OnHospitalCatItemClickListener
 import com.iprism.swen.interfaces.OnItemClickListener
 import com.iprism.swen.interfaces.OnLabCatItemClickListener
+import com.iprism.swen.interfaces.OnSurgicalQuoteCatClickListener
 import com.iprism.swen.interfaces.OnWellnessCatItemClickListener
 import com.iprism.swen.models.homepage.BannersItem
 import com.iprism.swen.models.homepage.CategoriesItem
 import com.iprism.swen.models.homepage.HomePageRequest
 import com.iprism.swen.models.homepage.PharmacyCategoriesItem
 import com.iprism.swen.models.homepage.SubCategoriesItem
+import com.iprism.swen.models.homepage.SurgicalQuote
 import com.iprism.swen.models.notifications.NotificationsRequest
 import com.iprism.swen.repository.CommonRepository
 import com.iprism.swen.utils.UiState
@@ -93,12 +96,12 @@ class HomeFragment : Fragment() {
         handleBookDiagnosticTest()
         handleHealthRecords()
         handleOnlineDoctors()
-        handleContactUsLL()
+        //handleContactUsLL()
         handleAmbulanceLL()
         handleAdmissionLL()
         handleTreatmentLL()
         handleAirAmbulanceLl()
-        handleWhatsapp()
+        //handleWhatsapp()
         initViewModel()
         observeResponse()
         observeNotificationCountResponse()
@@ -194,7 +197,7 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun setUpLabTestCategories(labCats: List<CategoriesItem>) {
+  /*  private fun setUpLabTestCategories(labCats: List<CategoriesItem>) {
         val labTestCategoriesAdapter = LabTestCategoriesAdapter(labCats)
         binding.labTestCategoriesRv.layoutManager =
             GridLayoutManager(context, 2, RecyclerView.HORIZONTAL, false)
@@ -202,7 +205,7 @@ class HomeFragment : Fragment() {
         labTestCategoriesAdapter.setOnArtistActionListener(object : OnLabCatItemClickListener {
 
             override fun onItemClicked(item: CategoriesItem) {
-                /*if (!isSubscribe) {
+                *//*if (!isSubscribe) {
                     val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                     intent.putExtra("tag", "subscribe")
                     startActivity(intent)
@@ -210,11 +213,11 @@ class HomeFragment : Fragment() {
                     false   // prevent navigation
                 } else {
                     (activity as? HomeActivity)?.changeFragment(3)
-                }*/
+                }*//*
                 (activity as? HomeActivity)?.changeFragment(3)
             }
         })
-    }
+    }*/
 
     private fun setUpMedicineCategories(pharmacyCategories: List<PharmacyCategoriesItem>) {
         val medicineCategoriesAdapter = MedicineCategoriesAdapter(pharmacyCategories)
@@ -269,6 +272,20 @@ class HomeFragment : Fragment() {
                         (activity as? HomeActivity)?.setSubscribe(false)
                     }
                     isSubscribe = (activity as? HomeActivity)?.isSubscribe() as Boolean
+                    val surgicalQuotesList = result.data.response.surgicalQuotes.toMutableList()
+                    if (surgicalQuotesList.isNotEmpty()) {
+                        binding.surgicalQuotationsLo.visibility = View.VISIBLE
+                        surgicalQuotesList.add(
+                            SurgicalQuote(
+                                "0",
+                                "assets/admin/arrow.jpeg",
+                                "See All Services"
+                            )
+                        )
+                    } else {
+                        binding.surgicalQuotationsLo.visibility = View.GONE
+                    }
+                    setupSurgicalQuotesAdapter(surgicalQuotesList)
                 }
 
                 is UiState.Error -> {
@@ -353,11 +370,11 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun handleWhatsapp() {
+    /*private fun handleWhatsapp() {
         binding.whatsappLl.setOnClickListener(View.OnClickListener {
             openWhatsAppWithoutMessage(requireContext())
         })
-    }
+    }*/
 
     private fun handleTreatmentLL() {
         binding.treatmentLl.setOnClickListener(View.OnClickListener {
@@ -379,11 +396,11 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun handleContactUsLL() {
+    /*private fun handleContactUsLL() {
         binding.contactUsLl.setOnClickListener(View.OnClickListener {
             startActivity(Intent(requireContext(), ContactUsActivity::class.java))
         })
-    }
+    }*/
 
     private fun handleAirAmbulanceLl() {
         binding.airAmbulanceLl.setOnClickListener(View.OnClickListener {
@@ -587,5 +604,26 @@ class HomeFragment : Fragment() {
             e.printStackTrace()
             Toast.makeText(context, "Failed to open WhatsApp", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setupSurgicalQuotesAdapter(surgicalQuotes: List<SurgicalQuote>) {
+        val surgicalQuotesAdapter = HomeSurgicalQuotesAdapter(requireContext(), surgicalQuotes)
+        val linearLayoutManager = GridLayoutManager(requireContext(), 4)
+        binding.surgicalQuotesRv.adapter = surgicalQuotesAdapter
+        binding.surgicalQuotesRv.layoutManager = linearLayoutManager
+        surgicalQuotesAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
+            override fun onItemClicked(catId: String, catName: String) {
+                /*if (catId.toInt() == 0) {
+                    val intent =
+                        Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(requireContext(), SurgeryQuoteActivity::class.java)
+                    intent.putExtra("catId", catId)
+                    intent.putExtra("catName", catName)
+                    startActivity(intent)
+                }*/
+            }
+        })
     }
 }

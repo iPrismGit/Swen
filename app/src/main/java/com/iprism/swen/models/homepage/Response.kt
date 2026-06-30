@@ -26,5 +26,16 @@ data class Response(
 	val categories: List<CategoriesItem>,
 
 	@field:SerializedName("banners")
-	val banners: List<BannersItem>
+	val banners: List<BannersItem>,
+
+	@field:SerializedName("surgical_quotes")
+	val surgicalQuotes: List<SurgicalQuote>,
+)
+
+data class SurgicalQuote(
+
+	val id: String,
+	val image: String,
+	val name: String
+
 )

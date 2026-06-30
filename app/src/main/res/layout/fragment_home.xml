@@ -452,7 +452,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp" />
 
-                <TextView
+               <!-- <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -505,9 +505,9 @@
                             android:src="@drawable/baseline_keyboard_arrow_right_24"
                             app:tint="@color/white" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/contact_us_ll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -569,7 +569,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="8dp" />
+                    android:layout_marginRight="8dp" />-->
 
                 <TextView
                     android:layout_width="match_parent"
@@ -591,6 +591,32 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp"
                     android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/surgical_quotations_lo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:paddingStart="16dp"
+                        android:text="Get A Best Quote"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/surgical_quotes_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp" />
+
+                </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
