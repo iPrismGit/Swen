@@ -248,28 +248,30 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/diagnostic_ll"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/whatsapp_assist_lo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="6dp"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
                             android:maxWidth="80dp"
                             android:maxHeight="80dp"
-                            android:src="@drawable/diagnostic_img1" />
+                            android:src="@drawable/whatsapp_assist_round_img" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:fontFamily="@font/lato_bold"
-                            android:text="@string/diagnostic"
+                            android:text="Whatsapp\nAssistance"
                             android:textColor="@color/black" />
+
                     </LinearLayout>
 
 

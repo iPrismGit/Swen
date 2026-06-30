@@ -94,7 +94,7 @@ class HomeFragment : Fragment() {
         }
         handlePharmacyLL()
         handleLabTestsLl()
-        handleDiagnosticLL()
+        //handleDiagnosticLL()
         handleBookDiagnosticTest()
         handleHealthRecords()
         handleOnlineDoctors()
@@ -537,9 +537,9 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun handleDiagnosticLL() {
+   /* private fun handleDiagnosticLL() {
         binding.diagnosticLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            *//*if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -551,10 +551,10 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 (activity as? HomeActivity)?.changeFragment(4)
-            }*/
+            }*//*
             (activity as? HomeActivity)?.changeFragment(4)
         })
-    }
+    }*/
 
     private fun askNotificationPermission() {
         // This is only necessary for API Level > 33 (TIRAMISU)
