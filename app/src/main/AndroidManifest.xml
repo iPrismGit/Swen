@@ -383,6 +383,12 @@
             android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SurgeryQuoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SeeAllSurgeryQuoteCategoriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.WelcomeActivity"
             android:exported="false" />
         <activity

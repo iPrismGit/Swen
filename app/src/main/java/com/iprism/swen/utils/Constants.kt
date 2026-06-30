@@ -5,6 +5,8 @@ object Constants {
     const val BASE_URL = "https://bkonnects.com/swen/app/ws/"
     const val IMAGES_BASE_URL = "https://bkonnects.com/swen/"
 
+    const val MAIN_DATA_ID = 1
+
     const val LOGIN_ENDPOINT = "login"
     const val RESEND_OTP_ENDPOINT = "resend_otp"
     const val HOME_PAGE_ENDPOINT = "home_page"
@@ -114,4 +116,7 @@ object Constants {
     const val CREATE_CASH_FREE_ENDPOINT = "create_cashfree_order"
     const val CHECK_PAYMENT_ENDPOINT = "check_payment"
     const val E_CARD_ENDPOINT = "ecard"
+
+    const val ALL_SURGERY_QUOTES_ENDPOINT = "all_surgery_quotes"
+    const val INSERT_SURGICAL_QUOTE_ENDPOINT = "insert_surgical_quote"
 }

@@ -28,6 +28,8 @@ import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
 import com.iprism.swen.activities.MedLockerActivity
 import com.iprism.swen.activities.OnlineDoctorsActivity
+import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
+import com.iprism.swen.activities.SurgeryQuoteActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
 import com.iprism.swen.adapters.LabTestCategoriesAdapter
@@ -613,7 +615,7 @@ class HomeFragment : Fragment() {
         binding.surgicalQuotesRv.layoutManager = linearLayoutManager
         surgicalQuotesAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                /*if (catId.toInt() == 0) {
+                if (catId.toInt() == 0) {
                     val intent =
                         Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
                     startActivity(intent)
@@ -622,7 +624,7 @@ class HomeFragment : Fragment() {
                     intent.putExtra("catId", catId)
                     intent.putExtra("catName", catName)
                     startActivity(intent)
-                }*/
+                }
             }
         })
     }

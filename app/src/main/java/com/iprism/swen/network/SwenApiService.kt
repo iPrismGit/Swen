@@ -11,6 +11,8 @@ import com.iprism.swen.models.admit.AdmitBookingApiResponse
 import com.iprism.swen.models.admit.AdmitBookingRequest
 import com.iprism.swen.models.admitbookingdetails.AdmitBookingDetailsAPiResponse
 import com.iprism.swen.models.admitbookingdetails.AdmitBookingDetailsRequest
+import com.iprism.swen.models.allsurgeryquotes.AllSurgeryQuotesApiResponse
+import com.iprism.swen.models.allsurgeryquotes.AllSurgeryQuotesRequest
 import com.iprism.swen.models.ambulancebooking.AmbulanceBookingRequest
 import com.iprism.swen.models.ambulancebooking.AmbulanceBookingApiResponse
 import com.iprism.swen.models.ambulancetracking.AmbulanceTrackingApiResponse
@@ -80,6 +82,8 @@ import com.iprism.swen.models.hospitalpharmacyprescriptionbooking.HospitalPharma
 import com.iprism.swen.models.hospitalpharmacyprescriptionbooking.HospitalPharmacyPrescriptionBookingRequest
 import com.iprism.swen.models.hospitals.HospitalsApiResponse
 import com.iprism.swen.models.hospitals.HospitalsRequest
+import com.iprism.swen.models.insertsurgicalquote.InsertSurgicalQuoteApiResponse
+import com.iprism.swen.models.insertsurgicalquote.InsertSurgicalQuoteRequest
 import com.iprism.swen.models.labbooking.LabBookingApiResponse
 import com.iprism.swen.models.labbooking.LabBookingRequest
 import com.iprism.swen.models.labcenters.LabCentersApiResponse
@@ -465,4 +469,11 @@ interface SwenApiService {
 
     @POST(Constants.E_CARD_ENDPOINT)
     suspend fun fetchECard(@Body request: ECardRequest) : ECardApiResponse
+
+
+    @POST(Constants.ALL_SURGERY_QUOTES_ENDPOINT)
+    suspend fun fetchAllSurgeryQuoteCategories(@Body request: AllSurgeryQuotesRequest) : AllSurgeryQuotesApiResponse
+
+    @POST(Constants.INSERT_SURGICAL_QUOTE_ENDPOINT)
+    suspend fun insertSurgicalQuote(@Body request: InsertSurgicalQuoteRequest) : InsertSurgicalQuoteApiResponse
 }

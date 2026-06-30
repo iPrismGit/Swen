@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SurgeryQuoteActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="14dp"
+            app:srcCompat="@drawable/back_img"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/cat_name_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_bold"
+            android:text="Minor Surgeries"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:padding="16dp"
+               app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/lato"
+                   android:text="@string/patient_name"
+                   android:textColor="@color/black"
+                   android:textSize="14dp" />
+
+               <EditText
+                   android:id="@+id/name_et"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:background="@drawable/edit_text_bg"
+                   android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ. "
+                   android:hint="@string/enter"
+                   android:maxLength="100"
+                   android:padding="16dp"
+                   android:inputType="textPersonName"
+                   android:textColorHint="@color/gray"
+                   android:textSize="14dp" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="16dp"
+                   android:fontFamily="@font/lato"
+                   android:text="Patient Age"
+                   android:textColor="@color/black"
+                   android:textSize="14dp" />
+
+               <EditText
+                   android:id="@+id/age_et"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:background="@drawable/edit_text_bg"
+                   android:hint="@string/enter"
+                   android:inputType="number"
+                   android:maxLength="2"
+                   android:padding="16dp"
+                   android:textColorHint="@color/gray"
+                   android:textSize="14dp" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="16dp"
+                   android:fontFamily="@font/lato"
+                   android:text="Health Issue"
+                   android:textColor="@color/black"
+                   android:textSize="14dp" />
+
+               <EditText
+                   android:id="@+id/health_issue_et"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:background="@drawable/edit_text_bg"
+                   android:hint="@string/enter"
+                   android:inputType="text"
+                   android:padding="16dp"
+                   android:textColorHint="@color/gray"
+                   android:textSize="14dp" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="16dp"
+                   android:fontFamily="@font/lato"
+                   android:text="Surgery Name"
+                   android:textColor="@color/black"
+                   android:textSize="14dp" />
+
+               <EditText
+                   android:id="@+id/surgery_name_et"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:background="@drawable/edit_text_bg"
+                   android:hint="@string/enter"
+                   android:inputType="text"
+                   android:padding="16dp"
+                   android:textColorHint="@color/gray"
+                   android:textSize="14dp" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="12dp"
+                   android:fontFamily="@font/inter"
+                   android:text="Treatment Status"
+                   android:textColor="@color/black" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="6dp"
+                   android:orientation="horizontal"
+                   android:gravity="center"
+                   android:background="@drawable/edit_text_bg">
+
+                   <Spinner
+                       android:id="@+id/payments_sp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:padding="16dp"
+                       android:layout_weight="1"
+                       android:background="@android:color/transparent"/>
+                   <ImageView
+                       android:layout_width="15dp"
+                       android:layout_height="wrap_content"
+                       android:adjustViewBounds="true"
+                       android:layout_marginEnd="16dp"
+                       android:src="@drawable/drop_down_img" />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/insurance_lo"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:visibility="gone"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="16dp"
+                       android:fontFamily="@font/lato"
+                       android:text="Health Insurance Details"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <RadioGroup
+                       android:id="@+id/insurance_companies_rg"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+
+                       <RadioButton
+                           android:id="@+id/personal_insurance_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Personal Insurance"
+                           android:textColor="@color/black" />
+
+                       <RadioButton
+                           android:id="@+id/company_insurance_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Company Sponsored"
+                           android:textColor="@color/black" />
+
+                   </RadioGroup>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="16dp"
+                       android:fontFamily="@font/lato"
+                       android:text="Insurance Company Name"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <EditText
+                       android:id="@+id/insurance_company_name_txt"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="6dp"
+                       android:background="@drawable/edit_text_bg"
+                       android:fontFamily="@font/lato"
+                       android:hint="Enter"
+                       android:inputType="text"
+                       android:padding="16dp"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="16dp"
+                       android:fontFamily="@font/lato"
+                       android:text="TPA Name"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <EditText
+                       android:id="@+id/tpa_name_txt"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="6dp"
+                       android:background="@drawable/edit_text_bg"
+                       android:fontFamily="@font/lato"
+                       android:hint="Enter"
+                       android:inputType="text"
+                       android:padding="16dp"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="16dp"
+                       android:fontFamily="@font/lato"
+                       android:text="No. of Persons Covered"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <EditText
+                       android:id="@+id/no_persons_covered_txt"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="6dp"
+                       android:background="@drawable/edit_text_bg"
+                       android:fontFamily="@font/lato"
+                       android:hint="Enter"
+                       android:inputType="number"
+                       android:maxLength="2"
+                       android:padding="16dp"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/others_lo"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:visibility="gone"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="16dp"
+                       android:fontFamily="@font/lato"
+                       android:text="Others"
+                       android:textColor="@color/black"
+                       android:textSize="14dp" />
+
+                   <RadioGroup
+                       android:id="@+id/others_rg"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+
+                       <RadioButton
+                           android:id="@+id/state_govt_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="State Government"
+                           android:textColor="@color/black" />
+
+                       <RadioButton
+                           android:id="@+id/central_govt_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Central Government"
+                           android:textColor="@color/black" />
+
+                       <RadioButton
+                           android:id="@+id/arogyabhadratha_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Arogyabhadratha"
+                           android:textColor="@color/black" />
+
+                       <RadioButton
+                           android:id="@+id/arogyasree_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Arogyasree"
+                           android:textColor="@color/black" />
+
+                       <RadioButton
+                           android:id="@+id/ayushmanbhava_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Ayushmanbhava"
+                           android:textColor="@color/black" />
+
+                       <RadioButton
+                           android:id="@+id/others_rb"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Others"
+                           android:textColor="@color/black" />
+
+                   </RadioGroup>
+
+               </LinearLayout>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="16dp"
+                   android:fontFamily="@font/inter_semibold"
+                   android:text="Add Documents / Prescription"
+                   android:textColor="@color/black"
+                   android:textSize="14dp" />
+
+               <LinearLayout
+                   android:id="@+id/upload_ll"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_marginTop="12dp"
+                   android:orientation="horizontal">
+
+                   <LinearLayout
+                       android:id="@+id/camera_ll"
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent"
+                       android:layout_marginRight="12dp"
+                       android:gravity="center"
+                       android:orientation="vertical"
+                       android:visibility="gone">
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:background="@drawable/edit_text_bg"
+                           android:backgroundTint="#DAECFF"
+                           android:orientation="vertical"
+                           android:padding="16dp">
+
+                           <ImageView
+                               android:layout_width="32dp"
+                               android:layout_height="32dp"
+                               android:src="@drawable/camera_icon1" />
+                       </LinearLayout>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center"
+                           android:layout_marginTop="8dp"
+                           android:fontFamily="@font/lato"
+                           android:text="Camera"
+                           android:textColor="@color/black" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:id="@+id/gallery_ll"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginRight="12dp"
+                       android:gravity="center"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:background="@drawable/edit_text_bg"
+                           android:backgroundTint="#DAECFF"
+                           android:orientation="vertical"
+                           android:padding="16dp">
+
+                           <ImageView
+                               android:layout_width="32dp"
+                               android:layout_height="32dp"
+                               android:src="@drawable/gallery_img" />
+                       </LinearLayout>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center"
+                           android:layout_marginTop="8dp"
+                           android:fontFamily="@font/lato"
+                           android:text="@string/gallery"
+                           android:textColor="@color/black" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:id="@+id/pdf_ll"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:background="@drawable/edit_text_bg"
+                           android:backgroundTint="#DAECFF"
+                           android:orientation="vertical"
+                           android:padding="16dp">
+
+                           <ImageView
+                               android:layout_width="32dp"
+                               android:layout_height="32dp"
+                               android:src="@drawable/pdf_img" />
+                       </LinearLayout>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center"
+                           android:layout_marginTop="8dp"
+                           android:fontFamily="@font/lato"
+                           android:text="@string/pdf"
+                           android:textColor="@color/black" />
+                   </LinearLayout>
+
+
+               </LinearLayout>
+
+               <TextView
+                   android:id="@+id/pdf_name_txt"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="12dp"
+                   android:fontFamily="@font/lato"
+                   android:text="TextView"
+                   android:textColor="@color/black"
+                   android:visibility="gone"
+                   app:layout_constraintEnd_toStartOf="@+id/cross_img"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/images_rv"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="12dp" />
+
+           </LinearLayout>
+       </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/lato"
+            android:padding="12dp"
+            android:text="@string/confirm"
+            android:textAllCaps="false"
+            app:cornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:indicatorColor="@color/app_primary_color"
+        app:indicatorName="LineSpinFadeLoaderIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
