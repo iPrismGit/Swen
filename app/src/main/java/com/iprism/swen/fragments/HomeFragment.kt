@@ -34,6 +34,7 @@ import com.iprism.swen.adapters.MedCategoriesAdapter
 import com.iprism.swen.adapters.MedicineCategoriesAdapter
 import com.iprism.swen.adapters.BannersAdapter
 import com.iprism.swen.adapters.HomeSurgicalQuotesAdapter
+import com.iprism.swen.adapters.HomeVisitServicesAdapter
 import com.iprism.swen.adapters.SurgeonSymptomsDoctorsAdapter
 import com.iprism.swen.databinding.FragmentHomeBinding
 import com.iprism.swen.interfaces.OnHospitalCatItemClickListener
@@ -297,8 +298,22 @@ class HomeFragment : Fragment() {
                     } else {
                         binding.surgicalQuotationsLo.visibility = View.GONE
                     }
+                    val homeVisitServices = result.data.response.homeVisitServices.toMutableList()
+                    if (surgicalQuotesList.isNotEmpty()) {
+                        binding.surgicalQuotationsLo.visibility = View.VISIBLE
+                        surgicalQuotesList.add(
+                            SurgicalQuote(
+                                "0",
+                                "assets/admin/arrow.jpeg",
+                                "See All Services"
+                            )
+                        )
+                    } else {
+                        binding.surgicalQuotationsLo.visibility = View.GONE
+                    }
                     setupSurgicalQuotesAdapter(surgicalQuotesList)
-                    setupSurgeonWithSymptomsAdapter(surgeonSymptoms)
+                    setupSurgeonWithSymptomsAdapter(homeVisitServices)
+                    setupHomeVisitServicesAdapter(homeVisitServices)
                 }
 
                 is UiState.Error -> {
@@ -645,5 +660,12 @@ class HomeFragment : Fragment() {
         val linearLayoutManager = GridLayoutManager(requireContext(), 4)
         binding.surgeonSymptomDoctorsRv.adapter = symptomsDoctorsAdapter
         binding.surgeonSymptomDoctorsRv.layoutManager = linearLayoutManager
+    }
+
+    private fun setupHomeVisitServicesAdapter(items: List<SubCategoriesItem>) {
+        val homeVisitServicesAdapter = HomeVisitServicesAdapter(requireContext(), items)
+        val linearLayoutManager = GridLayoutManager(requireContext(), 4)
+        binding.homeVisitsRv.adapter = homeVisitServicesAdapter
+        binding.homeVisitsRv.layoutManager = linearLayoutManager
     }
 }
