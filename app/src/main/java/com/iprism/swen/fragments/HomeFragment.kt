@@ -287,29 +287,29 @@ class HomeFragment : Fragment() {
                     }
                     val surgeonSymptoms = result.data.response.surgerySymptoms.toMutableList()
                     if (surgicalQuotesList.isNotEmpty()) {
-                        binding.surgicalQuotationsLo.visibility = View.VISIBLE
-                        surgicalQuotesList.add(
-                            SurgicalQuote(
+                        binding.symptomDoctorsLl.visibility = View.VISIBLE
+                        surgeonSymptoms.add(
+                            SubCategoriesItem(
                                 "0",
                                 "assets/admin/arrow.jpeg",
                                 "See All Services"
                             )
                         )
                     } else {
-                        binding.surgicalQuotationsLo.visibility = View.GONE
+                        binding.symptomDoctorsLl.visibility = View.GONE
                     }
                     val homeVisitServices = result.data.response.homeVisitServices.toMutableList()
                     if (surgicalQuotesList.isNotEmpty()) {
-                        binding.surgicalQuotationsLo.visibility = View.VISIBLE
-                        surgicalQuotesList.add(
-                            SurgicalQuote(
+                        binding.homeVisitsLl.visibility = View.VISIBLE
+                        homeVisitServices.add(
+                            SubCategoriesItem(
                                 "0",
                                 "assets/admin/arrow.jpeg",
                                 "See All Services"
                             )
                         )
                     } else {
-                        binding.surgicalQuotationsLo.visibility = View.GONE
+                        binding.homeVisitsLl.visibility = View.GONE
                     }
                     setupSurgicalQuotesAdapter(surgicalQuotesList)
                     setupSurgeonWithSymptomsAdapter(homeVisitServices)
