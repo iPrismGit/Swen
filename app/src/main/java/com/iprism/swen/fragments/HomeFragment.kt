@@ -19,10 +19,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.iprism.swen.R
 import com.iprism.swen.activities.AirAmbulanceActivity
-import com.iprism.swen.activities.ContactUsActivity
 import com.iprism.swen.activities.HomeActivity
 import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
@@ -32,15 +30,14 @@ import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
-import com.iprism.swen.adapters.LabTestCategoriesAdapter
 import com.iprism.swen.adapters.MedCategoriesAdapter
 import com.iprism.swen.adapters.MedicineCategoriesAdapter
 import com.iprism.swen.adapters.BannersAdapter
 import com.iprism.swen.adapters.HomeSurgicalQuotesAdapter
+import com.iprism.swen.adapters.SurgeonSymptomsDoctorsAdapter
 import com.iprism.swen.databinding.FragmentHomeBinding
 import com.iprism.swen.interfaces.OnHospitalCatItemClickListener
 import com.iprism.swen.interfaces.OnItemClickListener
-import com.iprism.swen.interfaces.OnLabCatItemClickListener
 import com.iprism.swen.interfaces.OnSurgicalQuoteCatClickListener
 import com.iprism.swen.interfaces.OnWellnessCatItemClickListener
 import com.iprism.swen.models.homepage.BannersItem
@@ -287,7 +284,21 @@ class HomeFragment : Fragment() {
                     } else {
                         binding.surgicalQuotationsLo.visibility = View.GONE
                     }
+                    val surgeonSymptoms = result.data.response.surgerySymptoms.toMutableList()
+                    if (surgicalQuotesList.isNotEmpty()) {
+                        binding.surgicalQuotationsLo.visibility = View.VISIBLE
+                        surgicalQuotesList.add(
+                            SurgicalQuote(
+                                "0",
+                                "assets/admin/arrow.jpeg",
+                                "See All Services"
+                            )
+                        )
+                    } else {
+                        binding.surgicalQuotationsLo.visibility = View.GONE
+                    }
                     setupSurgicalQuotesAdapter(surgicalQuotesList)
+                    setupSurgeonWithSymptomsAdapter(surgeonSymptoms)
                 }
 
                 is UiState.Error -> {
@@ -627,5 +638,12 @@ class HomeFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun setupSurgeonWithSymptomsAdapter(items: List<SubCategoriesItem>) {
+        val symptomsDoctorsAdapter = SurgeonSymptomsDoctorsAdapter(requireContext(), items)
+        val linearLayoutManager = GridLayoutManager(requireContext(), 4)
+        binding.surgeonSymptomDoctorsRv.adapter = symptomsDoctorsAdapter
+        binding.surgeonSymptomDoctorsRv.layoutManager = linearLayoutManager
     }
 }

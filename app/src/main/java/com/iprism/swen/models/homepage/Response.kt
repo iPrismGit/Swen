@@ -7,6 +7,12 @@ data class Response(
 	@field:SerializedName("symptoms")
 	val symptoms: List<SubCategoriesItem>,
 
+	@field:SerializedName("surgery_symptoms")
+	val surgerySymptoms: List<SubCategoriesItem>,
+
+	@field:SerializedName("home_visit_services")
+	val homeVisitServices: List<SubCategoriesItem>,
+
 	@field:SerializedName("pharmacy_categories")
 	val pharmacyCategories: List<PharmacyCategoriesItem>,
 
