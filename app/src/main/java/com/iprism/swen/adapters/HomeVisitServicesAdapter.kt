@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.iprism.swen.R
 import com.iprism.swen.databinding.DoctorTypeItemBinding
+import com.iprism.swen.databinding.HomeVisitServicesItemBinding
 import com.iprism.swen.interfaces.OnSurgicalQuoteCatClickListener
 import com.iprism.swen.models.homepage.SubCategoriesItem
 import com.iprism.swen.utils.Constants
+import com.iprism.swen.viewholders.HomeServicesViewHolder
 
 class HomeVisitServicesAdapter(var context: Context, var items: List<SubCategoriesItem>) :
-    RecyclerView.Adapter<HomeVisitServicesAdapter.HomeSurgicalQuoteViewHolder>() {
+    RecyclerView.Adapter<HomeServicesViewHolder>() {
 
     private lateinit var listener: OnSurgicalQuoteCatClickListener
 
@@ -23,14 +25,14 @@ class HomeVisitServicesAdapter(var context: Context, var items: List<SubCategori
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomeVisitServicesAdapter.HomeSurgicalQuoteViewHolder {
+    ): HomeServicesViewHolder {
         val binding =
-            DoctorTypeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeSurgicalQuoteViewHolder(binding)
+            HomeVisitServicesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeServicesViewHolder(binding)
     }
 
     override fun onBindViewHolder(
-        holder: HomeVisitServicesAdapter.HomeSurgicalQuoteViewHolder,
+        holder: HomeServicesViewHolder,
         position: Int
     ) {
         val surgicalQuote = items[position]
@@ -50,6 +52,4 @@ class HomeVisitServicesAdapter(var context: Context, var items: List<SubCategori
     override fun getItemCount(): Int {
         return items.size
     }
-
-    class HomeSurgicalQuoteViewHolder(var binding: DoctorTypeItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

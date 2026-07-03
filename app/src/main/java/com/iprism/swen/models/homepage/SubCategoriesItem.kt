@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName
 
 data class SubCategoriesItem(
 
+	@field:SerializedName("id")
+	val id: String,
+
 	@field:SerializedName("image")
 	val image: String,
 
 	@field:SerializedName("name")
-	val name: String,
-
-	@field:SerializedName("id")
-	val id: String
+	val name: String
 )
