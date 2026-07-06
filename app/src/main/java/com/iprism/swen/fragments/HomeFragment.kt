@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.iprism.swen.R
 import com.iprism.swen.activities.AirAmbulanceActivity
+import com.iprism.swen.activities.HealthMediaActivity
 import com.iprism.swen.activities.HomeActivity
 import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
@@ -103,6 +104,7 @@ class HomeFragment : Fragment() {
         handleTreatmentLL()
         handleAirAmbulanceLl()
         handleWhatsappLl()
+        handleHealthMediaLl()
         //handleWhatsapp()
         initViewModel()
         observeResponse()
@@ -119,6 +121,12 @@ class HomeFragment : Fragment() {
     private fun handleWhatsappLl() {
         binding.whatsappAssistLo.setOnClickListener {
             startActivity(Intent(requireContext(), WhatsappAssistanceActivity::class.java))
+        }
+    }
+
+    private fun handleHealthMediaLl() {
+        binding.healthMediaLl.setOnClickListener {
+            startActivity(Intent(requireContext(), HealthMediaActivity::class.java))
         }
     }
 

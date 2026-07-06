@@ -785,27 +785,28 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/health_media_ll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:gravity="center_horizontal"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent">
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="80dp"
-                                app:cardCornerRadius="8dp"
                                 app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="8dp"
                                 app:strokeColor="@color/gray"
                                 app:strokeWidth="0.5dp">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="80dp"
-                                    android:padding="12dp"
                                     android:adjustViewBounds="true"
+                                    android:padding="12dp"
                                     android:src="@drawable/health_media_img" />
                             </com.google.android.material.card.MaterialCardView>
 
@@ -813,14 +814,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
-                                android:gravity="center"
-                                android:text="Health Media"
-                                android:textSize="14sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/lato"
                                 android:ellipsize="end"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:lineSpacingExtra="2dp"
                                 android:singleLine="false"
-                                android:lineSpacingExtra="2dp" />
+                                android:text="Health Media"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                     </LinearLayout>

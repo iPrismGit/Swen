@@ -352,6 +352,9 @@
             android:name=".activities.ProductsCartActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.HealthMediaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PharmacyProductsActivity"
             android:exported="false" />
         <activity
