@@ -16,6 +16,7 @@ class HomeSurgicalQuotesAdapter(var context: Context, var surgicalQuotes: List<S
 
     private lateinit var listener: OnSurgicalQuoteCatClickListener
 
+
     fun setupListener(listener: OnSurgicalQuoteCatClickListener) {
         this.listener = listener
     }
