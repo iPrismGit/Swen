@@ -29,6 +29,7 @@ import com.iprism.swen.activities.OnlineDoctorsActivity
 import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
+import com.iprism.swen.activities.WhatsappAssistanceActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
 import com.iprism.swen.adapters.MedCategoriesAdapter
 import com.iprism.swen.adapters.MedicineCategoriesAdapter
@@ -101,6 +102,7 @@ class HomeFragment : Fragment() {
         handleAdmissionLL()
         handleTreatmentLL()
         handleAirAmbulanceLl()
+        handleWhatsappLl()
         //handleWhatsapp()
         initViewModel()
         observeResponse()
@@ -112,6 +114,12 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         fetchNotifications()
+    }
+
+    private fun handleWhatsappLl() {
+        binding.whatsappAssistLo.setOnClickListener {
+            startActivity(Intent(requireContext(), WhatsappAssistanceActivity::class.java))
+        }
     }
 
     private fun setTopBanners(banners: List<BannersItem>) {

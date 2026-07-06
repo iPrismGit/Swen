@@ -1,5 +1,7 @@
 package com.iprism.swen.repository
 
+import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
+import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
 import com.iprism.swen.models.contactus.ContactUsApiResponse
 import com.iprism.swen.models.contactus.ContactUsRequest
 import com.iprism.swen.models.contentpages.ContentPagesApiResponse
@@ -46,5 +48,9 @@ class CommonRepository {
 
     suspend fun fetchNotifications(request : NotificationsRequest): NotificationsApiResponse {
         return apiService.fetchNotifications(request)
+    }
+
+    suspend fun fetchWhatsappAssistanceDetails(hospitalAssistanceApiRequest: HospitalAssistanceApiRequest): HospitalAssistanceApiResponse {
+        return apiService.fetchWhatsappAssistanceDetails(hospitalAssistanceApiRequest)
     }
 }

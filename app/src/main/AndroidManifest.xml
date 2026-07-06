@@ -364,6 +364,9 @@
             android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.WhatsappAssistanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PdfViewActivity"
             android:exported="false" />
         <activity

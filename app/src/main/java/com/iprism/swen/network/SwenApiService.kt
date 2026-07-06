@@ -1,5 +1,7 @@
 package com.iprism.swen.network
 
+import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
+import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
 import com.iprism.swen.models.addfamilymember.AddFamilyMemberApiResponse
 import com.iprism.swen.models.addfamilymember.AddFamilyMemberRequest
 import com.iprism.swen.models.addfamilymembersub.AddFamilyMemberSubRequest
@@ -476,4 +478,7 @@ interface SwenApiService {
 
     @POST(Constants.INSERT_SURGICAL_QUOTE_ENDPOINT)
     suspend fun insertSurgicalQuote(@Body request: InsertSurgicalQuoteRequest) : InsertSurgicalQuoteApiResponse
+
+    @POST(Constants.WHATSAPP_ASSISTANCE_ENDPOINT)
+    suspend fun fetchWhatsappAssistanceDetails(@Body hospitalAssistanceApiRequest: HospitalAssistanceApiRequest) : HospitalAssistanceApiResponse
 }
