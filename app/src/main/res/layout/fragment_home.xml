@@ -378,7 +378,7 @@
                                 android:layout_marginTop="4dp"
                                 android:fontFamily="@font/lato_bold"
                                 android:gravity="center"
-                                android:text="Health Media"
+                                android:text="Health Records"
                                 android:textColor="@color/black" />
                         </LinearLayout>
 
@@ -814,7 +814,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
                                 android:gravity="center"
-                                android:text="Diet Tips"
+                                android:text="Health Media"
                                 android:textSize="14sp"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/lato"
