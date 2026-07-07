@@ -355,6 +355,9 @@
             android:name=".activities.HealthMediaActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.HealthTalksActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PharmacyProductsActivity"
             android:exported="false" />
         <activity

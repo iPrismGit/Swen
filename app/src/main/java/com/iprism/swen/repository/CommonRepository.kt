@@ -2,6 +2,8 @@ package com.iprism.swen.repository
 
 import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
 import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
+import com.iprism.swen.models.TestimonialVideosApiRequest
+import com.iprism.swen.models.TestimonialVideosApiResponse
 import com.iprism.swen.models.contactus.ContactUsApiResponse
 import com.iprism.swen.models.contactus.ContactUsRequest
 import com.iprism.swen.models.contentpages.ContentPagesApiResponse
@@ -52,5 +54,9 @@ class CommonRepository {
 
     suspend fun fetchWhatsappAssistanceDetails(hospitalAssistanceApiRequest: HospitalAssistanceApiRequest): HospitalAssistanceApiResponse {
         return apiService.fetchWhatsappAssistanceDetails(hospitalAssistanceApiRequest)
+    }
+
+    suspend fun fetchTestimonials(request: TestimonialVideosApiRequest): TestimonialVideosApiResponse {
+        return apiService.fetchTestimonials(request)
     }
 }

@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.iprism.swen.R
 import com.iprism.swen.activities.AirAmbulanceActivity
 import com.iprism.swen.activities.HealthMediaActivity
+import com.iprism.swen.activities.HealthTalksActivity
 import com.iprism.swen.activities.HomeActivity
 import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
@@ -105,6 +106,7 @@ class HomeFragment : Fragment() {
         handleAirAmbulanceLl()
         handleWhatsappLl()
         handleHealthMediaLl()
+        handleHealthTalksLl()
         //handleWhatsapp()
         initViewModel()
         observeResponse()
@@ -127,6 +129,12 @@ class HomeFragment : Fragment() {
     private fun handleHealthMediaLl() {
         binding.healthMediaLl.setOnClickListener {
             startActivity(Intent(requireContext(), HealthMediaActivity::class.java))
+        }
+    }
+
+    private fun handleHealthTalksLl() {
+        binding.healthTalksLl.setOnClickListener {
+            startActivity(Intent(requireContext(), HealthTalksActivity::class.java))
         }
     }
 

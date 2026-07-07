@@ -745,6 +745,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/health_talks_ll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
@@ -774,14 +775,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
-                                android:gravity="center"
-                                android:text="Health Talks"
-                                android:textSize="14sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/lato"
                                 android:ellipsize="end"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:lineSpacingExtra="2dp"
                                 android:singleLine="false"
-                                android:lineSpacingExtra="2dp" />
+                                android:text="Health Talks"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout

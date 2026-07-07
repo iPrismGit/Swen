@@ -121,4 +121,5 @@ object Constants {
     const val INSERT_SURGICAL_QUOTE_ENDPOINT = "insert_surgical_quote"
     const val WHATSAPP_ASSISTANCE_ENDPOINT = "whatsapp_assistance"
     const val HEALTH_MEDIA_ENDPOINT = "health_media"
+    const val TESTIMONIAL_ENDPOINT = "health_talks"
 }

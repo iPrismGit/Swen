@@ -4,6 +4,8 @@ import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
 import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
 import com.iprism.ecmuser.models.healthmedia.HealthMediaApiResponse
 import com.iprism.ecmuser.models.healthmedia.HealthMediaRequest
+import com.iprism.swen.models.TestimonialVideosApiRequest
+import com.iprism.swen.models.TestimonialVideosApiResponse
 import com.iprism.swen.models.addfamilymember.AddFamilyMemberApiResponse
 import com.iprism.swen.models.addfamilymember.AddFamilyMemberRequest
 import com.iprism.swen.models.addfamilymembersub.AddFamilyMemberSubRequest
@@ -486,4 +488,7 @@ interface SwenApiService {
 
     @POST(Constants.HEALTH_MEDIA_ENDPOINT)
     suspend fun fetchHealthMedia(@Body request: HealthMediaRequest) : HealthMediaApiResponse
+
+    @POST(Constants.TESTIMONIAL_ENDPOINT)
+    suspend fun fetchTestimonials(@Body request: TestimonialVideosApiRequest) : TestimonialVideosApiResponse
 }
