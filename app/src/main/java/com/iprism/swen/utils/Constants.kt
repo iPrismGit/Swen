@@ -122,4 +122,8 @@ object Constants {
     const val WHATSAPP_ASSISTANCE_ENDPOINT = "whatsapp_assistance"
     const val HEALTH_MEDIA_ENDPOINT = "health_media"
     const val TESTIMONIAL_ENDPOINT = "health_talks"
+
+    const val HOME_VISIT_SERVICES_ENDPOINT = "home_visit_services"
+
+    const val HOME_VISIT_SERVICES_BOOKING_ENDPOINT = "home_visit_services_booking"
 }

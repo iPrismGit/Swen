@@ -53,6 +53,10 @@ import com.iprism.swen.models.filters.FiltersApiResponse
 import com.iprism.swen.models.filters.FiltersRequest
 import com.iprism.swen.models.homepage.HomePageApiResponse
 import com.iprism.swen.models.homepage.HomePageRequest
+import com.iprism.swen.models.homeservices.HomeServicesApiResponse
+import com.iprism.swen.models.homeservices.HomeServicesRequest
+import com.iprism.swen.models.homeservicesbooking.HomeServicesBookingApiResponse
+import com.iprism.swen.models.homeservicesbooking.HomeServicesBookingRequest
 import com.iprism.swen.models.hospitaladmitongoingbookings.HospitalAdmissionOnGoingApiResponse
 import com.iprism.swen.models.hospitaladmitongoingbookings.HospitalAdmissionOnGoingRequest
 import com.iprism.swen.models.hospitalambulancebookings.HospitalAmbulanceBookingApiResponse
@@ -491,4 +495,10 @@ interface SwenApiService {
 
     @POST(Constants.TESTIMONIAL_ENDPOINT)
     suspend fun fetchTestimonials(@Body request: TestimonialVideosApiRequest) : TestimonialVideosApiResponse
+
+    @POST(Constants.HOME_VISIT_SERVICES_ENDPOINT)
+    suspend fun fetchHomeVisitServices(@Body req : HomeServicesRequest) : HomeServicesApiResponse
+
+    @POST(Constants.HOME_VISIT_SERVICES_BOOKING_ENDPOINT)
+    suspend fun bookHomeVisitService(@Body req : HomeServicesBookingRequest) : HomeServicesBookingApiResponse
 }
