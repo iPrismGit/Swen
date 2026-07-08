@@ -31,6 +31,7 @@ import com.iprism.swen.activities.LoginActivity
 import com.iprism.swen.activities.MedLockerActivity
 import com.iprism.swen.activities.OnlineDoctorsActivity
 import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
+import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.activities.WhatsappAssistanceActivity
@@ -164,7 +165,7 @@ class HomeFragment : Fragment() {
         binding.medCategoriesRv.adapter = medCategoriesAdapter
         medCategoriesAdapter.setOnArtistActionListener(object : OnItemClickListener {
             override fun onItemClicked(item: CategoriesItem) {
-                /*if (!isSubscribe) {
+                if (!isSubscribe) {
                     val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                     intent.putExtra("tag", "subscribe")
                     startActivity(intent)
@@ -181,13 +182,7 @@ class HomeFragment : Fragment() {
                     intent.putExtra("lat", lat)
                     intent.putExtra("lon", lon)
                     startActivity(intent)
-                }*/
-                val intent = Intent(requireContext(), HospitalsActivity::class.java)
-                intent.putExtra("catId", item.id)
-                intent.putExtra("catName", item.name)
-                intent.putExtra("lat", lat)
-                intent.putExtra("lon", lon)
-                startActivity(intent)
+                }
             }
         })
     }
@@ -199,7 +194,7 @@ class HomeFragment : Fragment() {
         hospitalCategoriesAdapter.setOnArtistActionListener(object :
             OnHospitalCatItemClickListener {
             override fun onItemClicked(item: SubCategoriesItem) {
-                /*if (!isSubscribe) {
+                if (!isSubscribe) {
                     val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                     intent.putExtra("tag", "subscribe")
                     startActivity(intent)
@@ -212,13 +207,7 @@ class HomeFragment : Fragment() {
                     intent.putExtra("lat", lat)
                     intent.putExtra("lon", lon)
                     startActivity(intent)
-                }*/
-                val intent = Intent(requireContext(), HospitalsActivity::class.java)
-                intent.putExtra("catId", item.id)
-                intent.putExtra("catName", item.name)
-                intent.putExtra("lat", lat)
-                intent.putExtra("lon", lon)
-                startActivity(intent)
+                }
             }
         })
     }
