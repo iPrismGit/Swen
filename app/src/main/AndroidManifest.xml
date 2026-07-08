@@ -340,6 +340,9 @@
             android:name=".activities.HomeCareServiceSubCategoriesActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.HomeServiceBookingActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DiagnosticTimeSlotActivity"
             android:exported="false" />
         <activity
