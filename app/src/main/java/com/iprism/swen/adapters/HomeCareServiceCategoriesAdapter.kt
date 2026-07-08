@@ -35,7 +35,7 @@ class HomeCareServiceCategoriesAdapter(var items : ArrayList<ResponseItem>) : Re
             .load(Constants.IMAGES_BASE_URL + item.image)
             .into(holder.binding.categoryImg)
         holder.binding.root.setOnClickListener { view ->
-            listener.onItemClick(item.id, item.name)
+            listener.onItemClick(item.id.toString(), item.name)
         }
     }
 
