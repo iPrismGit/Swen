@@ -24,6 +24,8 @@ import com.iprism.swen.activities.AirAmbulanceActivity
 import com.iprism.swen.activities.HealthMediaActivity
 import com.iprism.swen.activities.HealthTalksActivity
 import com.iprism.swen.activities.HomeActivity
+import com.iprism.swen.activities.HomeCareServiceCategoriesActivity
+import com.iprism.swen.activities.HomeCareServiceSubCategoriesActivity
 import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
 import com.iprism.swen.activities.MedLockerActivity
@@ -691,5 +693,19 @@ class HomeFragment : Fragment() {
         val linearLayoutManager = GridLayoutManager(requireContext(), 4)
         binding.homeVisitsRv.adapter = homeVisitServicesAdapter
         binding.homeVisitsRv.layoutManager = linearLayoutManager
+        homeVisitServicesAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
+            override fun onItemClicked(catId: String, catName: String) {
+                if (catId.toInt() == 0) {
+                    val intent =
+                        Intent(requireContext(), HomeCareServiceCategoriesActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(requireContext(), HomeCareServiceSubCategoriesActivity::class.java)
+                    intent.putExtra("catId", catId)
+                    intent.putExtra("catName", catName)
+                    startActivity(intent)
+                }
+            }
+        })
     }
 }

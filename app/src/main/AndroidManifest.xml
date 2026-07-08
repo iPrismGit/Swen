@@ -334,6 +334,12 @@
             android:name=".activities.AddLabTestPatientActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.HomeCareServiceCategoriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HomeCareServiceSubCategoriesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DiagnosticTimeSlotActivity"
             android:exported="false" />
         <activity
