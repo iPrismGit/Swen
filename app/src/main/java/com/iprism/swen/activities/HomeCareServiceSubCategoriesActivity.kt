@@ -36,17 +36,17 @@ class HomeCareServiceSubCategoriesActivity : AppCompatActivity() {
     }
 
     private fun setupAdapter() {
-        val adapter = HomeCareServiceCategoriesAdapter()
+        /*val adapter = HomeCareServiceCategoriesAdapter()
         val layoutManager = GridLayoutManager(this, 4)
         binding.categoriesRv.adapter = adapter
         binding.categoriesRv.layoutManager = layoutManager
         adapter.setupListener(object : OnServiceItemClickListener {
             override fun onItemClick(position: Int) {
-                /*val intent = Intent(this@HomeCareServiceSubCategoriesActivity, HomeCareServiceHospitalActivity::class.java)
-                startActivity(intent)*/
+                *//*val intent = Intent(this@HomeCareServiceSubCategoriesActivity, HomeCareServiceHospitalActivity::class.java)
+                startActivity(intent)*//*
             }
 
-        })
+        })*/
     }
 
 }

@@ -2,18 +2,33 @@ package com.iprism.swen.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.iprism.swen.adapters.HomeCareServiceCategoriesAdapter
 import com.iprism.swen.databinding.ActivityHomeCareServiceCategoriesBinding
 import com.iprism.swen.interfaces.OnServiceItemClickListener
+import com.iprism.swen.models.homeservices.HomeServicesRequest
+import com.iprism.swen.models.homeservices.ResponseItem
+import com.iprism.swen.repository.HomeVisitServicesRepository
+import com.iprism.swen.utils.UiState
+import com.iprism.swen.utils.User
+import com.iprism.swen.utils.getUserDetails
+import com.iprism.swen.utils.hideProgress
+import com.iprism.swen.utils.showProgress
+import com.iprism.swen.utils.showToast
+import com.iprism.swen.viewmodels.HomeServicesCategoriesViewModel
+import com.iprism.swen.viewmodels.ViewModelFactory
+import kotlin.text.toInt
 
 class HomeCareServiceCategoriesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeCareServiceCategoriesBinding
+    private lateinit var viewModel : HomeServicesCategoriesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,21 +41,24 @@ class HomeCareServiceCategoriesActivity : AppCompatActivity() {
             insets
         }
         handleBack()
-        setupAdapter()
+        initViewModel()
+        observeResponse()
+        fetchHomeServices()
     }
 
-    private fun setupAdapter() {
-        val adapter =
-            HomeCareServiceCategoriesAdapter()
+    private fun setupAdapter(items : ArrayList<ResponseItem>) {
+        val adapter = HomeCareServiceCategoriesAdapter(items)
         val layoutManager = GridLayoutManager(this, 4)
         binding.categoriesRv.adapter = adapter
         binding.categoriesRv.layoutManager = layoutManager
         adapter.setupListener(object : OnServiceItemClickListener {
-            override fun onItemClick(position: Int) {
-                val intent = Intent(this@HomeCareServiceCategoriesActivity, HomeCareServiceSubCategoriesActivity::class.java)
+            override fun onItemClick(catId: Int, catName: String) {
+                val intent = Intent(
+                    this@HomeCareServiceCategoriesActivity,
+                    HomeCareServiceSubCategoriesActivity::class.java
+                )
                 startActivity(intent)
             }
-
         })
     }
 
@@ -50,4 +68,44 @@ class HomeCareServiceCategoriesActivity : AppCompatActivity() {
         }
     }
 
+    private fun initViewModel() {
+        val repository = HomeVisitServicesRepository()
+        val factory = ViewModelFactory { HomeServicesCategoriesViewModel(repository) }
+        viewModel = ViewModelProvider(this, factory)[HomeServicesCategoriesViewModel::class.java]
+    }
+
+    private fun observeResponse() {
+        viewModel.response.observe(this) { result ->
+            Log.d("result1", result.toString())
+            when (result) {
+                is UiState.Loading -> {
+                    binding.progress.showProgress()
+                }
+
+                is UiState.Success -> {
+                    binding.progress.hideProgress()
+                    setupAdapter(result.data.response)
+                }
+
+                is UiState.Error -> {
+                    showToast(result.message)
+                    binding.progress.hideProgress()
+                }
+            }
+        }
+    }
+
+    private fun fetchHomeServices() {
+        val userDetails = getUserDetails()
+        val request = HomeServicesRequest(
+            userDetails[User.ID]!!.toInt(),
+            0,
+            "categories",
+            userDetails[User.AUTH_TOKEN]!!
+        )
+        NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
+            viewModel.fetchHomeServices(req)
+        }
+        Log.d("requestLoading", request.toString())
+    }
 }

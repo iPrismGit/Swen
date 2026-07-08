@@ -2,6 +2,6 @@ package com.iprism.swen.interfaces
 
 interface OnServiceItemClickListener {
 
-    fun onItemClick(position: Int)
+    fun onItemClick(catId: Int, catName : String)
 
 }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class HomeServicesApiResponse(
 
 	@field:SerializedName("response")
-	val response: List<ResponseItem>,
+	val response: ArrayList<ResponseItem>,
 
 	@field:SerializedName("message")
 	val message: String,
