@@ -20,7 +20,7 @@ import java.io.FileOutputStream
 class ShareAppActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityShareAppBinding
-    private val appLink = "https://play.google.com/store/apps/details?id=com.iprism.medrayder"
+    private val appLink = "https://play.google.com/store/apps/details?id=com.iprism.swen"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

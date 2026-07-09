@@ -39,12 +39,12 @@ public class InAppUpdate {
         if(requestCode == 100 && resultCode != RESULT_OK){
 //            Toast.makeText(activity, "Cancel", Toast.LENGTH_SHORT).show();
             try {
-                Intent appStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.iprism.medrayder"));
+                Intent appStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + "com.iprism.swen"));
                 appStoreIntent.setPackage("com.android.vending");
 
                 activity.startActivity(appStoreIntent);
             } catch (android.content.ActivityNotFoundException exception) {
-                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + "com.iprism.medrayder")));
+                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + "com.iprism.swen")));
             }
         }
     }

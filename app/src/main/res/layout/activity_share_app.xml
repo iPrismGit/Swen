@@ -85,7 +85,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/blue_border_bg"
                 android:padding="12dp"
-                android:text="https://play.google.com/store/apps/details?id=com.iprism.medrayder" />
+                android:text="https://play.google.com/store/apps/details?id=com.iprism.swen" />
 
             <ImageButton
                 android:id="@+id/share_btn"
