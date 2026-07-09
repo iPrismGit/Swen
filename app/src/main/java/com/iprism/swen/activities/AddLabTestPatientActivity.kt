@@ -35,6 +35,9 @@ class AddLabTestPatientActivity : AppCompatActivity() {
     private var convertDate = ""
     private var specialityId = ""
     private var labId = ""
+    private var catId = ""
+    private var subCatId = ""
+    private var subCatName = ""
     private var hospitalId = ""
     private var diagnosticId = ""
     private var imageUri = ""
@@ -73,6 +76,13 @@ class AddLabTestPatientActivity : AppCompatActivity() {
             } else if (tag.equals("hospitalDiagnostic", true)) {
                 imageUri = intent.getStringExtra("imageUri")!!
                 hospitalId = intent.getStringExtra("hospitalId")!!
+                initViewModel()
+                observeResponse()
+                fetchFamilyMembers()
+            } else if (tag.equals("homeServices", true)) {
+                catId = intent.getStringExtra("catId")!!
+                subCatId = intent.getStringExtra("subCatId")!!
+                subCatName = intent.getStringExtra("subCatName")!!
                 initViewModel()
                 observeResponse()
                 fetchFamilyMembers()
@@ -140,6 +150,13 @@ class AddLabTestPatientActivity : AppCompatActivity() {
             } else if (tag.equals("hospital", true)) {
                 val intent = Intent(this, SuccessActivity::class.java)
                 intent.putExtra("tag", "Booking Confirmed")
+                startActivity(intent)
+            } else if (tag.equals("homeServices", true)) {
+                val intent = Intent(this, HomeServiceBookingActivity::class.java)
+                intent.putExtra("catId", catId)
+                intent.putExtra("subCatId", subCatId)
+                intent.putExtra("subCatName", subCatName)
+                intent.putExtra("familyMember", familyMembersItem)
                 startActivity(intent)
             } else {
                 startActivity(Intent(this, DiagnosticTestSummaryActivity::class.java))

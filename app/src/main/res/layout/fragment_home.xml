@@ -10,7 +10,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -259,9 +259,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
-                            android:scaleType="centerCrop"
                             android:maxWidth="80dp"
                             android:maxHeight="80dp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/whatsapp_assist_round_img" />
 
                         <TextView
@@ -454,7 +454,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp" />
 
-               <!-- <TextView
+                <!-- <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -708,25 +708,25 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            android:orientation="vertical"
                             android:gravity="center_horizontal"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent">
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="80dp"
-                                app:cardCornerRadius="8dp"
                                 app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="8dp"
                                 app:strokeColor="@color/gray"
                                 app:strokeWidth="0.5dp">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="80dp"
-                                    android:padding="12dp"
                                     android:adjustViewBounds="true"
+                                    android:padding="12dp"
                                     android:src="@drawable/diet_tips_img" />
                             </com.google.android.material.card.MaterialCardView>
 
@@ -734,14 +734,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="6dp"
-                                android:gravity="center"
-                                android:text="Diet Tips"
-                                android:textSize="14sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/lato"
                                 android:ellipsize="end"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:lineSpacingExtra="2dp"
                                 android:singleLine="false"
-                                android:lineSpacingExtra="2dp" />
+                                android:text="Diet Tips"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -749,25 +749,25 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            android:orientation="vertical"
                             android:gravity="center_horizontal"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent">
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="80dp"
-                                app:cardCornerRadius="8dp"
                                 app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="8dp"
                                 app:strokeColor="@color/gray"
                                 app:strokeWidth="0.5dp">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="80dp"
-                                    android:padding="12dp"
                                     android:adjustViewBounds="true"
+                                    android:padding="12dp"
                                     android:src="@drawable/health_talks_img" />
                             </com.google.android.material.card.MaterialCardView>
 

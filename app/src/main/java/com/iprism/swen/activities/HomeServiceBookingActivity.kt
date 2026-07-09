@@ -21,6 +21,7 @@ import com.iprism.swen.adapters.ImagesAdapter
 import com.iprism.swen.databinding.ActivityHomeServicePatientDetailsBinding
 import com.iprism.swen.interfaces.OnImageDeleteActionListener
 import com.iprism.swen.models.homeservicesbooking.HomeServicesBookingRequest
+import com.iprism.swen.models.onlinedoctorbookingdetails.FamilyMembersItem
 import com.iprism.swen.repository.HomeVisitServicesRepository
 import com.iprism.swen.utils.DateTimeUtils
 import com.iprism.swen.utils.UiState
@@ -46,6 +47,7 @@ class HomeServiceBookingActivity : AppCompatActivity() {
     private var bitmap : Bitmap? = null
     private var categoryId : String = ""
     private var subCatId : String = ""
+    private var familyMembersItem : FamilyMembersItem? =  null
     private val pdfPickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         uri?.let {
             // Handle the selected PDF file here
@@ -66,6 +68,8 @@ class HomeServiceBookingActivity : AppCompatActivity() {
         if (intent.hasExtra("catId")) {
             categoryId = intent.getStringExtra("catId")!!
             subCatId = intent.getStringExtra("subCatId")!!
+            binding.subCatNameTxt.text = intent.getStringExtra("subCatName")
+            familyMembersItem = intent.getSerializableExtra("familyMember") as FamilyMembersItem?
         }
         handleBack()
         handleConfirmBookingBtn()
@@ -268,7 +272,7 @@ class HomeServiceBookingActivity : AppCompatActivity() {
                 is UiState.Success -> {
                     binding.progress.hideProgress()
                     showToast(result.data.message)
-                    finishAffinity()
+                    startActivity(Intent(this, SuccessActivity::class.java))
                 }
 
                 is UiState.Error -> {
@@ -285,7 +289,7 @@ class HomeServiceBookingActivity : AppCompatActivity() {
             getDate(),
             getReason(),
             convertUriToBase64Image(imagesUris),
-            "",
+            getAddress(),
             subCatId,
             getMobile(),
             "booking",
@@ -296,7 +300,7 @@ class HomeServiceBookingActivity : AppCompatActivity() {
             getTime(),
             userDetails[User.AUTH_TOKEN]!!,
             getEmail(),
-            "0"
+            familyMembersItem!!.id.toString()
         )
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.bookHomeServices(req)
@@ -318,6 +322,10 @@ class HomeServiceBookingActivity : AppCompatActivity() {
 
     private fun getReason() : String {
         return binding.reasonEt.text.toString().trim()
+    }
+
+    private fun getAddress() : String {
+        return binding.addressEt.text.toString().trim()
     }
 
     private fun getDob() : String {

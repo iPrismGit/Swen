@@ -59,9 +59,12 @@ class HomeCareServiceSubCategoriesActivity : AppCompatActivity() {
         binding.categoriesRv.layoutManager = layoutManager
         adapter.setupListener(object : OnServiceItemClickListener {
             override fun onItemClick(catId: String, catName: String) {
-                val intent = Intent(this@HomeCareServiceSubCategoriesActivity, HomeServiceBookingActivity::class.java)
+                val intent = Intent(this@HomeCareServiceSubCategoriesActivity,
+                    AddLabTestPatientActivity::class.java)
                 intent.putExtra("catId", categoryId)
                 intent.putExtra("subCatId", catId)
+                intent.putExtra("subCatName", catName)
+                intent.putExtra("tag", "homeServices")
                 startActivity(intent)
             }
         })
