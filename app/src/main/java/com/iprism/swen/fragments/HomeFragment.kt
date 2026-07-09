@@ -327,7 +327,7 @@ class HomeFragment : Fragment() {
                         binding.homeVisitsLl.visibility = View.GONE
                     }
                     setupSurgicalQuotesAdapter(surgicalQuotesList)
-                    setupSurgeonWithSymptomsAdapter(homeVisitServices)
+                    setupSurgeonWithSymptomsAdapter(surgeonSymptoms)
                     setupHomeVisitServicesAdapter(homeVisitServices)
                 }
 
