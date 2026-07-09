@@ -14,17 +14,32 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.iprism.swen.R
 import com.iprism.swen.adapters.ImagesAdapter
 import com.iprism.swen.databinding.ActivityHomeServicePatientDetailsBinding
 import com.iprism.swen.interfaces.OnImageDeleteActionListener
+import com.iprism.swen.models.homeservices.HomeServicesRequest
+import com.iprism.swen.models.homeservicesbooking.HomeServicesBookingRequest
+import com.iprism.swen.repository.HomeVisitServicesRepository
+import com.iprism.swen.utils.DateTimeUtils
+import com.iprism.swen.utils.UiState
+import com.iprism.swen.utils.User
+import com.iprism.swen.utils.getUserDetails
+import com.iprism.swen.utils.hideProgress
+import com.iprism.swen.utils.showProgress
 import com.iprism.swen.utils.showToast
+import com.iprism.swen.viewmodels.HomeServicesBookingViewModel
+import com.iprism.swen.viewmodels.HomeServicesCategoriesViewModel
+import com.iprism.swen.viewmodels.ViewModelFactory
 import java.io.IOException
+import kotlin.text.toInt
 
 class HomeServiceBookingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeServicePatientDetailsBinding
+    private lateinit var viewModel : HomeServicesBookingViewModel
     private var imagesAdapter: ImagesAdapter? = null
     private var imageUri: Uri? = null
     private var PICK_IMAGE_MULTIPLE = 1
@@ -53,6 +68,29 @@ class HomeServiceBookingActivity : AppCompatActivity() {
         handleGalleryLL()
         setupImagesAdapter()
         setupImagesRv()
+        initViewModel()
+        observeResponse()
+        handleDateLo()
+        handleDobLo()
+        handleTimeLl()
+    }
+
+    private fun handleDateLo() {
+        binding.dateLo.setOnClickListener(View.OnClickListener {
+            DateTimeUtils.getDate(binding.dateTxt, true)
+        })
+    }
+
+    private fun handleDobLo() {
+        binding.dobLo.setOnClickListener(View.OnClickListener {
+            DateTimeUtils.getDate(binding.dobTxt, true)
+        })
+    }
+
+    private fun handleTimeLl() {
+        binding.timeLo.setOnClickListener(View.OnClickListener {
+            DateTimeUtils.getTime(binding.timeTxt)
+        })
     }
 
     private fun handleConfirmBookingBtn() {
@@ -174,5 +212,46 @@ class HomeServiceBookingActivity : AppCompatActivity() {
             }
         }
         return base64FileList
+    }
+
+    private fun initViewModel() {
+        val repository = HomeVisitServicesRepository()
+        val factory = ViewModelFactory { HomeServicesBookingViewModel(repository) }
+        viewModel = ViewModelProvider(this, factory)[HomeServicesBookingViewModel::class.java]
+    }
+
+    private fun observeResponse() {
+        viewModel.response.observe(this) { result ->
+            Log.d("result1", result.toString())
+            when (result) {
+                is UiState.Loading -> {
+                    binding.progress.showProgress()
+                }
+
+                is UiState.Success -> {
+                    binding.progress.hideProgress()
+                    showToast(result.data.message)
+                }
+
+                is UiState.Error -> {
+                    showToast(result.message)
+                    binding.progress.hideProgress()
+                }
+            }
+        }
+    }
+
+    private fun bookHomeServices() {
+        /*val userDetails = getUserDetails()
+        val request = HomeServicesBookingRequest(
+            userDetails[User.ID]!!.toInt(),
+            0,
+            "categories",
+            userDetails[User.AUTH_TOKEN]!!
+        )
+        NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
+            viewModel.fetchHomeServices(req)
+        }
+        Log.d("requestLoading", request.toString())*/
     }
 }
