@@ -1,18 +1,41 @@
 package com.iprism.swen.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
+import android.util.Base64
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import com.iprism.swen.R
+import com.iprism.swen.adapters.ImagesAdapter
 import com.iprism.swen.databinding.ActivityHomeServicePatientDetailsBinding
+import com.iprism.swen.interfaces.OnImageDeleteActionListener
+import com.iprism.swen.utils.showToast
+import java.io.IOException
 
 class HomeServiceBookingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeServicePatientDetailsBinding
-    private var registerFor = ""
+    private var imagesAdapter: ImagesAdapter? = null
+    private var imageUri: Uri? = null
+    private var PICK_IMAGE_MULTIPLE = 1
+    private var imagesUris: ArrayList<Uri> = ArrayList()
+    private var bitmap : Bitmap? = null
+    private val pdfPickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            // Handle the selected PDF file here
+            handlePdfFile(uri)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +49,10 @@ class HomeServiceBookingActivity : AppCompatActivity() {
         }
         handleBack()
         handleConfirmBookingBtn()
-        setupData()
-    }
-
-    private fun setupData() {
-        if (registerFor.equals("RegisterForYou")){
-            binding.uploadTopLo.visibility = View.GONE
-            binding.emailLo.visibility = View.GONE
-            binding.dobTopLo.visibility = View.GONE
-            binding.reasonForBookingLo.visibility = View.GONE
-            binding.degreeLo.visibility = View.GONE
-        }
+        handlePdfLL()
+        handleGalleryLL()
+        setupImagesAdapter()
+        setupImagesRv()
     }
 
     private fun handleConfirmBookingBtn() {
@@ -51,5 +67,112 @@ class HomeServiceBookingActivity : AppCompatActivity() {
         binding.backImg.setOnClickListener { p0 ->
             finish()
         }
+    }
+
+    private fun setupImagesRv() {
+        binding.imagesRv.layoutManager = GridLayoutManager(this, 3)
+        binding.imagesRv.adapter = imagesAdapter
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setupImagesAdapter() {
+        imagesAdapter = ImagesAdapter()
+        imagesAdapter!!.setCheckInImages(imagesUris)
+        imagesAdapter!!.setOnDeleteActionListener(object : OnImageDeleteActionListener {
+            override fun onDelete(position: Int) {
+                imagesUris.removeAt(position)
+                imagesAdapter!!.notifyDataSetChanged()
+            }
+        })
+    }
+
+    @SuppressLint("Range")
+    private fun handlePdfFile(uri: Uri) {
+        if (uri != null) {
+            imagesUris.add(uri)
+            imagesAdapter!!.notifyDataSetChanged()
+        }
+        // Example: Get file name
+        val cursor = contentResolver.query(uri, null, null, null, null)
+        cursor?.use {
+            if (it.moveToFirst()) {
+                val displayName = it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+                Log.d("PDF_NAME", "Selected file: $displayName")
+                //binding.pdfNameTxt.visibility = View.VISIBLE
+                //binding.pdfNameTxt.text = displayName
+            }
+        }
+
+        // You can also open the InputStream to read the content
+        val inputStream = contentResolver.openInputStream(uri)
+        // Now you can upload, read, or display the PDF
+    }
+
+    @SuppressLint("IntentReset")
+    private fun handlePdfLL() {
+        binding.pdfLl.setOnClickListener(View.OnClickListener {
+            if (imagesUris.size == 0) {
+                pdfPickerLauncher.launch("application/pdf")
+            } else {
+                showToast(getString(R.string.select_only_one_option_pdf_or_gallery))
+            }
+        })
+    }
+
+    @SuppressLint("IntentReset")
+    private fun handleGalleryLL() {
+        binding.galleryLl.setOnClickListener(View.OnClickListener {
+            if (imagesUris.size == 0) {
+                val intent = Intent()
+                intent.type = "image/*"
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+                intent.action = Intent.ACTION_GET_CONTENT
+                startActivityForResult(Intent.createChooser(
+                    intent, "Select Picture"),
+                    PICK_IMAGE_MULTIPLE)
+            } else {
+                showToast(getString(R.string.select_only_one_option_pdf_or_gallery))
+            }
+        })
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_MULTIPLE && resultCode == RESULT_OK && null != data) {
+            if (data.clipData != null) {
+                val count = data.clipData!!.itemCount
+                if (imagesUris.size > 5) {
+                    showToast(getString(R.string.you_can_also_choose))
+                } else {
+                    for (i in 0 until count) {
+                        val imageUri = data.clipData!!.getItemAt(i).uri
+                        imagesUris.add(imageUri)
+                        imagesAdapter!!.notifyDataSetChanged()
+                    }
+                }
+            }
+        } else {
+            //Toast.makeText(this, "You haven't picked Image", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun convertUriToBase64Image(filesUris: ArrayList<Uri>): ArrayList<String> {
+        val base64FileList = ArrayList<String>()
+        for (uri in filesUris) {
+            try {
+                val inputStream = contentResolver.openInputStream(uri)
+                val bytes = inputStream?.readBytes()
+                inputStream?.close()
+
+                if (bytes != null) {
+                    val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
+                    base64FileList.add(base64String)
+                }
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        return base64FileList
     }
 }
