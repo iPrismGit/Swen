@@ -15,7 +15,7 @@ class HomeServicesBookingViewModel(private val repository: HomeVisitServicesRepo
     private val _response = MutableLiveData<UiState<HomeServicesBookingApiResponse>>()
     val response: LiveData<UiState<HomeServicesBookingApiResponse>> = _response
 
-    fun fetchHomeServices(request: HomeServicesBookingRequest) {
+    fun bookHomeServices(request: HomeServicesBookingRequest) {
         viewModelScope.launch {
             _response.value = UiState.Loading
             try {

@@ -29,7 +29,7 @@ class HomeCareServiceSubCategoriesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeCareServiceSubCategoriesBinding
     private lateinit var viewModel : HomeServicesCategoriesViewModel
-    private var catId : String = ""
+    private var categoryId : String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class HomeCareServiceSubCategoriesActivity : AppCompatActivity() {
             insets
         }
         if (intent.hasExtra("catId")) {
-            catId = intent.getStringExtra("catId")!!
+            categoryId = intent.getStringExtra("catId")!!
             binding.titleTxt.text = intent.getStringExtra("catName")!!
         }
         handleBack()
@@ -60,6 +60,8 @@ class HomeCareServiceSubCategoriesActivity : AppCompatActivity() {
         adapter.setupListener(object : OnServiceItemClickListener {
             override fun onItemClick(catId: String, catName: String) {
                 val intent = Intent(this@HomeCareServiceSubCategoriesActivity, HomeServiceBookingActivity::class.java)
+                intent.putExtra("catId", categoryId)
+                intent.putExtra("subCatId", catId)
                 startActivity(intent)
             }
         })
@@ -102,7 +104,7 @@ class HomeCareServiceSubCategoriesActivity : AppCompatActivity() {
         val userDetails = getUserDetails()
         val request = HomeServicesRequest(
             userDetails[User.ID]!!.toInt(),
-            catId.toInt(),
+            categoryId.toInt(),
             "sub_categories",
             userDetails[User.AUTH_TOKEN]!!
         )

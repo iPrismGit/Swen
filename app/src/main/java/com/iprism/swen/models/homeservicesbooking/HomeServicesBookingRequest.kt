@@ -17,10 +17,10 @@ data class HomeServicesBookingRequest(
 	val address: String,
 
 	@field:SerializedName("sub_cat_id")
-	val subCatId: Int,
+	val subCatId: String,
 
 	@field:SerializedName("mobile")
-	val mobile: Long,
+	val mobile: String,
 
 	@field:SerializedName("view_type")
 	val viewType: String,
@@ -32,7 +32,7 @@ data class HomeServicesBookingRequest(
 	val dob: String,
 
 	@field:SerializedName("cat_id")
-	val catId: Int,
+	val catId: String,
 
 	@field:SerializedName("name")
 	val name: String,
