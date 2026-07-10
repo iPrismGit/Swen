@@ -14,5 +14,8 @@ data class HealthMediaRequest(
 	val authToken: String,
 
 	@field:SerializedName("main_data_id")
-	val mainDataId: Int
+	val mainDataId: Int,
+
+	@field:SerializedName("view_type")
+	val viewType: String
 )

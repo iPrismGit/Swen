@@ -117,7 +117,7 @@ class HealthMediaActivity : AppCompatActivity() {
 
     private fun fetchMediaItems() {
         val userDetails = getUserDetails()
-        val request = HealthMediaRequest(userDetails[User.ID]!!.toInt(), currentPage, userDetails[User.AUTH_TOKEN].toString(), Constants.MAIN_DATA_ID)
+        val request = HealthMediaRequest(userDetails[User.ID]!!.toInt(), currentPage, userDetails[User.AUTH_TOKEN].toString(), Constants.MAIN_DATA_ID, "health_media")
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.fetchHealthMedia(req)
         }
