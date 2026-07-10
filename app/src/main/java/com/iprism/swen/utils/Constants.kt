@@ -126,4 +126,5 @@ object Constants {
     const val HOME_VISIT_SERVICES_ENDPOINT = "home_visit_services"
 
     const val HOME_VISIT_SERVICES_BOOKING_ENDPOINT = "home_visit_services_booking"
+    const val SURGERY_SYMPTOM_DOCTOR_ENDPOINT = "surgery_symptoms_main_data"
 }

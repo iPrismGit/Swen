@@ -33,6 +33,7 @@ import com.iprism.swen.activities.OnlineDoctorsActivity
 import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
 import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
+import com.iprism.swen.activities.SurgerySymptomHospitalsActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.activities.WhatsappAssistanceActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
@@ -675,6 +676,22 @@ class HomeFragment : Fragment() {
         val linearLayoutManager = GridLayoutManager(requireContext(), 4)
         binding.surgeonSymptomDoctorsRv.adapter = symptomsDoctorsAdapter
         binding.surgeonSymptomDoctorsRv.layoutManager = linearLayoutManager
+        symptomsDoctorsAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
+            override fun onItemClicked(catId: String, catName: String) {
+                if (catId.toInt() == 0) {
+                    val intent =
+                        Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
+                    intent.putExtra("symptomId", catId)
+                    intent.putExtra("catName", catName)
+                    intent.putExtra("lat", lat)
+                    intent.putExtra("lon", lon)
+                    startActivity(intent)
+                }
+            }
+        })
     }
 
     private fun setupHomeVisitServicesAdapter(items: List<SubCategoriesItem>) {

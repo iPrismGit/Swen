@@ -158,6 +158,7 @@ import com.iprism.swen.models.subscription.SubscriptionApiResponse
 import com.iprism.swen.models.subscription.SubscriptionRequest
 import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsApiResponse
 import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsRequest
+import com.iprism.swen.models.surgerysymptoms.SurgerySymptomsDoctorRequest
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningApiResponse
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningRequest
 import com.iprism.swen.models.userdropdowns.UserDropDownApiResponse
@@ -501,4 +502,7 @@ interface SwenApiService {
 
     @POST(Constants.HOME_VISIT_SERVICES_BOOKING_ENDPOINT)
     suspend fun bookHomeVisitService(@Body req : HomeServicesBookingRequest) : HomeServicesBookingApiResponse
+
+    @POST(Constants.SURGERY_SYMPTOM_DOCTOR_ENDPOINT)
+    suspend fun fetchSurgerySymptomHospitals(@Body req : SurgerySymptomsDoctorRequest) : HospitalsApiResponse
 }

@@ -31,6 +31,8 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAllSurgeonSymptomDoctorsBinding
     private lateinit var viewModel : SurgicalQuoteCategoriesViewModel
+    var lat = ""
+    var lon = ""
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +44,10 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        if (intent.hasExtra("lat")) {
+            lat = intent.getStringExtra("lat")!!
+            lon = intent.getStringExtra("lon")!!
         }
         binding.catNameTxt.text = "Get a Surgical Quote"
         handleBack()
@@ -57,9 +63,11 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
         binding.allTypesDoctorsRv.adapter = allSymptomsAdapter
         allSymptomsAdapter.setupListener(object : OnDoctorWithSymptomsSpecialityClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                val intent = Intent(this@SeeAllSurgeryQuoteCategoriesActivity, SurgeryQuoteActivity::class.java)
-                intent.putExtra("catId", catId)
+                val intent = Intent(this@SeeAllSurgeryQuoteCategoriesActivity, SurgerySymptomHospitalsActivity::class.java)
+                intent.putExtra("symptomId", catId)
                 intent.putExtra("catName", catName)
+                intent.putExtra("lat", lat)
+                intent.putExtra("lon", lon)
                 startActivity(intent)
             }
         })
