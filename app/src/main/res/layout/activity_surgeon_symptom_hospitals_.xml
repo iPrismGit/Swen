@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screen_background"
+    android:fitsSystemWindows="true"
     tools:context=".fragments.HospitalFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,21 +21,29 @@
             android:id="@+id/linearLayout13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F1F8FF"
-            android:gravity="center"
             android:orientation="horizontal"
             android:padding="12dp"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:tint="@color/black"
+                android:src="@drawable/back_img" />
 
             <TextView
                 android:id="@+id/textView72"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:text="@string/showing_top_hospitals_near_you" />
+                android:text="Surgeon Symptoms hospitals" />
 
             <LinearLayout
                 android:id="@+id/filter_ll"
@@ -44,7 +53,8 @@
                 android:backgroundTint="@color/red"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imageView30"
