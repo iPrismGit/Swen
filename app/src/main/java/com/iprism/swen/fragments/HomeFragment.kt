@@ -242,7 +242,7 @@ class HomeFragment : Fragment() {
         medicineCategoriesAdapter.setOnArtistActionListener(object :
             OnWellnessCatItemClickListener {
             override fun onItemClicked(item: PharmacyCategoriesItem) {
-                /*if (!isSubscribe) {
+                if (!isSubscribe) {
                     val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                     intent.putExtra("tag", "subscribe")
                     startActivity(intent)
@@ -250,8 +250,7 @@ class HomeFragment : Fragment() {
                     false   // prevent navigation
                 } else {
                     (activity as? HomeActivity)?.changeFragment(2)
-                }*/
-                (activity as? HomeActivity)?.changeFragment(2)
+                }
             }
         })
     }
@@ -397,7 +396,7 @@ class HomeFragment : Fragment() {
 
     private fun handleOnlineDoctors() {
         binding.onlineDoctorLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -409,8 +408,7 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 startActivity(Intent(requireContext(), OnlineDoctorsActivity::class.java))
-            }*/
-            startActivity(Intent(requireContext(), OnlineDoctorsActivity::class.java))
+            }
         })
     }
 
@@ -423,7 +421,7 @@ class HomeFragment : Fragment() {
     private fun handleTreatmentLL() {
         binding.treatmentLl.setOnClickListener(View.OnClickListener {
 
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -435,8 +433,7 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 startActivity(Intent(requireContext(), TreatmentPlanningActivity::class.java))
-            }*/
-            startActivity(Intent(requireContext(), TreatmentPlanningActivity::class.java))
+            }
         })
     }
 
@@ -448,7 +445,7 @@ class HomeFragment : Fragment() {
 
     private fun handleAirAmbulanceLl() {
         binding.airAmbulanceLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -460,14 +457,13 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 startActivity(Intent(requireContext(), AirAmbulanceActivity::class.java))
-            }*/
-            startActivity(Intent(requireContext(), AirAmbulanceActivity::class.java))
+            }
         })
     }
 
     private fun handleHealthRecords() {
         binding.healthRecordsLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -479,14 +475,13 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 startActivity(Intent(requireContext(), AirAmbulanceActivity::class.java))
-            }*/
-            startActivity(Intent(requireContext(), MedLockerActivity::class.java))
+            }
         })
     }
 
     private fun handleAmbulanceLL() {
         binding.ambulanceLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -498,14 +493,13 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 (activity as? HomeActivity)?.changeFragment(1)
-            }*/
-            (activity as? HomeActivity)?.changeFragment(1)
+            }
         })
     }
 
     private fun handleBookDiagnosticTest() {
         binding.bookDiagnosticLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -517,14 +511,13 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 (activity as? HomeActivity)?.changeFragment(4)
-            }*/
-            (activity as? HomeActivity)?.changeFragment(4)
+            }
         })
     }
 
     private fun handleAdmissionLL() {
         binding.admissionLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -536,14 +529,13 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 (activity as? HomeActivity)?.changeFragment(1)
-            }*/
-            (activity as? HomeActivity)?.changeFragment(1)
+            }
         })
     }
 
     private fun handlePharmacyLL() {
         binding.pharmacyLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -555,14 +547,13 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 (activity as? HomeActivity)?.changeFragment(2)
-            }*/
-            (activity as? HomeActivity)?.changeFragment(2)
+            }
         })
     }
 
     private fun handleLabTestsLl() {
         binding.labTestsLl.setOnClickListener(View.OnClickListener {
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(requireContext(), SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -574,8 +565,7 @@ class HomeFragment : Fragment() {
                 false   // prevent navigation
             } else {
                 (activity as? HomeActivity)?.changeFragment(3)
-            }*/
-            (activity as? HomeActivity)?.changeFragment(3)
+            }
         })
     }
 

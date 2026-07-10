@@ -131,7 +131,7 @@ class HomeActivity : AppCompatActivity() {
     private fun handleBottomNav() {
         binding.bottomNav.setOnItemSelectedListener { item ->
             binding.searchEt.setText("")
-            /*if (!isSubscribe) {
+            if (!isSubscribe) {
                 val intent = Intent(this, SubscriptionActivity::class.java)
                 intent.putExtra("tag", "subscribe")
                 startActivity(intent)
@@ -147,15 +147,7 @@ class HomeActivity : AppCompatActivity() {
                     R.id.diagnostic -> binding.viewPager.setCurrentItem(4, false)
                 }
                 true
-            }*/
-            when (item.itemId) {
-                R.id.home -> binding.viewPager.setCurrentItem(0, false)
-                R.id.hospitals -> binding.viewPager.setCurrentItem(1, false)
-                R.id.medicines -> binding.viewPager.setCurrentItem(2, false)
-                R.id.lab_tests -> binding.viewPager.setCurrentItem(3, false)
-                R.id.diagnostic -> binding.viewPager.setCurrentItem(4, false)
             }
-            true
         }
     }
 
@@ -287,7 +279,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setSearch(search: String) {
-        /*if (!isSubscribe) {
+        if (!isSubscribe) {
             val intent = Intent(this, SubscriptionActivity::class.java)
             intent.putExtra("tag", "subscribe")
             startActivity(intent)
@@ -308,7 +300,7 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("search", search)
                 startActivity(intent)
             } else if (currentItem == 2) {
-                *//*searchTextViewModel.setSearchData(search, "medicine", lat, lon)*//*
+                searchTextViewModel.setSearchData(search, "medicine", lat, lon)
                 val intent = Intent(this, PharmacySearchActivity::class.java)
                 intent.putExtra("lat", lat)
                 intent.putExtra("lon", lon)
@@ -327,39 +319,6 @@ class HomeActivity : AppCompatActivity() {
                 intent.putExtra("search", search)
                 startActivity(intent)
             }
-        }*/
-        val currentItem = binding.viewPager.currentItem
-        if (currentItem == 0) {
-            val intent = Intent(this, HospitalsSearchActivity::class.java)
-            intent.putExtra("lat", lat)
-            intent.putExtra("lon", lon)
-            intent.putExtra("search", search)
-            startActivity(intent)
-        } else if (currentItem == 1) {
-            val intent = Intent(this, HospitalsSearchActivity::class.java)
-            intent.putExtra("lat", lat)
-            intent.putExtra("lon", lon)
-            intent.putExtra("search", search)
-            startActivity(intent)
-        } else if (currentItem == 2) {
-            //*searchTextViewModel.setSearchData(search, "medicine", lat, lon)*//*
-            val intent = Intent(this, PharmacySearchActivity::class.java)
-            intent.putExtra("lat", lat)
-            intent.putExtra("lon", lon)
-            intent.putExtra("search", search)
-            startActivity(intent)
-        } else if (currentItem == 3) {
-            val intent = Intent(this, LabTestsSearchActivity::class.java)
-            intent.putExtra("lat", lat)
-            intent.putExtra("lon", lon)
-            intent.putExtra("search", search)
-            startActivity(intent)
-        } else if (currentItem == 4) {
-            val intent = Intent(this, DiagnosticSearchActivity::class.java)
-            intent.putExtra("lat", lat)
-            intent.putExtra("lon", lon)
-            intent.putExtra("search", search)
-            startActivity(intent)
         }
     }
 
