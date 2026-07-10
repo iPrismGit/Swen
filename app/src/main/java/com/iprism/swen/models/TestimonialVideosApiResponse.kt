@@ -1,6 +1,6 @@
 package com.iprism.swen.models
 
-import com.iprism.ecmuser.models.healthmedia.Pagination
+import com.iprism.swen.models.healthmedia.Pagination
 
 data class TestimonialVideosApiResponse(
 

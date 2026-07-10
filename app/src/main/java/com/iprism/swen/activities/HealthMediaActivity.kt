@@ -3,20 +3,15 @@ package com.iprism.swen.activities
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.iprism.ecmuser.models.healthmedia.HealthMediaRequest
-import com.iprism.ecmuser.models.healthmedia.MainDataItem
+import com.iprism.swen.models.healthmedia.HealthMediaRequest
+import com.iprism.swen.models.healthmedia.MainDataItem
 import com.iprism.swen.adapters.HealthMediasAdapter
-import com.iprism.swen.databinding.ActivityAddLabTestPatientBinding
 import com.iprism.swen.databinding.FragmentHealthMediaBinding
-import com.iprism.swen.models.onlinedoctorbookingdetails.FamilyMembersItem
-import com.iprism.swen.models.onlinedoctorbookingdetails.TimesItem
 import com.iprism.swen.repository.HealthMediaRepository
 import com.iprism.swen.utils.Constants
 import com.iprism.swen.utils.UiState
@@ -117,7 +112,7 @@ class HealthMediaActivity : AppCompatActivity() {
 
     private fun fetchMediaItems() {
         val userDetails = getUserDetails()
-        val request = HealthMediaRequest(userDetails[User.ID]!!.toInt(), currentPage, userDetails[User.AUTH_TOKEN].toString(), Constants.MAIN_DATA_ID, "health_media")
+        val request = HealthMediaRequest(userDetails[User.ID]!!, currentPage, userDetails[User.AUTH_TOKEN].toString(), Constants.MAIN_DATA_ID.toString(), "health_media")
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.fetchHealthMedia(req)
         }

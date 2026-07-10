@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.iprism.ecmuser.models.healthmedia.HealthMediaApiResponse
-import com.iprism.ecmuser.models.healthmedia.HealthMediaRequest
+import com.iprism.swen.models.healthmedia.HealthMediaApiResponse
+import com.iprism.swen.models.healthmedia.HealthMediaRequest
 import com.iprism.swen.repository.HealthMediaRepository
 import com.iprism.swen.utils.UiState
 import kotlinx.coroutines.launch

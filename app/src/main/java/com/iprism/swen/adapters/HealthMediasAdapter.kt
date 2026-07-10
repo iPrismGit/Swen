@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.iprism.ecmuser.models.healthmedia.MainDataItem
+import com.iprism.swen.models.healthmedia.MainDataItem
 import com.iprism.swen.databinding.HealthMediaItemBinding
 import com.iprism.swen.databinding.ItemLoadingBinding
 import com.iprism.swen.utils.Constants

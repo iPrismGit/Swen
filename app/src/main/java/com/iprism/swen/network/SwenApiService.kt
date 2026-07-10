@@ -2,8 +2,8 @@ package com.iprism.swen.network
 
 import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
 import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
-import com.iprism.ecmuser.models.healthmedia.HealthMediaApiResponse
-import com.iprism.ecmuser.models.healthmedia.HealthMediaRequest
+import com.iprism.swen.models.healthmedia.HealthMediaApiResponse
+import com.iprism.swen.models.healthmedia.HealthMediaRequest
 import com.iprism.swen.models.TestimonialVideosApiRequest
 import com.iprism.swen.models.TestimonialVideosApiResponse
 import com.iprism.swen.models.addfamilymember.AddFamilyMemberApiResponse
@@ -43,6 +43,7 @@ import com.iprism.swen.models.diagnostictests.DiagnosticTestsApiResponse
 import com.iprism.swen.models.diagnostictests.DiagnosticTestsRequest
 import com.iprism.swen.models.diagnostictimings.DiagnosticSlotsApiResponse
 import com.iprism.swen.models.diagnostictimings.DiagnosticSlotsRequest
+import com.iprism.swen.models.diettips.DietTipsApiResponse
 import com.iprism.swen.models.dignosticcenters.DiagnosticCentersApiResponse
 import com.iprism.swen.models.dignosticcenters.DiagnosticCentersRequest
 import com.iprism.swen.models.ecard.ECardApiResponse
@@ -496,6 +497,9 @@ interface SwenApiService {
 
     @POST(Constants.TESTIMONIAL_ENDPOINT)
     suspend fun fetchTestimonials(@Body request: TestimonialVideosApiRequest) : TestimonialVideosApiResponse
+
+    @POST(Constants.HEALTH_MEDIA_ENDPOINT)
+    suspend fun fetchDietTips(@Body request: HealthMediaRequest) : DietTipsApiResponse
 
     @POST(Constants.HOME_VISIT_SERVICES_ENDPOINT)
     suspend fun fetchHomeVisitServices(@Body req : HomeServicesRequest) : HomeServicesApiResponse

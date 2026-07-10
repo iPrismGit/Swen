@@ -1,8 +1,8 @@
-package com.iprism.swen.models.healthmedia
+package com.iprism.swen.models.diettips
 
 import com.google.gson.annotations.SerializedName
 
-data class HealthMediaApiResponse(
+data class DietTipsApiResponse(
 
 	@field:SerializedName("response")
 	val response: Response,
@@ -12,6 +12,18 @@ data class HealthMediaApiResponse(
 
 	@field:SerializedName("status")
 	val status: Boolean
+)
+
+data class MainDataItem(
+
+	@field:SerializedName("image")
+	val image: String,
+
+	@field:SerializedName("link")
+	val link: String,
+
+	@field:SerializedName("id")
+	val id: String
 )
 
 data class Pagination(
@@ -24,15 +36,6 @@ data class Pagination(
 
 	@field:SerializedName("current_page")
 	val currentPage: Int
-)
-
-data class MainDataItem(
-
-	@field:SerializedName("image")
-	val image: String,
-
-	@field:SerializedName("id")
-	val id: String
 )
 
 data class TotalPagesItem(

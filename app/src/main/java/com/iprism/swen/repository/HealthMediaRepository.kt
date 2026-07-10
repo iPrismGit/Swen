@@ -1,7 +1,7 @@
 package com.iprism.swen.repository
 
-import com.iprism.ecmuser.models.healthmedia.HealthMediaApiResponse
-import com.iprism.ecmuser.models.healthmedia.HealthMediaRequest
+import com.iprism.swen.models.healthmedia.HealthMediaApiResponse
+import com.iprism.swen.models.healthmedia.HealthMediaRequest
 import com.iprism.swen.network.SwenAPi
 
 class HealthMediaRepository {

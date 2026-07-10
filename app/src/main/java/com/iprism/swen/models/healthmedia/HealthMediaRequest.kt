@@ -1,11 +1,11 @@
-package com.iprism.ecmuser.models.healthmedia
+package com.iprism.swen.models.healthmedia
 
 import com.google.gson.annotations.SerializedName
 
 data class HealthMediaRequest(
 
 	@field:SerializedName("user_id")
-	val userId: Int,
+	val userId: String,
 
 	@field:SerializedName("page")
 	val page: Int,
@@ -14,7 +14,7 @@ data class HealthMediaRequest(
 	val authToken: String,
 
 	@field:SerializedName("main_data_id")
-	val mainDataId: Int,
+	val mainDataId: String,
 
 	@field:SerializedName("view_type")
 	val viewType: String

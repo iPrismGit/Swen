@@ -2,12 +2,14 @@ package com.iprism.swen.repository
 
 import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
 import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
+import com.iprism.swen.models.healthmedia.HealthMediaRequest
 import com.iprism.swen.models.TestimonialVideosApiRequest
 import com.iprism.swen.models.TestimonialVideosApiResponse
 import com.iprism.swen.models.contactus.ContactUsApiResponse
 import com.iprism.swen.models.contactus.ContactUsRequest
 import com.iprism.swen.models.contentpages.ContentPagesApiResponse
 import com.iprism.swen.models.contentpages.ContentPagesRequest
+import com.iprism.swen.models.diettips.DietTipsApiResponse
 import com.iprism.swen.models.familymembers.FamilyMembersApiResponse
 import com.iprism.swen.models.familymembers.FamilyMembersRequest
 import com.iprism.swen.models.homepage.HomePageApiResponse
@@ -58,5 +60,9 @@ class CommonRepository {
 
     suspend fun fetchTestimonials(request: TestimonialVideosApiRequest): TestimonialVideosApiResponse {
         return apiService.fetchTestimonials(request)
+    }
+
+    suspend fun fetchDietTips(request: HealthMediaRequest): DietTipsApiResponse {
+        return apiService.fetchDietTips(request)
     }
 }

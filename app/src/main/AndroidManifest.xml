@@ -346,6 +346,9 @@
             android:name=".activities.SurgerySymptomHospitalsActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.DietTipsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DiagnosticTimeSlotActivity"
             android:exported="false" />
         <activity
