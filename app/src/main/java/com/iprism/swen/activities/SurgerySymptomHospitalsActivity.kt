@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iprism.swen.adapters.HospitalsAdapter
+import com.iprism.swen.databinding.ActivitySurgeonSymptomHospitalsBinding
 import com.iprism.swen.databinding.FragmentHospitalBinding
 import com.iprism.swen.interfaces.OnHospitalItemClickListener
 import com.iprism.swen.models.hospitals.MainDataItem
@@ -23,7 +24,7 @@ import com.iprism.swen.viewmodels.ViewModelFactory
 
 class SurgerySymptomHospitalsActivity : AppCompatActivity() {
 
-    private lateinit var binding : FragmentHospitalBinding
+    private lateinit var binding : ActivitySurgeonSymptomHospitalsBinding
     private lateinit var viewModel: SurgerySymptomHospitalsViewModel
     private var isLoading = false
     private var isLastPage = false
@@ -36,7 +37,7 @@ class SurgerySymptomHospitalsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentHospitalBinding.inflate(layoutInflater)
+        binding = ActivitySurgeonSymptomHospitalsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (intent.hasExtra("symptomId")) {
             symptomId = intent.getStringExtra("symptomId")!!
