@@ -244,8 +244,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="12dp"
-                android:layout_weight="1"
-                android:visibility="gone" />
+                android:layout_weight="1" />
 
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSlider"
