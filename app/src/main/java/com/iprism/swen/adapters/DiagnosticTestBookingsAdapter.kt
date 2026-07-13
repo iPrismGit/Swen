@@ -50,7 +50,7 @@ class DiagnosticTestBookingsAdapter(var bookings: ArrayList<HistoryItem?>) : Rec
             if (booking!!.bookingType.equals("product_booking", true)) {
                 holder.binding.slotDetailsTxt.visibility = View.VISIBLE
                 holder.binding.slotDateTimeTxt.text = "${booking.date}, ${booking.time}"
-                holder.binding.testNameTxt.text = booking.packages.packageName
+                holder.binding.testNameTxt.text = booking.packages?.packageName ?: ""
                 holder.binding.testNameTxt.visibility = View.VISIBLE
             } else {
                 holder.binding.slotDetailsTxt.visibility = View.GONE
