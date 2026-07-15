@@ -354,12 +354,37 @@ public class ReceiveVideoConferenceActivity extends AppCompatActivity
     }
 
     @Override
+    public void onACKSendMessage(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onMessageDelete(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onACKDeleteMessage(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onMessageUpdate(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onACKUpdateMessage(JSONObject jsonObject) {
+
+    }
+
+    @Override
     public void onUserDataReceived(JSONObject jsonObject) {
         // received when custom data received at room
     }
 
     @Override
-    public void onUserStartTyping(boolean b) {
+    public void onUserStartTyping(JSONObject jsonObject) {
 
     }
 

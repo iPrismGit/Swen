@@ -61,7 +61,7 @@ dependencies {
     implementation ("com.github.yalantis:ucrop:2.2.10")
     implementation ("com.onesignal:OneSignal:[4.0.0, 4.99.99]")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar"))))
-    implementation("io.socket:socket.io-client:1.0.0") {
+    implementation("io.socket:socket.io-client:2.1.2") {
         exclude(group = "org.json", module = "json")
     }
     implementation("com.cashfree.pg:api:2.2.8")
