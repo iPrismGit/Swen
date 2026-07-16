@@ -24,6 +24,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            ndk.debugSymbolLevel = "FULL"
         }
     }
     compileOptions {
@@ -37,6 +38,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    ndkVersion = "30.0.15729638 rc2"
 }
 
 dependencies {
