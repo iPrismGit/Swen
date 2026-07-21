@@ -45,10 +45,6 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        if (intent.hasExtra("lat")) {
-            lat = intent.getStringExtra("lat")!!
-            lon = intent.getStringExtra("lon")!!
-        }
         binding.catNameTxt.text = "Get a Surgical Quote"
         handleBack()
         initViewModel()
@@ -64,10 +60,8 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
         allSymptomsAdapter.setupListener(object : OnDoctorWithSymptomsSpecialityClickListener {
             override fun onItemClicked(catId: String, catName: String) {
                 val intent = Intent(this@SeeAllSurgeryQuoteCategoriesActivity, SurgeryQuoteActivity::class.java)
-                intent.putExtra("symptomId", catId)
+                intent.putExtra("catId", catId)
                 intent.putExtra("catName", catName)
-                intent.putExtra("lat", lat)
-                intent.putExtra("lon", lon)
                 startActivity(intent)
             }
         })
@@ -111,7 +105,8 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
         val request = AllSurgeryQuotesRequest(
             userDetails[User.ID]!!.toInt(),
             userDetails[User.AUTH_TOKEN].toString(),
-            Constants.MAIN_DATA_ID
+            Constants.MAIN_DATA_ID,
+            "surgical_quotes"
         )
         NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
             viewModel.fetchAllSurgicalQuoteCategories(req)
