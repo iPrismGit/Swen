@@ -417,7 +417,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="12dp"
                             android:layout_weight="1"
-                            android:text="@string/med_locker"
+                            android:text="Health Records"
                             android:textColor="@color/black" />
                     </LinearLayout>
 

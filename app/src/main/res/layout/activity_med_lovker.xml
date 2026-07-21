@@ -33,7 +33,7 @@
             android:layout_marginLeft="8dp"
             android:layout_weight="1"
             android:fontFamily="@font/lato_bold"
-            android:text="@string/med_locker"
+            android:text="Health Records"
             android:textColor="@color/white"
             android:textSize="16sp" />
 

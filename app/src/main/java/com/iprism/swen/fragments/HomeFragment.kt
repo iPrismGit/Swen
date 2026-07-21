@@ -482,7 +482,7 @@ class HomeFragment : Fragment() {
                 ).show()
                 false   // prevent navigation
             } else {
-                startActivity(Intent(requireContext(), AirAmbulanceActivity::class.java))
+                startActivity(Intent(requireContext(), MedLockerActivity::class.java))
             }
         })
     }
@@ -677,9 +677,9 @@ class HomeFragment : Fragment() {
         symptomsDoctorsAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
             override fun onItemClicked(catId: String, catName: String) {
                 if (catId.toInt() == 0) {
-                    val intent =
+                    /*val intent =
                         Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
-                    startActivity(intent)
+                    startActivity(intent)*/
                 } else {
                     val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
                     intent.putExtra("symptomId", catId)
