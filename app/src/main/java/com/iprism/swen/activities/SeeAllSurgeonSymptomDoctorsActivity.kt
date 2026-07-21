@@ -32,6 +32,9 @@ class SeeAllSurgeonSymptomDoctorsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllSurgeonSymptomDoctorsBinding
     private lateinit var viewModel: AllSurgeonSymptomsViewModel
 
+    private var lat = ""
+    private var lon = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,6 +44,10 @@ class SeeAllSurgeonSymptomDoctorsActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        if (intent.hasExtra("lat")) {
+            lat = intent.getStringExtra("lat")!!
+            lon = intent.getStringExtra("lon")!!
         }
         binding.catNameTxt.text = "All categories"
         handleBack()
@@ -56,11 +63,12 @@ class SeeAllSurgeonSymptomDoctorsActivity : AppCompatActivity() {
         binding.allTypesDoctorsRv.adapter = allSymptomsAdapter
         allSymptomsAdapter.setupListener(object : OnDoctorWithSymptomsSpecialityClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                /*val intent = Intent(this@SeeAllSurgeonSymptomDoctorsActivity,
-                    SurgeonSymptomDoctorsActivity::class.java)
-                intent.putExtra("symptomId", catId.toInt())
-                intent.putExtra("name", catName)
-                startActivity(intent)*/
+                val intent = Intent(this@SeeAllSurgeonSymptomDoctorsActivity, SurgerySymptomHospitalsActivity::class.java)
+                intent.putExtra("symptomId", catId)
+                intent.putExtra("catName", catName)
+                intent.putExtra("lat", lat)
+                intent.putExtra("lon", lon)
+                startActivity(intent)
             }
         })
     }

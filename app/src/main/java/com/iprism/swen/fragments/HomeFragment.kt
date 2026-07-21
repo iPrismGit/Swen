@@ -680,6 +680,8 @@ class HomeFragment : Fragment() {
                 if (catId.toInt() == 0) {
                     val intent =
                         Intent(requireContext(), SeeAllSurgeonSymptomDoctorsActivity::class.java)
+                    intent.putExtra("lat", lat)
+                    intent.putExtra("lon", lon)
                     startActivity(intent)
                 } else {
                     val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
