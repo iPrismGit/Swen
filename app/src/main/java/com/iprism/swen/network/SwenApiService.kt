@@ -17,6 +17,8 @@ import com.iprism.swen.models.admit.AdmitBookingApiResponse
 import com.iprism.swen.models.admit.AdmitBookingRequest
 import com.iprism.swen.models.admitbookingdetails.AdmitBookingDetailsAPiResponse
 import com.iprism.swen.models.admitbookingdetails.AdmitBookingDetailsRequest
+import com.iprism.swen.models.allsurgeonsymptoms.AllSurgeonSymptomsApiResponse
+import com.iprism.swen.models.allsurgeonsymptoms.AllSurgeonSymptomsRequest
 import com.iprism.swen.models.allsurgeryquotes.AllSurgeryQuotesApiResponse
 import com.iprism.swen.models.allsurgeryquotes.AllSurgeryQuotesRequest
 import com.iprism.swen.models.ambulancebooking.AmbulanceBookingRequest
@@ -509,4 +511,7 @@ interface SwenApiService {
 
     @POST(Constants.SURGERY_SYMPTOM_DOCTOR_ENDPOINT)
     suspend fun fetchSurgerySymptomHospitals(@Body req : SurgerySymptomsDoctorRequest) : HospitalsApiResponse
+
+    @POST(Constants.ALL_SURGEON_SYMPTOMS_ENDPOINT)
+    suspend fun fetchAllSurgeonSymptoms(@Body request: AllSurgeonSymptomsRequest) : AllSurgeonSymptomsApiResponse
 }

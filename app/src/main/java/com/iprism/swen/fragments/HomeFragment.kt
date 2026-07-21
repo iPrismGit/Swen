@@ -31,6 +31,7 @@ import com.iprism.swen.activities.HospitalsActivity
 import com.iprism.swen.activities.LoginActivity
 import com.iprism.swen.activities.MedLockerActivity
 import com.iprism.swen.activities.OnlineDoctorsActivity
+import com.iprism.swen.activities.SeeAllSurgeonSymptomDoctorsActivity
 import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
 import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
@@ -677,9 +678,9 @@ class HomeFragment : Fragment() {
         symptomsDoctorsAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
             override fun onItemClicked(catId: String, catName: String) {
                 if (catId.toInt() == 0) {
-                    /*val intent =
-                        Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
-                    startActivity(intent)*/
+                    val intent =
+                        Intent(requireContext(), SeeAllSurgeonSymptomDoctorsActivity::class.java)
+                    startActivity(intent)
                 } else {
                     val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
                     intent.putExtra("symptomId", catId)

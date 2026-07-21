@@ -160,6 +160,9 @@
             android:name=".activities.LabDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SeeAllSurgeonSymptomDoctorsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HospitalDiagnosticTestsBookingsActivity"
             android:exported="false" />
         <activity
