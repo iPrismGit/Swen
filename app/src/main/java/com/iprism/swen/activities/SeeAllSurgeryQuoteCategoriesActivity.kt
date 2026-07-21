@@ -63,7 +63,7 @@ class SeeAllSurgeryQuoteCategoriesActivity : AppCompatActivity() {
         binding.allTypesDoctorsRv.adapter = allSymptomsAdapter
         allSymptomsAdapter.setupListener(object : OnDoctorWithSymptomsSpecialityClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                val intent = Intent(this@SeeAllSurgeryQuoteCategoriesActivity, SurgerySymptomHospitalsActivity::class.java)
+                val intent = Intent(this@SeeAllSurgeryQuoteCategoriesActivity, SurgeryQuoteActivity::class.java)
                 intent.putExtra("symptomId", catId)
                 intent.putExtra("catName", catName)
                 intent.putExtra("lat", lat)
