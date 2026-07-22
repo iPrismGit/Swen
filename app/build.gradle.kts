@@ -43,6 +43,7 @@ android {
 
 dependencies {
 
+    implementation("androidx.benchmark:benchmark-common:1.4.1")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")

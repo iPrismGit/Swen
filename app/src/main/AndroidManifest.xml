@@ -163,6 +163,18 @@
             android:name=".activities.SeeAllSurgeonSymptomDoctorsActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SurgeonSymptomDoctorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SurgeonSymptomDoctorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SurgeonDoctorSummaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HospitalDiagnosticTestsBookingsActivity"
             android:exported="false" />
         <activity

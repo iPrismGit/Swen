@@ -129,4 +129,11 @@ object Constants {
     const val SURGERY_SYMPTOM_DOCTOR_ENDPOINT = "surgery_symptoms_main_data"
 
     const val ALL_SURGEON_SYMPTOMS_ENDPOINT = "all_services"
+    const val SURGEON_SYMPTOM_DOCTORS_ENDPOINT = "surgery_symptom_doctors"
+    const val SURGEON_DOCTOR_BOOKING_DETAILS_ENDPOINT = "surgery_symptom_doctor_booking_details"
+    const val SURGEON_DOCTOR_BOOKING_REQUEST_ENDPOINT = "surgery_symptom_doctor_booking"
+    const val SURGEON_DOCTOR_ONGOING_BOOKINGS_ENDPOINT = "surgery_symptom_doctor_bookings_history_active"
+    const val SURGEON_DOCTOR_COMPLETED_BOOKINGS_ENDPOINT = "surgery_symptom_doctor_bookings_history_completed"
+    const val SURGEON_DOCTOR_SINGLE_BOOKING_DETAILS_ENDPOINT = "surgery_symptom_doctor_single_booking_details"
+    const val DOCTOR_RATING_ENDPOINT = "hospital_doctor_rating"
 }

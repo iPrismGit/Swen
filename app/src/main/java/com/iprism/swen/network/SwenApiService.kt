@@ -2,6 +2,8 @@ package com.iprism.swen.network
 
 import com.iprism.ecmuser.models.HospitalAssistanceApiRequest
 import com.iprism.ecmuser.models.HospitalAssistanceApiResponse
+import com.iprism.ecmuser.models.doctorrating.DoctorRatingApiResponse
+import com.iprism.ecmuser.models.doctorrating.DoctorRatingRequest
 import com.iprism.swen.models.healthmedia.HealthMediaApiResponse
 import com.iprism.swen.models.healthmedia.HealthMediaRequest
 import com.iprism.swen.models.TestimonialVideosApiRequest
@@ -161,6 +163,16 @@ import com.iprism.swen.models.subscription.SubscriptionApiResponse
 import com.iprism.swen.models.subscription.SubscriptionRequest
 import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsApiResponse
 import com.iprism.swen.models.subscriptiondetails.SubscriptionDetailsRequest
+import com.iprism.swen.models.surgeondoctorbooking.SurgeonDoctorBookingApiResponse
+import com.iprism.swen.models.surgeondoctorbooking.SurgeonDoctorBookingRequest
+import com.iprism.swen.models.surgeondoctorbookingdetails.SurgeonDoctorBookingDetailsApiResponse
+import com.iprism.swen.models.surgeondoctorbookingdetails.SurgeonDoctorBookingDetailsRequest
+import com.iprism.swen.models.surgeondoctorbookings.SurgeonDoctorBookingsApiResponse
+import com.iprism.swen.models.surgeondoctorbookings.SurgeonDoctorBookingsRequest
+import com.iprism.swen.models.surgeondoctorsinglebookingdetails.SurgeonDoctorSingleBookingDetailsApiResponse
+import com.iprism.swen.models.surgeondoctorsinglebookingdetails.SurgeonDoctorSingleBookingDetailsRequest
+import com.iprism.swen.models.surgeonsymptomdoctors.SurgenSymptomDoctorsApiResponse
+import com.iprism.swen.models.surgeonsymptomdoctors.SurgeonSymptomDoctorsRequest
 import com.iprism.swen.models.surgerysymptoms.SurgerySymptomsDoctorRequest
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningApiResponse
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningRequest
@@ -514,4 +526,25 @@ interface SwenApiService {
 
     @POST(Constants.ALL_SURGEON_SYMPTOMS_ENDPOINT)
     suspend fun fetchAllSurgeonSymptoms(@Body request: AllSurgeonSymptomsRequest) : AllSurgeonSymptomsApiResponse
+
+    @POST(Constants.SURGEON_SYMPTOM_DOCTORS_ENDPOINT)
+    suspend fun fetchSurgeonSymptomDoctors(@Body request: SurgeonSymptomDoctorsRequest) : SurgenSymptomDoctorsApiResponse
+
+    @POST(Constants.SURGEON_DOCTOR_BOOKING_DETAILS_ENDPOINT)
+    suspend fun fetchSurgeonDoctorBookingDetails(@Body request: SurgeonDoctorBookingDetailsRequest) : SurgeonDoctorBookingDetailsApiResponse
+
+    @POST(Constants.SURGEON_DOCTOR_BOOKING_REQUEST_ENDPOINT)
+    suspend fun bookSurgeonDoctor(@Body request: SurgeonDoctorBookingRequest) : SurgeonDoctorBookingApiResponse
+
+    @POST(Constants.SURGEON_DOCTOR_ONGOING_BOOKINGS_ENDPOINT)
+    suspend fun fetchSurgeonDoctorOngoingBookings(@Body request: SurgeonDoctorBookingsRequest) : SurgeonDoctorBookingsApiResponse
+
+    @POST(Constants.SURGEON_DOCTOR_COMPLETED_BOOKINGS_ENDPOINT)
+    suspend fun fetchSurgeonDoctorCompletedBookings(@Body request: SurgeonDoctorBookingsRequest) : SurgeonDoctorBookingsApiResponse
+
+    @POST(Constants.SURGEON_DOCTOR_SINGLE_BOOKING_DETAILS_ENDPOINT)
+    suspend fun fetchSurgeonDoctorSingleBookingDetails(@Body request: SurgeonDoctorSingleBookingDetailsRequest) : SurgeonDoctorSingleBookingDetailsApiResponse
+
+    @POST(Constants.DOCTOR_RATING_ENDPOINT)
+    suspend fun insertDoctorRating(@Body request: DoctorRatingRequest) : DoctorRatingApiResponse
 }

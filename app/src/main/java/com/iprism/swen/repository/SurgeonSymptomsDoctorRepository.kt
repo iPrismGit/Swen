@@ -1,7 +1,19 @@
 package com.iprism.swen.repository
 
+import com.iprism.ecmuser.models.doctorrating.DoctorRatingApiResponse
+import com.iprism.ecmuser.models.doctorrating.DoctorRatingRequest
 import com.iprism.swen.models.allsurgeonsymptoms.AllSurgeonSymptomsApiResponse
 import com.iprism.swen.models.allsurgeonsymptoms.AllSurgeonSymptomsRequest
+import com.iprism.swen.models.surgeondoctorbooking.SurgeonDoctorBookingApiResponse
+import com.iprism.swen.models.surgeondoctorbooking.SurgeonDoctorBookingRequest
+import com.iprism.swen.models.surgeondoctorbookingdetails.SurgeonDoctorBookingDetailsApiResponse
+import com.iprism.swen.models.surgeondoctorbookingdetails.SurgeonDoctorBookingDetailsRequest
+import com.iprism.swen.models.surgeondoctorbookings.SurgeonDoctorBookingsApiResponse
+import com.iprism.swen.models.surgeondoctorbookings.SurgeonDoctorBookingsRequest
+import com.iprism.swen.models.surgeondoctorsinglebookingdetails.SurgeonDoctorSingleBookingDetailsApiResponse
+import com.iprism.swen.models.surgeondoctorsinglebookingdetails.SurgeonDoctorSingleBookingDetailsRequest
+import com.iprism.swen.models.surgeonsymptomdoctors.SurgenSymptomDoctorsApiResponse
+import com.iprism.swen.models.surgeonsymptomdoctors.SurgeonSymptomDoctorsRequest
 import com.iprism.swen.network.SwenAPi
 
 class SurgeonSymptomsDoctorRepository {
@@ -12,11 +24,11 @@ class SurgeonSymptomsDoctorRepository {
         return apiService.fetchAllSurgeonSymptoms(request)
     }
 
-   /* suspend fun fetchSurgeonSymptomDoctors(request: SurgeonSymptomDoctorsRequest): SurgenSymptomDoctorsApiResponse {
+    suspend fun fetchSurgeonSymptomDoctors(request: SurgeonSymptomDoctorsRequest): SurgenSymptomDoctorsApiResponse {
         return apiService.fetchSurgeonSymptomDoctors(request)
-    }*/
+    }
 
-   /* suspend fun fetchSurgeonDoctorBookingDetails(request: SurgeonDoctorBookingDetailsRequest): SurgeonDoctorBookingDetailsApiResponse {
+    suspend fun fetchSurgeonDoctorBookingDetails(request: SurgeonDoctorBookingDetailsRequest): SurgeonDoctorBookingDetailsApiResponse {
         return apiService.fetchSurgeonDoctorBookingDetails(request)
     }
 
@@ -38,5 +50,5 @@ class SurgeonSymptomsDoctorRepository {
 
     suspend fun insertDoctorRating(request: DoctorRatingRequest): DoctorRatingApiResponse {
         return apiService.insertDoctorRating(request)
-    }*/
+    }
 }

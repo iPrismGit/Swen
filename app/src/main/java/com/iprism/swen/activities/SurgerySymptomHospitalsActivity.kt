@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iprism.swen.adapters.HospitalsAdapter
 import com.iprism.swen.databinding.ActivitySurgeonSymptomHospitalsBinding
-import com.iprism.swen.databinding.FragmentHospitalBinding
 import com.iprism.swen.interfaces.OnHospitalItemClickListener
 import com.iprism.swen.models.hospitals.MainDataItem
 import com.iprism.swen.models.surgerysymptoms.SurgerySymptomsDoctorRequest
@@ -74,10 +73,10 @@ class SurgerySymptomHospitalsActivity : AppCompatActivity() {
         }
         hospitalsAdapter.setOnDoctorItemClickListener(object : OnHospitalItemClickListener{
             override fun onItemClicked(hospitalId: String) {
-                val intent = Intent(this@SurgerySymptomHospitalsActivity, HospitalDetailsActivity::class.java)
+                val intent = Intent(this@SurgerySymptomHospitalsActivity,
+                    SurgeonSymptomDoctorsActivity::class.java)
                 intent.putExtra("hospitalId", hospitalId)
-                intent.putExtra("lat", lat)
-                intent.putExtra("lon", lon)
+                intent.putExtra("symptomId", symptomId)
                 startActivity(intent)
             }
         })
