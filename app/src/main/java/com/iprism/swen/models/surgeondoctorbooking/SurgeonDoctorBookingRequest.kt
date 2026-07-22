@@ -62,5 +62,8 @@ data class SurgeonDoctorBookingRequest(
 	val familyMemberId: Int,
 
 	@field:SerializedName("free_booking_status")
-	val freeBookingStatus: String
+	val freeBookingStatus: String,
+
+	@field:SerializedName("cat_id")
+	val catId: String
 )

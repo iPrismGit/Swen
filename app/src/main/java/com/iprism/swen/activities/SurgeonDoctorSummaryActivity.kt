@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.iprism.swen.R
 import com.iprism.swen.databinding.ActivityAppointmentDoctorSummaryBinding
+import com.iprism.swen.models.onlinedoctorbooking.OnlineDoctorBookingRequest
 import com.iprism.swen.models.onlinedoctorbookingdetails.FamilyMembersItem
 import com.iprism.swen.models.onlinedoctorbookingdetails.TimesItem
 import com.iprism.swen.models.onlinedoctorscoupons.CouponsItem
@@ -76,6 +78,7 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
         initViewModel()
         observeResponse()
         observeBookingResponse()
+        handleBookFreeBtn()
         val userDetails = getUserDetails()
         val request = SurgeonDoctorBookingDetailsRequest(
             specialityId.toInt(),
@@ -181,6 +184,12 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
                     binding.couponDiscountTxt.text = "₹" + result.data.response.couponDiscount
                     binding.feeTxt.text = "₹" + doctor!!.fee
                     binding.priceTxt.text = "₹" + result.data.response.consultationFee
+                    if (result.data.response.freeBookingStatus.equals("yes", true)) {
+                        binding.bookFreeBtn.visibility = View.VISIBLE
+                        binding.priceLl.visibility = View.GONE
+                        binding.payNowBtn.visibility = View.GONE
+                        binding.couponsLl.visibility = View.GONE
+                    }
                 }
 
                 is UiState.Error -> {
@@ -247,7 +256,8 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
                 userDetails[User.AUTH_TOKEN].toString(),
                 response.couponDiscount,
                 familyMembersItem!!.id,
-                response.freeBookingStatus
+                response.freeBookingStatus,
+                "1"
             )
             NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
                 viewModel.bookSurgeonDoctor(req)
@@ -274,12 +284,77 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
                 userDetails[User.AUTH_TOKEN].toString(),
                 "0",
                 familyMembersItem!!.id,
-                response.freeBookingStatus
+                response.freeBookingStatus,
+                "1"
             )
             NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
                 viewModel.bookSurgeonDoctor(req)
             }
             Log.d("requestLoading", request.toString())
         }
+    }
+
+    private fun handleBookFreeBtn() {
+        binding.bookFreeBtn.setOnClickListener(View.OnClickListener {
+            val userDetails = getUserDetails()
+            binding.bookFreeBtn.setEnabledState(false)
+            if (coupon != null) {
+                val request = SurgeonDoctorBookingRequest(
+                    specialityId.toInt(),
+                    date,
+                    "",
+                    response.consultationFee,
+                    response.couponPercentage,
+                    doctor!!.fee,
+                    response.mobile,
+                    hospitalId.toInt(),
+                    doctor!!.id,
+                    "free",
+                    response.couponId,
+                    userDetails[User.ID]!!.toInt(),
+                    time!!.id,
+                    familyMembersItem!!.name,
+                    "offline",
+                    time!!.time,
+                    userDetails[User.AUTH_TOKEN].toString(),
+                    response.couponDiscount,
+                    familyMembersItem!!.id,
+                    response.freeBookingStatus,
+                    "1"
+                )
+                NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
+                    viewModel.bookSurgeonDoctor(req)
+                }
+                Log.d("requestLoading", request.toString())
+            } else {
+                val request = SurgeonDoctorBookingRequest(
+                    specialityId.toInt(),
+                    date,
+                    "",
+                    response.consultationFee,
+                    0,
+                    doctor!!.fee,
+                    response.mobile,
+                    hospitalId.toInt(),
+                    doctor!!.id,
+                    "free",
+                    0,
+                    userDetails[User.ID]!!.toInt(),
+                    time!!.id,
+                    familyMembersItem!!.name,
+                    "offline",
+                    time!!.time,
+                    userDetails[User.AUTH_TOKEN].toString(),
+                    "0",
+                    familyMembersItem!!.id,
+                    response.freeBookingStatus,
+                    "1"
+                )
+                NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
+                    viewModel.bookSurgeonDoctor(req)
+                }
+                Log.d("requestLoading", request.toString())
+            }
+        })
     }
 }

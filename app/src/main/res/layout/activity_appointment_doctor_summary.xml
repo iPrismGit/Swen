@@ -468,6 +468,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <Button
+            android:id="@+id/book_free_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/inter_bold"
+            android:padding="12dp"
+            android:text="@string/book_free"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:cornerRadius="8dp" />
+
         <LinearLayout
             android:id="@+id/price_ll"
             android:layout_width="wrap_content"
