@@ -82,7 +82,7 @@ class AddPatientActivity : AppCompatActivity() {
                 date = intent.getStringExtra("date")!!
                 convertDate = intent.getStringExtra("convertDate")!!
                 time = intent.getSerializableExtra("time") as TimesItem?
-                symptomId = intent.getStringExtra("symptomId")!!
+                symptomId = intent.getStringExtra("specialityId")!!
                 hospitalId = intent.getStringExtra("hospitalId")!!
                 surgeonDoctor = intent.getSerializableExtra("doctor") as DoctorsItem?
                 setUpFamilyMembers(familyMembers!!)

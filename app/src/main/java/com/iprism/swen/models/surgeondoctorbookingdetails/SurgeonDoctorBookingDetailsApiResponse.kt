@@ -56,5 +56,8 @@ data class Response(
 	val dates: List<DatesItem>,
 
 	@field:SerializedName("coupon_discount")
-	val couponDiscount: String
+	val couponDiscount: String,
+
+	@field:SerializedName("free_booking_status")
+	val freeBookingStatus: String
 )

@@ -59,5 +59,8 @@ data class SurgeonDoctorBookingRequest(
 	val couponDiscount: String,
 
 	@field:SerializedName("family_member_id")
-	val familyMemberId: Int
+	val familyMemberId: Int,
+
+	@field:SerializedName("free_booking_status")
+	val freeBookingStatus: String
 )

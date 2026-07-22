@@ -66,7 +66,7 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
             familyMembersItem = intent.getSerializableExtra("familyMember") as FamilyMembersItem?
             date = intent.getStringExtra("date")!!
             convertDate = intent.getStringExtra("convertDate")!!
-            specialityId = intent.getStringExtra("symptomId")!!
+            specialityId = intent.getStringExtra("specialityId")!!
             hospitalId = intent.getStringExtra("hospitalId")!!
             showDoctorDetails()
         }
@@ -246,7 +246,8 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
                 time!!.time,
                 userDetails[User.AUTH_TOKEN].toString(),
                 response.couponDiscount,
-                familyMembersItem!!.id
+                familyMembersItem!!.id,
+                response.freeBookingStatus
             )
             NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
                 viewModel.bookSurgeonDoctor(req)
@@ -272,7 +273,8 @@ class SurgeonDoctorSummaryActivity : AppCompatActivity() {
                 time!!.time,
                 userDetails[User.AUTH_TOKEN].toString(),
                 "0",
-                familyMembersItem!!.id
+                familyMembersItem!!.id,
+                response.freeBookingStatus
             )
             NetworkRetryHelper.checkAndCallWithRetry(this, request) { req ->
                 viewModel.bookSurgeonDoctor(req)

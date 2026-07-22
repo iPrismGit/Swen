@@ -172,6 +172,9 @@
             android:name=".activities.AddPatientActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SurgeonDoctorTimeSlotActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SurgeonDoctorSummaryActivity"
             android:exported="false" />
         <activity
