@@ -115,7 +115,7 @@ data class HistoryItem(
 	@field:SerializedName("name")
 	val name: String,
 
-	@field:SerializedName("specialization")
+	@field:SerializedName("symptom_name")
 	val specialization: String,
 
 	@field:SerializedName("consult_type")

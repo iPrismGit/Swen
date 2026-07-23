@@ -37,9 +37,6 @@ data class History(
 	@field:SerializedName("gender")
 	val gender: String,
 
-	@field:SerializedName("symptom_name")
-	val symptomName: String,
-
 	@field:SerializedName("speciality_id")
 	val specialityId: Int,
 
@@ -121,7 +118,7 @@ data class History(
 	@field:SerializedName("name")
 	val name: String,
 
-	@field:SerializedName("specialization")
+	@field:SerializedName("symptom_name")
 	val specialization: String,
 
 	@field:SerializedName("blood_group")
