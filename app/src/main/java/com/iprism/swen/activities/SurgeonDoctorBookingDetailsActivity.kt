@@ -14,7 +14,7 @@ import com.iprism.ecmuser.models.doctorrating.DoctorRatingRequest
 import com.iprism.swen.R
 import com.iprism.swen.databinding.ActivityAppointmentDoctorBookingDetailsBinding
 import com.iprism.swen.databinding.RatingBsBinding
-import com.iprism.swen.models.surgeondoctorsinglebookingdetails.History
+import com.iprism.swen.models.onlinedoctorsinglebookingdetails.History
 import com.iprism.swen.models.surgeondoctorsinglebookingdetails.SurgeonDoctorSingleBookingDetailsRequest
 import com.iprism.swen.repository.SurgeonSymptomsDoctorRepository
 import com.iprism.swen.utils.Constants
