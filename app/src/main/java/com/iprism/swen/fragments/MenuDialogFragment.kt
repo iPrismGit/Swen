@@ -32,6 +32,8 @@ import com.iprism.swen.activities.PharmacyBookingsActivity
 import com.iprism.swen.activities.ShareAppActivity
 import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.SubscriptionDetailsActivity
+import com.iprism.swen.activities.SurgeonDoctorBookingDetailsActivity
+import com.iprism.swen.activities.SurgeonDoctorBookingsActivity
 import com.iprism.swen.databinding.FragmentMenuDialogBinding
 import com.iprism.swen.databinding.LogOutDialogBinding
 import com.iprism.swen.utils.User
@@ -87,6 +89,7 @@ class MenuDialogFragment : DialogFragment() {
         handleDownArrowImg()
         handleECard()
         handleAckoInsurance()
+        handleSurgeonDoctorBookings()
         return binding!!.root
     }
 
@@ -279,6 +282,16 @@ class MenuDialogFragment : DialogFragment() {
             }
         })
     }
+
+    private fun handleSurgeonDoctorBookings() {
+        binding!!.surgeonSymptomDoctorsLl.setOnClickListener(View.OnClickListener {
+            handleRestrictedClick {
+                val intent = Intent(requireContext(), SurgeonDoctorBookingsActivity::class.java)
+                startActivity(intent)
+            }
+        })
+    }
+
 
     private fun handleDiagnostic() {
         binding!!.diagnosticLl.setOnClickListener(View.OnClickListener {

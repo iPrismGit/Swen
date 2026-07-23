@@ -325,6 +325,30 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/surgeon_symptom_doctors_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/online_doctor_consultation_icon" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="Surgeon Symptom Doctor Bookings"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/lab_test_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

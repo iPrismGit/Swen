@@ -178,6 +178,12 @@
             android:name=".activities.SurgeonDoctorSummaryActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SurgeonDoctorBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SurgeonDoctorBookingDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HospitalDiagnosticTestsBookingsActivity"
             android:exported="false" />
         <activity
