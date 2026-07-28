@@ -189,11 +189,11 @@ class HomeFragment : Fragment() {
                     false   // prevent navigation
                 } else {
                     if (item.id.toInt() == 0) {
-                        val intent =
+                        /*val intent =
                             Intent(requireContext(), SeeAllSymptomDoctorsActivity::class.java)
                         intent.putExtra("lat", lat)
                         intent.putExtra("lon", lon)
-                        startActivity(intent)
+                        startActivity(intent)*/
                     } else {
                         val intent = Intent(requireContext(), HospitalsActivity::class.java)
                         intent.putExtra("catId", item.id)
