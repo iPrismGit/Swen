@@ -139,4 +139,10 @@ object Constants {
 
 
     const val SYMPTOM_DOCTOR_ENDPOINT = "symptoms_main_data"
+    const val SYMPTOMS_DOCTORS_ENDPOINT = "symptom_doctors"
+    const val SYMPTOMS_DOCTOR_BOOKING_DETAILS_ENDPOINT = "symptom_doctor_booking_details"
+    const val SYMPTOMS_DOCTOR_BOOKING_ENDPOINT = "symptom_doctor_booking"
+    const val SYMPTOMS_DOCTOR_ONGOING_BOOKINGS_ENDPOINT = "symptom_doctor_bookings_history_active"
+    const val SYMPTOMS_DOCTOR_COMPLETED_BOOKINGS_ENDPOINT = "symptom_doctor_bookings_history_completed"
+    const val SYMPTOMS_DOCTOR_SINGLE_BOOKING_DETAILS_ENDPOINT = "symptom_doctor_single_booking_details"
 }

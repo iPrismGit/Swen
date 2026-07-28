@@ -174,6 +174,16 @@ import com.iprism.swen.models.surgeondoctorsinglebookingdetails.SurgeonDoctorSin
 import com.iprism.swen.models.surgeonsymptomdoctors.SurgenSymptomDoctorsApiResponse
 import com.iprism.swen.models.surgeonsymptomdoctors.SurgeonSymptomDoctorsRequest
 import com.iprism.swen.models.surgerysymptoms.SurgerySymptomsDoctorRequest
+import com.iprism.swen.models.symptomdoctorbooking.SymptomDoctorBookingApiResponse
+import com.iprism.swen.models.symptomdoctorbooking.SymptomDoctorBookingRequest
+import com.iprism.swen.models.symptomdoctorbookingdetails.SymptomDoctorBookingDetailsApiResponse
+import com.iprism.swen.models.symptomdoctorbookingdetails.SymptomsDoctorBookingDetailsRequest
+import com.iprism.swen.models.symptomdoctorbookings.SymptomDoctorBookingsApiResponse
+import com.iprism.swen.models.symptomdoctorbookings.SymptomDoctorBookingsRequest
+import com.iprism.swen.models.symptomdoctorsinglebookingdetails.SymptomDoctorSingleBookingDetailsApiResponse
+import com.iprism.swen.models.symptomdoctorsinglebookingdetails.SymptomDoctorSingleBookingDetailsRequest
+import com.iprism.swen.models.symptomsdoctors.SymptomsDoctorsApiResponse
+import com.iprism.swen.models.symptomsdoctors.SymptomsDoctorsRequest
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningApiResponse
 import com.iprism.swen.models.treatmentplaning.TreatmentPlaningRequest
 import com.iprism.swen.models.userdropdowns.UserDropDownApiResponse
@@ -550,4 +560,22 @@ interface SwenApiService {
 
     @POST(Constants.SYMPTOM_DOCTOR_ENDPOINT)
     suspend fun fetchSymptomHospitals(@Body req : SurgerySymptomsDoctorRequest) : HospitalsApiResponse
+
+    @POST(Constants.SYMPTOMS_DOCTORS_ENDPOINT)
+    suspend fun fetchSymptomDoctors(@Body request: SymptomsDoctorsRequest) : SymptomsDoctorsApiResponse
+
+    @POST(Constants.SYMPTOMS_DOCTOR_BOOKING_DETAILS_ENDPOINT)
+    suspend fun fetchSymptomDoctorBookingDetails(@Body request: SymptomsDoctorBookingDetailsRequest) : SymptomDoctorBookingDetailsApiResponse
+
+    @POST(Constants.SYMPTOMS_DOCTOR_BOOKING_ENDPOINT)
+    suspend fun bookSymptomDoctor(@Body request: SymptomDoctorBookingRequest) : SymptomDoctorBookingApiResponse
+
+    @POST(Constants.SYMPTOMS_DOCTOR_ONGOING_BOOKINGS_ENDPOINT)
+    suspend fun fetchSymptomDoctorOngoingBookings(@Body request: SymptomDoctorBookingsRequest) : SymptomDoctorBookingsApiResponse
+
+    @POST(Constants.SYMPTOMS_DOCTOR_COMPLETED_BOOKINGS_ENDPOINT)
+    suspend fun fetchSymptomDoctorCompletedBookings(@Body request: SymptomDoctorBookingsRequest) : SymptomDoctorBookingsApiResponse
+
+    @POST(Constants.SYMPTOMS_DOCTOR_SINGLE_BOOKING_DETAILS_ENDPOINT)
+    suspend fun fetchSymptomDoctorSingleBookingDetails(@Body request: SymptomDoctorSingleBookingDetailsRequest) : SymptomDoctorSingleBookingDetailsApiResponse
 }
