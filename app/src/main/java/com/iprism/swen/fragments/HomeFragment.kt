@@ -33,6 +33,7 @@ import com.iprism.swen.activities.MedLockerActivity
 import com.iprism.swen.activities.OnlineDoctorsActivity
 import com.iprism.swen.activities.SeeAllSurgeonSymptomDoctorsActivity
 import com.iprism.swen.activities.SeeAllSurgeryQuoteCategoriesActivity
+import com.iprism.swen.activities.SeeAllSymptomDoctorsActivity
 import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
 import com.iprism.swen.activities.SurgerySymptomHospitalsActivity
@@ -197,7 +198,7 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun setUpHospitalCategories(hospitalCategories: List<SubCategoriesItem>) {
+    private fun setUpsymptomDoctorsCategories(hospitalCategories: List<SubCategoriesItem>) {
         val hospitalCategoriesAdapter = HospitalCategoriesAdapter(hospitalCategories)
         binding.hospitalCategoriesRv.layoutManager = GridLayoutManager(context, 4)
         binding.hospitalCategoriesRv.adapter = hospitalCategoriesAdapter
@@ -211,12 +212,20 @@ class HomeFragment : Fragment() {
                     Toast.makeText(requireContext(), "Please subscribe to use this feature", Toast.LENGTH_SHORT).show()
                     false   // prevent navigation
                 } else {
-                    val intent = Intent(requireContext(), HospitalsActivity::class.java)
-                    intent.putExtra("catId", item.id)
-                    intent.putExtra("catName", item.name)
-                    intent.putExtra("lat", lat)
-                    intent.putExtra("lon", lon)
-                    startActivity(intent)
+                    if (item.id.toInt() == 0) {
+                        val intent =
+                            Intent(requireContext(), SeeAllSymptomDoctorsActivity::class.java)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("lon", lon)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
+                        intent.putExtra("symptomId", item.id)
+                        intent.putExtra("catName", item.name)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("lon", lon)
+                        startActivity(intent)
+                    }
                 }
             }
         })
@@ -283,8 +292,6 @@ class HomeFragment : Fragment() {
                     binding.scrollView.visibility = View.VISIBLE
                     binding.shimmerLayout.stopShimmer()
                     binding.shimmerLayout.visibility = View.GONE
-                    setUpMedCategories(result.data.response.categories)
-                    setUpHospitalCategories(result.data.response.symptoms)
                     //setUpMedicineCategories(result.data.response.pharmacyCategories)
                     setTopBanners(result.data.response.banners)
                     //setUpLabTestCategories(result.data.response.labTestBanners)
@@ -335,6 +342,32 @@ class HomeFragment : Fragment() {
                     } else {
                         binding.homeVisitsLl.visibility = View.GONE
                     }
+                    val symptoms = result.data.response.symptoms.toMutableList()
+                    if (symptoms.isNotEmpty()) {
+                        //binding.homeVisitsLl.visibility = View.VISIBLE
+                        symptoms.add(
+                            SubCategoriesItem(
+                                "0",
+                                "assets/admin/arrow.jpeg",
+                                "See All Services"
+                            )
+                        )
+                    } else {
+                    }
+                    val categories = result.data.response.categories.toMutableList()
+                    if (categories.isNotEmpty()) {
+                        //binding.homeVisitsLl.visibility = View.VISIBLE
+                        categories.add(
+                            CategoriesItem(
+                                "assets/admin/arrow.jpeg",
+                                "See All Services",
+                                "0"
+                            )
+                        )
+                    } else {
+                    }
+                    setUpMedCategories(categories)
+                    setUpsymptomDoctorsCategories(symptoms)
                     setupSurgicalQuotesAdapter(surgicalQuotesList)
                     setupSurgeonWithSymptomsAdapter(surgeonSymptoms)
                     setupHomeVisitServicesAdapter(homeVisitServices)
@@ -656,15 +689,27 @@ class HomeFragment : Fragment() {
         binding.surgicalQuotesRv.layoutManager = linearLayoutManager
         surgicalQuotesAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                if (catId.toInt() == 0) {
-                    val intent =
-                        Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
+                if (!isSubscribe) {
+                    val intent = Intent(requireContext(), SubscriptionActivity::class.java)
+                    intent.putExtra("tag", "subscribe")
                     startActivity(intent)
+                    Toast.makeText(
+                        requireContext(),
+                        "Please subscribe to use this feature",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    false   // prevent navigation
                 } else {
-                    val intent = Intent(requireContext(), SurgeryQuoteActivity::class.java)
-                    intent.putExtra("catId", catId)
-                    intent.putExtra("catName", catName)
-                    startActivity(intent)
+                    if (catId.toInt() == 0) {
+                        val intent =
+                            Intent(requireContext(), SeeAllSurgeryQuoteCategoriesActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(requireContext(), SurgeryQuoteActivity::class.java)
+                        intent.putExtra("catId", catId)
+                        intent.putExtra("catName", catName)
+                        startActivity(intent)
+                    }
                 }
             }
         })
@@ -677,19 +722,31 @@ class HomeFragment : Fragment() {
         binding.surgeonSymptomDoctorsRv.layoutManager = linearLayoutManager
         symptomsDoctorsAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                if (catId.toInt() == 0) {
-                    val intent =
-                        Intent(requireContext(), SeeAllSurgeonSymptomDoctorsActivity::class.java)
-                    intent.putExtra("lat", lat)
-                    intent.putExtra("lon", lon)
+                if (!isSubscribe) {
+                    val intent = Intent(requireContext(), SubscriptionActivity::class.java)
+                    intent.putExtra("tag", "subscribe")
                     startActivity(intent)
+                    Toast.makeText(
+                        requireContext(),
+                        "Please subscribe to use this feature",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    false   // prevent navigation
                 } else {
-                    val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
-                    intent.putExtra("symptomId", catId)
-                    intent.putExtra("catName", catName)
-                    intent.putExtra("lat", lat)
-                    intent.putExtra("lon", lon)
-                    startActivity(intent)
+                    if (catId.toInt() == 0) {
+                        val intent =
+                            Intent(requireContext(), SeeAllSurgeonSymptomDoctorsActivity::class.java)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("lon", lon)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
+                        intent.putExtra("symptomId", catId)
+                        intent.putExtra("catName", catName)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("lon", lon)
+                        startActivity(intent)
+                    }
                 }
             }
         })
@@ -702,15 +759,27 @@ class HomeFragment : Fragment() {
         binding.homeVisitsRv.layoutManager = linearLayoutManager
         homeVisitServicesAdapter.setupListener(object : OnSurgicalQuoteCatClickListener {
             override fun onItemClicked(catId: String, catName: String) {
-                if (catId.toInt() == 0) {
-                    val intent =
-                        Intent(requireContext(), HomeCareServiceCategoriesActivity::class.java)
+                if (!isSubscribe) {
+                    val intent = Intent(requireContext(), SubscriptionActivity::class.java)
+                    intent.putExtra("tag", "subscribe")
                     startActivity(intent)
+                    Toast.makeText(
+                        requireContext(),
+                        "Please subscribe to use this feature",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    false   // prevent navigation
                 } else {
-                    val intent = Intent(requireContext(), HomeCareServiceSubCategoriesActivity::class.java)
-                    intent.putExtra("catId", catId)
-                    intent.putExtra("catName", catName)
-                    startActivity(intent)
+                    if (catId.toInt() == 0) {
+                        val intent =
+                            Intent(requireContext(), HomeCareServiceCategoriesActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(requireContext(), HomeCareServiceSubCategoriesActivity::class.java)
+                        intent.putExtra("catId", catId)
+                        intent.putExtra("catName", catName)
+                        startActivity(intent)
+                    }
                 }
             }
         })

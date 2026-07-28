@@ -184,6 +184,9 @@
             android:name=".activities.SurgeonDoctorBookingDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SeeAllSymptomDoctorsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HospitalDiagnosticTestsBookingsActivity"
             android:exported="false" />
         <activity

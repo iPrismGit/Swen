@@ -48,6 +48,13 @@ class SurgerySymptomHospitalsActivity : AppCompatActivity() {
         observeResponse()
         getHospitals()
         setUpHospitals()
+        handleBack()
+    }
+
+    private fun handleBack() {
+        binding.backImg.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setUpHospitals() {
