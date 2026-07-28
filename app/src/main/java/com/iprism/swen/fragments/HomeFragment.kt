@@ -37,6 +37,7 @@ import com.iprism.swen.activities.SeeAllSymptomDoctorsActivity
 import com.iprism.swen.activities.SubscriptionActivity
 import com.iprism.swen.activities.SurgeryQuoteActivity
 import com.iprism.swen.activities.SurgerySymptomHospitalsActivity
+import com.iprism.swen.activities.SymptomHospitalsActivity
 import com.iprism.swen.activities.TreatmentPlanningActivity
 import com.iprism.swen.activities.WhatsappAssistanceActivity
 import com.iprism.swen.adapters.HospitalCategoriesAdapter
@@ -187,12 +188,20 @@ class HomeFragment : Fragment() {
                     ).show()
                     false   // prevent navigation
                 } else {
-                    val intent = Intent(requireContext(), HospitalsActivity::class.java)
-                    intent.putExtra("catId", item.id)
-                    intent.putExtra("catName", item.name)
-                    intent.putExtra("lat", lat)
-                    intent.putExtra("lon", lon)
-                    startActivity(intent)
+                    if (item.id.toInt() == 0) {
+                        val intent =
+                            Intent(requireContext(), SeeAllSymptomDoctorsActivity::class.java)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("lon", lon)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(requireContext(), HospitalsActivity::class.java)
+                        intent.putExtra("catId", item.id)
+                        intent.putExtra("catName", item.name)
+                        intent.putExtra("lat", lat)
+                        intent.putExtra("lon", lon)
+                        startActivity(intent)
+                    }
                 }
             }
         })
@@ -219,8 +228,8 @@ class HomeFragment : Fragment() {
                         intent.putExtra("lon", lon)
                         startActivity(intent)
                     } else {
-                        val intent = Intent(requireContext(), SurgerySymptomHospitalsActivity::class.java)
-                        intent.putExtra("symptomId", item.id)
+                        val intent = Intent(requireContext(), SymptomHospitalsActivity::class.java)
+                        intent.putExtra("symptomId1", item.id)
                         intent.putExtra("catName", item.name)
                         intent.putExtra("lat", lat)
                         intent.putExtra("lon", lon)

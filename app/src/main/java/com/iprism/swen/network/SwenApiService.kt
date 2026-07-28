@@ -547,4 +547,7 @@ interface SwenApiService {
 
     @POST(Constants.DOCTOR_RATING_ENDPOINT)
     suspend fun insertDoctorRating(@Body request: DoctorRatingRequest) : DoctorRatingApiResponse
+
+    @POST(Constants.SYMPTOM_DOCTOR_ENDPOINT)
+    suspend fun fetchSymptomHospitals(@Body req : SurgerySymptomsDoctorRequest) : HospitalsApiResponse
 }
